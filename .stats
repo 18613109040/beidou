@@ -1,0 +1,43 @@
+Hash: 66279ade93e55bdb8eda
+Version: webpack 3.11.0
+Time: 138ms
+                           Asset     Size  Chunks             Chunk Names
+reducers.js?66279ade93e55bdb8eda  43.7 kB       0  [emitted]  reducers
+   index.js?66279ade93e55bdb8eda  2.87 kB       1  [emitted]  index
+     App.js?66279ade93e55bdb8eda  2.86 kB       2  [emitted]  App
+   [0] d:/beidou-master/examples/with-react-router/node_modules/_process@0.11.10@process/browser.js 5.42 kB {0} [built]
+   [1] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/createStore.js 8.88 kB {0} [built]
+   [2] d:/beidou-master/examples/with-react-router/node_modules/_lodash-es@4.17.8@lodash-es/isPlainObject.js 1.65 kB {0} [built]
+   [5] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/utils/warning.js 637 bytes {0} [built]
+   [6] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/compose.js 870 bytes {0} [built]
+   [7] multi ./client/index.jsx 28 bytes {1} [built]
+   [8] ./client/index.jsx 263 bytes {1} [built] [failed] [1 error]
+   [9] multi ./client/App.jsx 28 bytes {2} [built]
+  [10] ./client/App.jsx 251 bytes {2} [built] [failed] [1 error]
+  [11] multi ./client/reducers/index.js 28 bytes {0} [built]
+  [12] ./client/reducers/index.js 117 bytes {0} [built]
+  [13] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/index.js 1.08 kB {0} [built]
+  [25] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/combineReducers.js 5.86 kB {0} [built]
+  [26] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/bindActionCreators.js 1.98 kB {0} [built]
+  [27] d:/beidou-master/examples/with-react-router/node_modules/_redux@3.7.2@redux/es/applyMiddleware.js 1.8 kB {0} [built]
+    + 13 hidden modules
+
+ERROR in ./client/App.jsx
+Module parse failed: Unexpected token (11:4)
+You may need an appropriate loader to handle this file type.
+|   console.dir(props)
+|   return (
+|     <Router {...props}>
+|       <div className="test">
+|         <ul>
+ @ multi ./client/App.jsx
+
+ERROR in ./client/index.jsx
+Module parse failed: Unexpected token (16:6)
+You may need an appropriate loader to handle this file type.
+|   
+|     const html = (
+|       <Provider store={store}>
+|         <App location={ctx.req.url} context={{}}/>
+|       </Provider>
+ @ multi ./client/index.jsx

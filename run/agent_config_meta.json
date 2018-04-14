@@ -1,0 +1,337 @@
+{
+  "keys": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+  "webpack": {
+    "resolve": {
+      "alias": {
+        "assets": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+        "components": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+        "containers": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+        "client": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+      },
+      "extensions": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+    },
+    "custom": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+    "output": {
+      "path": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "filename": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "chunkFilename": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "publicPath": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+    },
+    "devServer": {
+      "contentBase": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "port": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "noInfo": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "quiet": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "clientLogLevel": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "lazy": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "watchOptions": {
+        "aggregateTimeout": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+      },
+      "headers": {
+        "X-Custom-Header": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+      },
+      "stats": {
+        "colors": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+        "chunks": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+      },
+      "publicPath": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js",
+      "hot": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
+    }
+  },
+  "security": {
+    "csrf": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+    "domainWhiteList": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "protocolWhiteList": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+    "xframe": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+      "value": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.local.js",
+      "maxAge": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+      "value": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+      "value": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+      "policy": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+    }
+  },
+  "middleware": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+  "proxy": {
+    "match": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "host": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "cover": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js"
+  },
+  "proxyagent": {
+    "enable": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "package": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js"
+  },
+  "react": {
+    "static": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "middlewares": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "beautify": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "cache": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.local.js",
+    "doctype": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "assetHost": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "assetPath": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "key": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
+    "encrypt": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-onerror@2.0.0@egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-onerror@2.0.0@egg-onerror\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\config\\config.default.js",
+      "development": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\config\\config.default.js"
+    }
+  },
+  "multipart": {
+    "autoFields": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "fields": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "files": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js"
+  },
+  "development": {
+    "watchDirs": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-development@2.2.0@egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-development@2.2.0@egg-development\\config\\config.default.js",
+    "fastReady": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-development@2.2.0@egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-development@2.2.0@egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-development@2.2.0@egg-development\\config\\config.default.js"
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-schedule@3.3.0@egg-schedule\\config\\config.default.js",
+      "file": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-schedule@3.3.0@egg-schedule\\config\\config.default.js"
+    }
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-static@2.1.0@egg-static\\config\\config.default.js",
+    "dir": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-static@2.1.0@egg-static\\config\\config.default.js",
+    "dynamic": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-static@2.1.0@egg-static\\config\\config.default.js",
+    "preload": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-static@2.1.0@egg-static\\config\\config.default.js",
+    "buffer": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-static@2.1.0@egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-static@2.1.0@egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "cache": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-view@2.1.0@egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "defaultViewEngine": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
+    "mapping": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-view@2.1.0@egg-view\\config\\config.default.js"
+  },
+  "isomorphic": {
+    "polyfill": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+    "babel": {
+      "presets": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "babelrc": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "extensions": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "cache": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    },
+    "universal": {
+      "assetsFilePath": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "assets": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    },
+    "alias": {
+      "client": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    }
+  },
+  "router": {
+    "root": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "urlPrefix": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "exclude": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "mapping": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "entry": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "ext": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js"
+  },
+  "env": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-core@1.0.1@beidou-core\\config\\config.default.js",
+  "name": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "ipHeaders": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "hostHeaders": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "version": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "description": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "license": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "scripts": {
+      "start": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "debug": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "stop": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "dev": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "build": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "build:node": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    },
+    "dependencies": {
+      "babel-eslint": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "babel-polyfill": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "beidou-cli": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "beidou-core": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "eslint": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "eslint-config-beidou": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "eslint-plugin-import": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "eslint-plugin-react": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "react": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "react-dom": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "react-router-dom": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "isomorphic-fetch": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "egg-development-proxyagent": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "anyproxy": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "es6-promise": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "react-redux": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "redux": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "redux-thunk": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "fastclick": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "js-cookie": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "postcss-pxtorem": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "cssnano": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "prop-types": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "object-assign": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "HOME": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "rundir": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-core@1.0.1@beidou-core\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "notFound": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "sitefile": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "middlewares": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "httpClient": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "encoding": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "formLimit": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "jsonLimit": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "strict": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "depth": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "parameterLimit": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "encoding": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "env": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "level": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "consoleLevel": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "outputJSON": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "buffer": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "appLogName": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "coreLogName": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "agentLogName": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "errorLogName": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "dnsCacheMaxAge": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "maxSockets": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "maxSockets": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+    "logging": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-core@1.0.1@beidou-core\\config\\config.default.js",
+  "workerStartTimeout": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "port": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "hostname": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "responseTimeout": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+  },
+  "client": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-core@1.0.1@beidou-core\\config\\config.default.js",
+  "core": {
+    "name": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-core@1.0.1@beidou-core\\config\\config.default.js"
+  }
+}
