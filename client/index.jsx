@@ -6,11 +6,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
 const FastClick = require('fastclick')
-
 import App from './App'
 import {testAction} from './actions/home'
 export default class Index extends Component {
-  
+  static doctype = '<!DOCTYPE html>'
+
   static async getStore({ ctx }) {
     const store = configureStore()
    
@@ -32,13 +32,14 @@ export default class Index extends Component {
     );
     return { html };
   }
+
   render() {
     const { html, helper ,state} = this.props;
     return (
       <html>
         <head>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
           <meta name="apple-mobile-web-app-capable" content="yes"/>
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
           <meta name="apple-mobile-web-app-title" content="react"/>
@@ -54,12 +55,12 @@ export default class Index extends Component {
         </head>
         <body>
           <div id="container" dangerouslySetInnerHTML={{ __html: html }} />
-         
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.__INITIAL_STATE__ = ${state}`,
+              __html: `window.__INITIAL_STATE__ = ${state}`
             }}
           />
+          <script  src="https://gw.alipayobjects.com/os/rmsportal/uDTmsEBmTUVrpmCBozbm.js" />
           <script  src={helper.asset('manifest.js')} />
           <script  src={helper.asset('index.js')} />
         </body>

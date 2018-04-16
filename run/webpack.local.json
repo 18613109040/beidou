@@ -1,6 +1,6 @@
 {
   "output": {
-    "path": "D:\\beidou-master\\examples\\with-react-router\\build",
+    "path": "d:\\beidou-master\\examples\\with-react-router\\build",
     "filename": "[name].js?[hash]",
     "chunkFilename": "[name].js",
     "publicPath": "/build/",
@@ -27,10 +27,10 @@
       ".jsx"
     ],
     "alias": {
-      "client": "D:\\beidou-master\\examples\\with-react-router\\client",
-      "assets": "D:\\beidou-master\\examples\\with-react-router\\client\\src\\assets",
-      "components": "D:\\beidou-master\\examples\\with-react-router\\client\\src\\components",
-      "containers": "D:\\beidou-master\\examples\\with-react-router\\client\\src\\containers"
+      "client": "d:\\beidou-master\\examples\\with-react-router\\client",
+      "assets": "d:\\beidou-master\\examples\\with-react-router\\client\\src\\assets",
+      "components": "d:\\beidou-master\\examples\\with-react-router\\client\\src\\components",
+      "containers": "d:\\beidou-master\\examples\\with-react-router\\client\\src\\containers"
     },
     "unsafeCache": true,
     "modules": [
@@ -65,29 +65,29 @@
     "stats": {
       "colors": true,
       "chunks": false,
-      "context": "D:\\beidou-master\\examples\\with-react-router"
+      "context": "d:\\beidou-master\\examples\\with-react-router"
     },
     "publicPath": "/build/",
     "hot": true
   },
   "bail": false,
   "devtool": "eval",
-  "context": "D:\\beidou-master\\examples\\with-react-router",
+  "context": "d:\\beidou-master\\examples\\with-react-router",
   "entry": {
     "index": [
       "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
       "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\beidou-master\\examples\\with-react-router\\client\\index.jsx"
+      "d:\\beidou-master\\examples\\with-react-router\\client\\index.jsx"
     ],
     "App": [
       "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
       "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\beidou-master\\examples\\with-react-router\\client\\App.jsx"
+      "d:\\beidou-master\\examples\\with-react-router\\client\\App.jsx"
     ],
     "reducers": [
       "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
       "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\beidou-master\\examples\\with-react-router\\client\\reducers\\index.js"
+      "d:\\beidou-master\\examples\\with-react-router\\client\\reducers\\index.js"
     ]
   },
   "module": {
@@ -303,7 +303,10 @@
           {
             "loader": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
             "options": {
-              "javascriptEnabled": true
+              "javascriptEnabled": true,
+              "modifyVars": {
+                "@hd": "2px"
+              }
             }
           }
         ]
@@ -343,7 +346,10 @@
           {
             "loader": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
             "options": {
-              "javascriptEnabled": true
+              "javascriptEnabled": true,
+              "modifyVars": {
+                "@hd": "2px"
+              }
             }
           }
         ]
@@ -400,7 +406,7 @@
     {
       "<IsomorphicPlugin>": {
         "options": {
-          "assetsFilePath": "D:\\beidou-master\\examples\\with-react-router\\.isomorphic\\assets.json",
+          "assetsFilePath": "d:\\beidou-master\\examples\\with-react-router\\.isomorphic\\assets.json",
           "assets": [
             ".sass",
             ".scss",
@@ -425,7 +431,7 @@
             ".mid",
             ".midi"
           ],
-          "context": "D:\\beidou-master\\examples\\with-react-router"
+          "context": "d:\\beidou-master\\examples\\with-react-router"
         },
         "exts": {
           ".sass": {

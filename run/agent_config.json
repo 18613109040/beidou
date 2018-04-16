@@ -99,7 +99,7 @@
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "D:\\beidou-master\\examples\\with-react-router\\logs\\beidou-example-with-react-router\\egg-schedule.log"
+        "file": "d:\\beidou-master\\examples\\with-react-router\\logs\\beidou-example-with-react-router\\egg-schedule.log"
       }
     },
     "logrotator": {
@@ -113,14 +113,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "D:\\beidou-master\\examples\\with-react-router\\app\\public",
+      "dir": "d:\\beidou-master\\examples\\with-react-router\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "D:\\beidou-master\\examples\\with-react-router\\app\\views,D:\\beidou-master\\examples\\with-react-router\\client",
+      "root": "d:\\beidou-master\\examples\\with-react-router\\app\\views,d:\\beidou-master\\examples\\with-react-router\\client",
       "cache": false,
       "defaultExtension": ".jsx",
       "defaultViewEngine": "react",
@@ -145,7 +145,7 @@
     "webpack": {
       "custom": {},
       "output": {
-        "path": "D:\\beidou-master\\examples\\with-react-router\\build",
+        "path": "d:\\beidou-master\\examples\\with-react-router\\build",
         "filename": "[name].js?[hash]",
         "chunkFilename": "[name].js",
         "publicPath": "/build/"
@@ -157,10 +157,10 @@
           ".jsx"
         ],
         "alias": {
-          "client": "D:\\beidou-master\\examples\\with-react-router\\client",
-          "assets": "D:\\beidou-master\\examples\\with-react-router\\client\\src\\assets",
-          "components": "D:\\beidou-master\\examples\\with-react-router\\client\\src\\components",
-          "containers": "D:\\beidou-master\\examples\\with-react-router\\client\\src\\containers"
+          "client": "d:\\beidou-master\\examples\\with-react-router\\client",
+          "assets": "d:\\beidou-master\\examples\\with-react-router\\client\\src\\assets",
+          "components": "d:\\beidou-master\\examples\\with-react-router\\client\\src\\components",
+          "containers": "d:\\beidou-master\\examples\\with-react-router\\client\\src\\containers"
         }
       },
       "devServer": {
@@ -179,7 +179,7 @@
         "stats": {
           "colors": true,
           "chunks": false,
-          "context": "D:\\beidou-master\\examples\\with-react-router"
+          "context": "d:\\beidou-master\\examples\\with-react-router"
         },
         "publicPath": "/build/",
         "hot": true
@@ -200,7 +200,7 @@
         "cache": true
       },
       "universal": {
-        "assetsFilePath": "D:\\beidou-master\\examples\\with-react-router\\.isomorphic\\assets.json",
+        "assetsFilePath": "d:\\beidou-master\\examples\\with-react-router\\.isomorphic\\assets.json",
         "assets": [
           ".sass",
           ".scss",
@@ -227,7 +227,7 @@
         ]
       },
       "alias": {
-        "client": "D:\\beidou-master\\examples\\with-react-router\\client"
+        "client": "d:\\beidou-master\\examples\\with-react-router\\client"
       }
     },
     "router": {
@@ -291,15 +291,17 @@
         "object-assign": "4.1.1",
         "mescroll.js": "1.3.2",
         "antd-mobile": "2.1.8",
-        "babel-plugin-import": "*"
+        "babel-plugin-import": "*",
+        "lazy-load-component": "^1.1.5",
+        "react-lazy-load": "*"
       },
       "engines": {
         "node": ">= 8.0.0"
       }
     },
-    "baseDir": "D:\\beidou-master\\examples\\with-react-router",
+    "baseDir": "d:\\beidou-master\\examples\\with-react-router",
     "HOME": "C:\\Users\\Administrator",
-    "rundir": "D:\\beidou-master\\examples\\with-react-router\\run",
+    "rundir": "d:\\beidou-master\\examples\\with-react-router\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -329,7 +331,7 @@
       }
     },
     "logger": {
-      "dir": "D:\\beidou-master\\examples\\with-react-router\\logs\\beidou-example-with-react-router",
+      "dir": "d:\\beidou-master\\examples\\with-react-router\\logs\\beidou-example-with-react-router",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -389,7 +391,7 @@
     "clusterClient": {
       "responseTimeout": 60000
     },
-    "client": "D:\\beidou-master\\examples\\with-react-router\\client",
+    "client": "d:\\beidou-master\\examples\\with-react-router\\client",
     "core": {
       "name": "Beidou"
     },

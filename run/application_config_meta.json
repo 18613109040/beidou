@@ -1,12 +1,12 @@
 {
-  "keys": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
-  "hostapi": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+  "keys": "d:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+  "hostapi": "d:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
   "webpack": {
     "resolve": {
       "alias": {
-        "assets": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
-        "components": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
-        "containers": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+        "assets": "d:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+        "components": "d:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+        "containers": "d:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
         "client": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
       },
       "extensions": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-webpack@1.0.0@beidou-webpack\\config\\config.default.js"
@@ -40,8 +40,8 @@
     }
   },
   "security": {
-    "csrf": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
-    "domainWhiteList": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "csrf": "d:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+    "domainWhiteList": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
     "protocolWhiteList": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
     "defaultMiddleware": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js",
     "xframe": {
@@ -82,18 +82,18 @@
       "checkAddress": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg-security@2.2.1@egg-security\\config\\config.default.js"
     }
   },
-  "middleware": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+  "middleware": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
   "proxy": {
-    "match": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
-    "host": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
-    "cover": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js"
+    "match": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "host": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "cover": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js"
   },
   "proxyagent": {
-    "enable": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
-    "package": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js"
+    "enable": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "package": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js"
   },
   "react": {
-    "static": "D:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
+    "static": "d:\\beidou-master\\examples\\with-react-router\\config\\config.local.js",
     "middlewares": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
     "beautify": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.default.js",
     "cache": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react\\config\\config.local.js",
@@ -243,7 +243,9 @@
       "object-assign": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
       "mescroll.js": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
       "antd-mobile": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
-      "babel-plugin-import": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+      "babel-plugin-import": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "lazy-load-component": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "react-lazy-load": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"

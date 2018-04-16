@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
-import fetch from "isomorphic-fetch";
 import {connect} from "react-redux";
-import lazyLoadComponent from 'lazy-load-component'
 import LazyLoad from 'react-lazy-load';
 import {testGet, testPost} from '../../actions/home'
 import Layout from '../../components/Layout'
-import {Carousel, WingBlank} from 'antd-mobile';
+import {Carousel, WingBlank,List} from 'antd-mobile';
 import MeScroll from 'mescroll.js'
+import TabBar from '../../components/TabBar'
+const Item = List.Item;
 import 'mescroll.js/mescroll.min.css'
 import './index.less'
 class Home extends React.Component {
@@ -184,17 +184,11 @@ class Home extends React.Component {
 										<div
 												onClick={() => {
 												if (item.typeId == 1) {
-														this
-																.context
-																.router
-																.push(`/product?id=${item.imProductId}`)
+														this.context.router.push(`/product?id=${item.imProductId}`)
 												} else if (item.typeId == 2 && item.linkUrl != '') {
 														window.location.href = item.linkUrl
 												} else if (item.typeId == 3) {
-														this
-																.context
-																.router
-																.push(`/activityProduct?id=${item.imProductId}`)
+														this.context.router.push(`/activityProduct?id=${item.imProductId}`)
 												}
 										}}
 												key={index}>
@@ -207,14 +201,16 @@ class Home extends React.Component {
 				)
 		}
 		render() {
-
-			
 				return (
 						<div className="home">
 								<div id="mescroll" className="mescroll">
 									{this.renderCarousel()}
-									
+									<List renderHeader={() => 'Basic Style'} className="my-list">
+										<Item extra={'extra content'}>Titlssess</Item>
+									</List>
 								</div>
+								<div><TabBar/></div>
+								
 						</div>
 
 				)
