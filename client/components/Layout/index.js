@@ -32,6 +32,10 @@ export default class Layout extends React.Component {
         this.jroll.on('scrollEnd', (e) => {
             this.jroll.refresh()
         })
+        this.jroll.on('scroll', (e) => {
+            console.dir(e)
+        })
+        
     }
     componentDidUpdate() {
         setTimeout(() =>  {

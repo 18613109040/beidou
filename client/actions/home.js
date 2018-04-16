@@ -48,3 +48,10 @@ export function testPload() {
       }]
   })
 }
+
+export function testAction(json){
+  return {
+    type:"ADD",
+    json:json
+  }
+}

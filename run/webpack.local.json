@@ -100,6 +100,23 @@
           "loader": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_babel-loader@7.1.4@babel-loader\\lib\\index.js",
           "options": {
             "babelrc": false,
+            "plugins": [
+              [
+                "transform-runtime",
+                {
+                  "polyfill": false
+                }
+              ],
+              [
+                "import",
+                [
+                  {
+                    "style": true,
+                    "libraryName": "antd-mobile"
+                  }
+                ]
+              ]
+            ],
             "presets": [
               "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_babel-preset-beidou-client@1.0.0@babel-preset-beidou-client\\index.js"
             ],

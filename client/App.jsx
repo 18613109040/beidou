@@ -1,30 +1,20 @@
 'use strict';
 
 import React from 'react';
-import { BrowserRouter, StaticRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, StaticRouter, Link } from 'react-router-dom';
+import { Switch,Route } from 'react-router'
 import Home from './containers/Home'
 import About from './containers/About'
+import './assets/style/index.less'
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
 const App = (props) => {
-  console.dir(props)
   return (
     <Router {...props}>
-      <div className="test">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-
-        <hr />
-
+      <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
-      </div>
-  </Router>
+      </Switch>
+    </Router>
   )
 }
 export default App;

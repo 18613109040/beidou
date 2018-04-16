@@ -35,7 +35,12 @@
     "postcss-pxtorem":"4.0.1",
     "cssnano":"3.10.0",
     "prop-types":"15.6.1",
-    "object-assign":"4.1.1"
+    "object-assign":"4.1.1",
+    "mescroll.js":"1.3.2",
+    "antd-mobile":"2.1.8",
+    "babel-plugin-import":"*",
+    "lazy-load-component":"^1.1.5",
+    "react-lazy-load":"*"
   },
   "engines": {
     "node": ">= 8.0.0"

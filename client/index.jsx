@@ -6,10 +6,24 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
 const FastClick = require('fastclick')
-const store = configureStore()
-import App from './App'
-export default class Index extends Component {
 
+import App from './App'
+import {testAction} from './actions/home'
+export default class Index extends Component {
+  
+  static async getStore({ ctx }) {
+    const store = configureStore()
+   
+    const imadvertlist =  await ctx.service.home.findImadvertList();
+    const imcategorylist =  await ctx.service.home.findImcategoryList();
+    const imcampaginList =  await ctx.service.home.findImcampaginList();
+    store.dispatch(testAction({
+      imadvertlist:imadvertlist,
+      imcategorylist:imcategorylist,
+      imcampaginList:imcampaginList
+    }))
+    return store;
+  }
   static getPartial({ store,ctx}) {
     const html = (
       <Provider store={store}>
@@ -20,11 +34,22 @@ export default class Index extends Component {
   }
   render() {
     const { html, helper ,state} = this.props;
-    console.dir(state)
     return (
       <html>
         <head>
           <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no"/>
+          <meta name="apple-mobile-web-app-capable" content="yes"/>
+          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+          <meta name="apple-mobile-web-app-title" content="react"/>
+          <meta content="telephone=no" name="format-detection"/>
+          <meta content="email=no" name="format-detection"/>
+          <meta name="screen-orientation" content="portrait"/>
+          <meta name="full-screen" content="yes"/>
+          <meta name="browsermode" content="application"/>
+          <meta name="x5-orientation" content="portrait"/>
+          <meta name="x5-fullscreen" content="true"/>
+          <meta name="x5-page-mode" content="app"/>
           <link rel="stylesheet" href={helper.asset('index.css')} />
         </head>
         <body>
@@ -52,14 +77,14 @@ if (__CLIENT__) {
   //解决移动端300毫秒延迟
   FastClick.attach(document.body)
   
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <Provider store={store}>
       <App />
     </Provider>, document.getElementById('container'));
   if (module.hot) {
     module.hot.accept('./App', () => {
       const NewTodoApp = require('./App').default;
-      ReactDOM.render(
+      ReactDOM.hydrate(
         <Provider store={store}>
           <NewTodoApp />
         </Provider>,

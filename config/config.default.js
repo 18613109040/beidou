@@ -7,6 +7,7 @@ const alias = {
   };
 module.exports= {
   keys : 'secret',
+  hostapi:"https://napi.sibu.net.cn",
   webpack : {
       resolve:{
         alias

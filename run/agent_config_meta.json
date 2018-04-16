@@ -1,5 +1,6 @@
 {
   "keys": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
+  "hostapi": "D:\\beidou-master\\examples\\with-react-router\\config\\config.default.js",
   "webpack": {
     "resolve": {
       "alias": {
@@ -239,7 +240,10 @@
       "postcss-pxtorem": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
       "cssnano": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
       "prop-types": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
-      "object-assign": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
+      "object-assign": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "mescroll.js": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "antd-mobile": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js",
+      "babel-plugin-import": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "D:\\beidou-master\\examples\\with-react-router\\node_modules\\_egg@2.6.0@egg\\config\\config.default.js"
