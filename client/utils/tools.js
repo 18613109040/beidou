@@ -198,7 +198,6 @@ export function cleanUser() {
     }
 }
 
-
 /**
  * @description 本地存储包装器
  * @param type不传默认为 localStorage, 传 session 为 sessionStorage
@@ -416,26 +415,26 @@ export function getdayByStartToEnd(start_time, end_time) {
 }
 
 //图片转base64
-export function urlToBase64(url, callback) {
-    if (b64datas[url]) {
-        callback && callback(b64datas[url]);
-        return;
-    }
-    var image = new Image();
-    image.onload = function () {
-        var canvas = document.createElement('CANVAS');
-        var ctx = canvas.getContext('2d');
-
-        canvas.width = this.width;
-        canvas.height = this.height;
-        ctx.drawImage(this, 0, 0);
-
-        var b64data = b64datas[url] = canvas.toDataURL('base64');
-        callback && callback(b64data);
-    };
-    image.src = url;
+export function urlToBase64(url, callback=()=>{}) {
+    
+    let img = new Image();//创建新的图片对象
+    let base64 = '' ;//base64 
+    img.src = url;
+    img.setAttribute("crossOrigin",'Anonymous')
+    img.onload = function(){//图片加载完，再draw 和 toDataURL
+        let canvas=document.getElementById("canvas");//获取canvas
+        let ctx = canvas.getContext("2d"); //对应的CanvasRenderingContext2D对象(画笔)
+        ctx.drawImage(img,0,0);    
+        base64 = canvas.toDataURL("image/png");
+        callback(base64) 
+    };  
 }
 
+export function saveNetworkImageToLocalStorage(image){
+    urlToBase64(image,(url)=>{
+        storage.set(image,url)
+    })
+}
 
 //判断是否是微信浏览器
 function isWeiXin() {

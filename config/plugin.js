@@ -1,3 +1,5 @@
 'use strict';
-
-module.exports = {};
+exports.cors = {
+  enable: true,
+  package: 'egg-cors',
+};

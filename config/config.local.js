@@ -8,6 +8,7 @@ const domainWhiteList = [];
   domainWhiteList.push(`http://127.0.0.1:${port}`);
   domainWhiteList.push(`http://${localIP}:${port}`);
 });
+domainWhiteList.push(`http://vbimg.sibumbg.com`);
 module.exports = {
   middleware : [
     'proxy'

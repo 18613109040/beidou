@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux'
-import {home} from './home'
+import {home,tabBarData} from './home'
 const rootReducer = combineReducers({
-  home
+  home,
+  tabBarData
 })
 
 export default rootReducer

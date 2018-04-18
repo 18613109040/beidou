@@ -23,7 +23,7 @@ class TabBar extends React.PureComponent {
 					color:'rgb(148, 148, 148)',
 					title:"首页",
 					dot:false,
-					badge:1,
+					badge:false,
 					selectedIcon:"http://testxws.sibumbg.com/resources/client/images/35nXHFWYgg.png",
 					icon:"http://testxws.sibumbg.com/resources/client/images/3BVdfCFikk.png"
 				},{

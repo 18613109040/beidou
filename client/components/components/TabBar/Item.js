@@ -8,10 +8,10 @@ class TabBarItem extends React.PureComponent {
 			color:PropTypes.string,
 			title:PropTypes.string,
 			dot:PropTypes.bool,
-			badge:PropTypes.bool,
+			badge:PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
 			selectedIcon:PropTypes.oneOfType([PropTypes.element ,PropTypes.string]) ,
-			icon:PropTypes.oneOfType([PropTypes.element ,PropTypes.string])
-
+			icon:PropTypes.oneOfType([PropTypes.element ,PropTypes.string]),
+			link:PropTypes.string
 		};
 		static defaultProps = {
 			selected:false,
@@ -19,6 +19,7 @@ class TabBarItem extends React.PureComponent {
 			color:'rgb(148, 148, 148)',
 			title:"首页",
 			dot:false,
+			link:"",
 			badge:false,
 			selectedIcon:"http://testxws.sibumbg.com/resources/client/images/35nXHFWYgg.png",
 			icon:"http://testxws.sibumbg.com/resources/client/images/3BVdfCFikk.png"

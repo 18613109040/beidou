@@ -1,11 +1,44 @@
+import {storage} from '../utils/tools'
 export function home(state={}, action) {
     let json = action.json;
     switch (action.type) {
         case 'ADD':
-        console.dir(json)
-            console.dir(json)
+            // const {imadvertlist,imcampaginList,imcategorylist} = json;
+            // let {data} = imadvertlist;
+            // data.map(item=>{
+            //     if(storage.get(item.imageUrl)){
+            //         item.imageUrl = storage.get(item.imageUrl)
+            //     }
+            // })
             return json
         default:
             return state
     }
+}
+
+//设置TabBar 数据
+const initTabBarData=[{
+  title:"首页",
+  link:"/home",
+  icon:require("../assets/images/home.png"),
+  selectedIcon:require("../assets/images/home-fill.png")
+},{
+  title:"分类",
+  link:"/category",
+  icon:require("../assets/images/class.png"),
+  selectedIcon:require("../assets/images/class-fill.png")
+
+},{
+  title:"购物车",
+  link:"/cart",
+  icon:require("../assets/images/cart.png"),
+  selectedIcon:require("../assets/images/cart-fill.png")
+},{
+  title:"我的",
+  link:"/user",
+  icon:require("../assets/images/my.png"),
+  selectedIcon:require("../assets/images/my-fill.png")
+}]
+export  function tabBarData(state=initTabBarData,action) {
+  return state;
 }

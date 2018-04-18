@@ -1,24 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom'
 import './index.less'
 class TabBarItem extends React.PureComponent {
+		static contextTypes = {
+			router: PropTypes.object.isRequired
+		};
 		static propTypes = {
-			selected:PropTypes.bool,
 			selectedColor:PropTypes.string,
 			color:PropTypes.string,
 			title:PropTypes.string,
 			dot:PropTypes.bool,
 			badge:PropTypes.bool,
 			selectedIcon:PropTypes.oneOfType([PropTypes.element ,PropTypes.string]) ,
-			icon:PropTypes.oneOfType([PropTypes.element ,PropTypes.string])
-
+			icon:PropTypes.oneOfType([PropTypes.element ,PropTypes.string]),
+      link:PropTypes.string
 		};
 		static defaultProps = {
-			selected:false,
 			selectedColor:'rgb(255, 219, 83)',
 			color:'rgb(148, 148, 148)',
 			title:"首页",
 			dot:false,
+      link:"",
 			badge:false,
 			selectedIcon:"http://testxws.sibumbg.com/resources/client/images/35nXHFWYgg.png",
 			icon:"http://testxws.sibumbg.com/resources/client/images/3BVdfCFikk.png"
@@ -32,11 +35,13 @@ class TabBarItem extends React.PureComponent {
 			const {
 				dot,
 				badge,
-				selected,
 				selectedIcon,
 				icon,
-				title
+				title,
+        link
 			} = this.props;
+      const {pathname} = this.context.router.route.location;
+      const selected = (pathname==link?true:false)
 			const iconRes = selected ? selectedIcon : icon;
 			const iconDom = React.isValidElement(iconRes) ? (
 				iconRes
@@ -66,16 +71,18 @@ class TabBarItem extends React.PureComponent {
 			return iconDom;
 		}
     render() {
-				const {selected,selectedColor,color,title} = this.props;
+				const {selectedColor,color,title,link} = this.props;
+				const {pathname} = this.context.router.route.location;
+				const selected = (pathname==link?true:false)
         return (
-            <div className="tab-bar-item">
+            <Link className="tab-bar-item" to={link}>
 							<div>
 								{this.renderIcon()}
 							</div>
 							<div className="title" style={{color:selected?selectedColor:color}}>
 								{title}
 							</div>
-            </div>
+            </Link>
         )
     }
 }

@@ -306,7 +306,6 @@
       // 保存jroll对象
       me.scroller.setAttribute('jroll-id', me.id)
       jrollMap[me.id] = me
-
       // 默认选项
       me.options = {
         scrollX: false,
