@@ -7,6 +7,8 @@ class IndexController extends Controller {
     const { ctx } = this;
     await ctx.render('index');
   }
+
+
 }
 
 module.exports = IndexController;

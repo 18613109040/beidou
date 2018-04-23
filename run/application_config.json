@@ -4,16 +4,21 @@
       "maxAge": 86400000,
       "key": "EGG_SESS",
       "httpOnly": true,
-      "encrypt": true
+      "encrypt": true,
+      "overwrite": true,
+      "signed": true,
+      "encode": "<Function encode>",
+      "decode": "<Function decode>",
+      "genid": "<Function anonymous>"
     },
     "security": {
       "domainWhiteList": [
         "http://localhost:6001",
         "http://127.0.0.1:6001",
-        "http://192.168.120.103:6001",
+        "http://192.168.120.37:6001",
         "http://localhost:6000",
         "http://127.0.0.1:6000",
-        "http://192.168.120.103:6000",
+        "http://192.168.120.37:6000",
         "http://vbimg.sibumbg.com"
       ],
       "protocolWhiteList": [],
@@ -21,7 +26,8 @@
       "csrf": false,
       "xframe": {
         "enable": true,
-        "value": "SAMEORIGIN"
+        "value": "SAMEORIGIN",
+        "matching": "<Function anonymous>"
       },
       "hsts": {
         "enable": false,
@@ -29,16 +35,20 @@
         "includeSubdomains": false
       },
       "dta": {
-        "enable": true
+        "enable": true,
+        "matching": "<Function anonymous>"
       },
       "methodnoallow": {
-        "enable": true
+        "enable": true,
+        "matching": "<Function anonymous>"
       },
       "noopen": {
-        "enable": true
+        "enable": true,
+        "matching": "<Function anonymous>"
       },
       "nosniff": {
-        "enable": true
+        "enable": true,
+        "matching": "<Function anonymous>"
       },
       "referrerPolicy": {
         "enable": false,
@@ -46,7 +56,8 @@
       },
       "xssProtection": {
         "enable": true,
-        "value": "1; mode=block"
+        "value": "1; mode=block",
+        "matching": "<Function anonymous>"
       },
       "csp": {
         "enable": false,
@@ -83,9 +94,9 @@
       "autoFields": false,
       "defaultCharset": "utf8",
       "fieldNameSize": 100,
-      "fieldSize": "100kb",
+      "fieldSize": 102400,
       "fields": 10,
-      "fileSize": "10mb",
+      "fileSize": 10485760,
       "files": 10,
       "fileExtensions": [],
       "whitelist": null
@@ -118,10 +129,13 @@
       "dynamic": true,
       "preload": false,
       "buffer": false,
-      "maxFiles": 1000
+      "maxFiles": 1000,
+      "files": "<LRU>"
     },
     "view": {
-      "root": "D:\\VB同构\\app\\views,D:\\VB同构\\client",
+      "root": [
+        "D:\\VB同构\\client"
+      ],
       "cache": false,
       "defaultExtension": ".jsx",
       "defaultViewEngine": "react",
@@ -146,7 +160,7 @@
     "webpack": {
       "custom": {},
       "output": {
-        "path": "D:\\VB同构\\build",
+        "path": "./build",
         "filename": "[name].js?[hash]",
         "chunkFilename": "[name].js",
         "publicPath": "/build/"
@@ -163,7 +177,7 @@
       },
       "devServer": {
         "contentBase": false,
-        "port": 6680,
+        "port": 6002,
         "noInfo": true,
         "quiet": false,
         "clientLogLevel": "warning",
@@ -189,12 +203,15 @@
           "D:\\VB同构\\node_modules\\_babel-preset-beidou-server@1.0.0@babel-preset-beidou-server\\index.js"
         ],
         "babelrc": false,
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".mjs"
-        ],
-        "cache": true
+        "plugins": [
+          "D:\\VB同构\\node_modules\\_babel-plugin-dynamic-import-node@1.2.0@babel-plugin-dynamic-import-node\\lib\\index.js",
+          [
+            "D:\\VB同构\\node_modules\\_babel-plugin-import-inspector@2.0.0@babel-plugin-import-inspector\\index.js",
+            {
+              "serverSideRequirePath": true
+            }
+          ]
+        ]
       },
       "universal": {
         "assetsFilePath": "D:\\VB同构\\.isomorphic\\assets.json",
@@ -237,8 +254,10 @@
         ".jsx"
       ]
     },
-    "cors": {},
-    "env": "prod",
+    "cors": {
+      "origin": "<Function corsOrigin>"
+    },
+    "env": "local",
     "name": "beidou-example-with-react-router",
     "keys": "<String len: 6>",
     "proxy": {
@@ -258,12 +277,15 @@
         "start": "beidou start",
         "debug": "beidou debug",
         "stop": "beidou stop",
-        "dev": "beidou dev",
+        "dev": "beidou dev --port=6001",
         "build": "beidou build",
         "build:node": "beidou build --target=node"
       },
       "dependencies": {
         "babel-eslint": "^8.1.2",
+        "babel-plugin-dynamic-import-node": "^1.2.0",
+        "babel-plugin-import-inspector": "^2.0.0",
+        "import-inspector": "^2.0.0",
         "babel-polyfill": "^6.26.0",
         "beidou-cli": "^1.0.0",
         "beidou-core": "^1.0.1",
@@ -295,7 +317,8 @@
         "react-lazy-load": "*",
         "egg-cors": "2.0.0",
         "web-storage-cache": "1.0.3",
-        "react-lazy": "^0.5.1"
+        "react-lazy": "^0.5.1",
+        "react-loadable": "^5.3.1"
       },
       "engines": {
         "node": ">= 8.0.0"
@@ -330,7 +353,8 @@
         "arrayLimit": 100,
         "depth": 5,
         "parameterLimit": 1000
-      }
+      },
+      "returnRawBody": true
     },
     "logger": {
       "dir": "D:\\VB同构\\logs\\beidou-example-with-react-router",
@@ -376,11 +400,16 @@
       "logging": false
     },
     "coreMiddleware": [
+      "cors",
+      "webpack",
       "meta",
       "siteFile",
       "notfound",
+      "static",
       "bodyParser",
-      "overrideMethod"
+      "overrideMethod",
+      "session",
+      "securities"
     ],
     "workerStartTimeout": 600000,
     "cluster": {
@@ -408,7 +437,19 @@
     },
     "coreMiddlewares": "~config~coreMiddleware",
     "appMiddlewares": "~config~middleware",
-    "appMiddleware": "~config~middleware"
+    "appMiddleware": "~config~middleware",
+    "multipartParseOptions": {
+      "autoFields": false,
+      "defCharset": "utf8",
+      "limits": {
+        "fieldNameSize": 100,
+        "fieldSize": 102400,
+        "fields": 10,
+        "fileSize": 10485760,
+        "files": 10
+      },
+      "checkFile": "<Function checkFile>"
+    }
   },
   "plugins": {
     "session": {

@@ -1,12 +1,12 @@
 
 
-//import 'babel-polyfill';
+import 'babel-polyfill';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore'
 const FastClick = require('fastclick')
-import Routers from './router'
+import Routers from './router/index'
 import {testAction} from './actions/home'
 export default class Index extends Component {
   static doctype = '<!DOCTYPE html>'

@@ -1,48 +1,62 @@
 'use strict';
 
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pxtorem = require('postcss-pxtorem');
-const cssnano = require('cssnano');
-const postcssOpts = {
-    ident: 'postcss', 
-    plugins: () => [
-        autoprefixer({
-            browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8', 'iOS >= 8', 'Android >= 4'],
-        }),
-        pxtorem({rootValue: 100, propWhiteList: []})
-    ],
-    cssnano
-};
-module.exports = (app, defaultConfig ) => ({
-  ...defaultConfig,
-  resolve: {
-    extensions: ['.json', '.js', '.jsx'],
-    alias : {
-      assets: path.join(__dirname, '../client/src/assets'),
-      components: path.join(__dirname, '../client/src/components'),
-      containers: path.join(__dirname, '../client/src/containers')
-    }
+const getStyleFallbackConfig = dev => ({
+  loader: require.resolve('style-loader'),
+  options: {
+    hmr: dev,
   },
+});
+function getCssLoaderConfig(dev, modules = false) {
+  return {
+    loader: require.resolve('css-loader'),
+    options: {
+      importLoaders: 1,
+      minimize: !dev,
+      sourceMap: dev,
+      modules,
+      localIdentName: modules ? '[local]_[hash:base64:5]' : undefined,
+    },
+  };
+}
+const postCssLoaderConfig = {
+  loader: require.resolve('postcss-loader'),
+  options: {
+    // Necessary for external CSS imports to work
+    ident: 'postcss',
+    plugins: () => [
+      require('postcss-flexbugs-fixes'),
+      autoprefixer({
+        browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
+        flexbox: 'no-2009',
+      }),
+      pxtorem({rootValue: 100, propWhiteList: []})
+    ],
+  },
+};
+const lessLoaderConfig = {
+  loader: require.resolve('less-loader'),
+  options: {
+    javascriptEnabled: true,
+    modifyVars: {"@hd": "3px"}
+  },
+};
+module.exports = (app, defaultConfig,dev ) => ({
+  ...defaultConfig,
   module:{
     rules: [
       ...defaultConfig.module.rules,
       {
-        test: /\.(less|css)$/,
+        test: /\.less$/,
+        exclude: /\.module\.less$/,
         use: ExtractTextPlugin.extract({
-            fallback: 'style-loader', 
-            use: [
-                'css-loader', 
-                {
-                    loader: 'postcss-loader',
-                    options: postcssOpts
-                },
-                {
-                    loader: 'less-loader'
-                }]
+          fallback: getStyleFallbackConfig(dev),
+          use: [getCssLoaderConfig(dev), postCssLoaderConfig, lessLoaderConfig],
         })
-    }
+      }
 
     ]
   }

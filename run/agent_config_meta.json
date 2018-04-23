@@ -1,6 +1,23 @@
 {
   "keys": "D:\\VB同构\\config\\config.default.js",
   "hostapi": "D:\\VB同构\\config\\config.default.js",
+  "isomorphic": {
+    "babel": {
+      "plugins": "D:\\VB同构\\config\\config.default.js",
+      "presets": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "babelrc": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "extensions": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "cache": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    },
+    "polyfill": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+    "universal": {
+      "assetsFilePath": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "assets": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    },
+    "alias": {
+      "client": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    }
+  },
   "security": {
     "csrf": "D:\\VB同构\\config\\config.default.js",
     "domainWhiteList": "D:\\VB同构\\config\\config.local.js",
@@ -171,22 +188,6 @@
       "hot": "D:\\VB同构\\node_modules\\_beidou-webpack@1.0.2@beidou-webpack\\config\\config.default.js"
     }
   },
-  "isomorphic": {
-    "polyfill": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-    "babel": {
-      "presets": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "babelrc": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "extensions": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "cache": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
-    },
-    "universal": {
-      "assetsFilePath": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "assets": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
-    },
-    "alias": {
-      "client": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
-    }
-  },
   "router": {
     "root": "D:\\VB同构\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
     "urlPrefix": "D:\\VB同构\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
@@ -216,6 +217,9 @@
     },
     "dependencies": {
       "babel-eslint": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "babel-plugin-dynamic-import-node": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "babel-plugin-import-inspector": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "import-inspector": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "babel-polyfill": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "beidou-cli": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "beidou-core": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
@@ -247,7 +251,8 @@
       "react-lazy-load": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "egg-cors": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "web-storage-cache": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
-      "react-lazy": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js"
+      "react-lazy": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "react-loadable": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js"

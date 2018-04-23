@@ -1,5 +1,18 @@
-//进入node_modules/beidou-webpack/config/webpack/utils.js
 
+
+### 启动
+- npm install (安装依赖包)
+- npm run dev (开发模式)
+
+- npm run build (打包生成build目录)
+- npm run start (部署启动应用)
+
+### 详细教程移步 (https://github.com/alibaba/beidou)
+
+#### 包配置
+- 进入node_modules/beidou-webpack/config/webpack/utils.js
+
+```
 const pxtorem = require('postcss-pxtorem'); //==>新增
 
 const postCssLoaderConfig = {
@@ -25,9 +38,9 @@ const lessLoaderConfig = {
     modifyVars: {"@hd": "2px"} //==>新增
   },
 };
-
-//进入node_modules/beidou-webpack/config/webpack/webpack.browser.js
-
+```
+- 进入node_modules/beidou-webpack/config/webpack/webpack.browser.js
+```
   config.module.rules = [
     {
       test: /\.(js|jsx|mjs)$/,
@@ -54,3 +67,4 @@ const lessLoaderConfig = {
     imageLoaderConfig,
     fileLoaderConfig,
   ];
+  ```

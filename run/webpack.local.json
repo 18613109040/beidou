@@ -71,30 +71,20 @@
   "devtool": "eval",
   "context": "D:\\VB同构",
   "entry": {
-    "router": [
-      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
-      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\VB同构\\client\\router.jsx"
-    ],
     "index": [
       "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
       "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
       "D:\\VB同构\\client\\index.jsx"
     ],
-    "App": [
-      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
-      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\VB同构\\client\\App.jsx"
-    ],
-    "serverRouter": [
-      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
-      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\VB同构\\client\\serverRouter.js"
-    ],
     "reducers": [
       "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
       "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
       "D:\\VB同构\\client\\reducers\\index.js"
+    ],
+    "router": [
+      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
+      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
+      "D:\\VB同构\\client\\router\\index.js"
     ]
   },
   "module": {

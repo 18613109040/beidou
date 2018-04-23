@@ -1,33 +1,33 @@
-Hash: bd738ba426f29af1f331
+Hash: 2619d8db6599a57eb2bc
 Version: webpack 3.11.0
-Time: 9114ms
-                               Asset     Size  Chunks                    Chunk Names
-       index.js?bd738ba426f29af1f331   285 kB       0  [emitted]  [big]  index
-serverRouter.js?bd738ba426f29af1f331   137 kB       1  [emitted]         serverRouter
-      router.js?bd738ba426f29af1f331   137 kB       2  [emitted]         router
-         App.js?bd738ba426f29af1f331   136 kB       3  [emitted]         App
-    reducers.js?bd738ba426f29af1f331  11.5 kB       4  [emitted]         reducers
-                         manifest.js    23 kB       5  [emitted]         manifest
-                          router.css  14.2 kB       2  [emitted]         router
-                           index.css  14.2 kB       0  [emitted]         index
-                             App.css    14 kB       3  [emitted]         App
-                    serverRouter.css  14.2 kB       1  [emitted]         serverRouter
-  [13] ./client/components/TabBar/index.js 1.05 kB {0} {1} {2} {3} [built]
-  [83] ./client/App.jsx 2.59 kB {0} {1} {2} {3} [built]
- [152] ./client/router.jsx 1.16 kB {0} {2} [built]
- [163] ./client/reducers/index.js 165 bytes {0} {4} [built]
- [193] multi ./client/router.jsx 28 bytes {2} [built]
- [228] multi ./client/index.jsx 28 bytes {0} [built]
- [229] ./client/index.jsx 5.28 kB {0} [built]
- [230] ./node_modules/_babel-runtime@6.26.0@babel-runtime/regenerator/index.js 49 bytes {0} [built]
- [257] ./client/store/configureStore.js 255 bytes {0} [built]
- [259] ./node_modules/_fastclick@1.0.6@fastclick/lib/fastclick.js 26 kB {0} [built]
- [260] ./client/actions/home.js 802 bytes {0} [built]
- [266] multi ./client/App.jsx 28 bytes {3} [built]
- [267] multi ./client/serverRouter.js 28 bytes {1} [built]
- [268] ./client/serverRouter.js 657 bytes {1} [built]
- [269] multi ./client/reducers/index.js 28 bytes {4} [built]
-    + 265 hidden modules
+Time: 7533ms
+                           Asset       Size  Chunks                    Chunk Names
+                            0.js    4.94 kB       0  [emitted]         
+                            1.js  759 bytes       1  [emitted]         
+                            2.js  785 bytes       2  [emitted]         
+                            3.js  760 bytes       3  [emitted]         
+   index.js?2619d8db6599a57eb2bc     286 kB       4  [emitted]  [big]  index
+  router.js?2619d8db6599a57eb2bc     138 kB       5  [emitted]         router
+reducers.js?2619d8db6599a57eb2bc    11.5 kB       6  [emitted]         reducers
+                     manifest.js    23.5 kB       7  [emitted]         manifest
+                       index.css    14.2 kB       4  [emitted]         index
+                      router.css    14.2 kB       5  [emitted]         router
+   [0] ./node_modules/_react@16.3.2@react/index.js 190 bytes {4} {5} [built]
+   [7] ./node_modules/_babel-runtime@6.26.0@babel-runtime/helpers/inherits.js 1.11 kB {4} {5} [built]
+ [109] ./client/reducers/index.js 165 bytes {4} {6} [built]
+ [120] ./client/router/index.js 2.02 kB {4} {5} [built]
+ [144] ./client/containers/Home/index.js 8.65 kB {4} {5} [built]
+ [195] multi ./client/index.jsx 28 bytes {4} [built]
+ [196] ./client/index.jsx 5.29 kB {4} [built]
+ [197] ./node_modules/_babel-runtime@6.26.0@babel-runtime/regenerator/index.js 49 bytes {4} [built]
+ [200] ./node_modules/_babel-runtime@6.26.0@babel-runtime/helpers/asyncToGenerator.js 906 bytes {4} [built]
+ [235] ./node_modules/_react-dom@16.3.2@react-dom/index.js 1.36 kB {4} [built]
+ [257] ./client/store/configureStore.js 255 bytes {4} [built]
+ [259] ./node_modules/_fastclick@1.0.6@fastclick/lib/fastclick.js 26 kB {4} [built]
+ [260] ./client/actions/home.js 802 bytes {4} [built]
+ [266] multi ./client/reducers/index.js 28 bytes {6} [built]
+ [267] multi ./client/router/index.js 28 bytes {5} [built]
+    + 274 hidden modules
 Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin/dist node_modules/_css-loader@0.28.11@css-loader/index.js??ref--1-2!node_modules/_postcss-loader@2.1.4@postcss-loader/lib/index.js??postcss!node_modules/_mescroll.js@1.3.2@mescroll.js/mescroll.min.css:
        [0] ./node_modules/_css-loader@0.28.11@css-loader??ref--1-2!./node_modules/_postcss-loader@2.1.4@postcss-loader/lib??postcss!./node_modules/_mescroll.js@1.3.2@mescroll.js/mescroll.min.css 2.83 kB {0} [built]
        [1] ./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js 2.26 kB {0} [built]
@@ -37,11 +37,11 @@ Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.
 Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin/dist node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-2!node_modules/_postcss-loader@2.1.4@postcss-loader/lib/index.js??postcss!node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!client/assets/style/index.less:
        [0] ./node_modules/_css-loader@0.28.11@css-loader??ref--5-2!./node_modules/_postcss-loader@2.1.4@postcss-loader/lib??postcss!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!./client/assets/style/index.less 448 bytes {0} [built]
        [1] ./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js 2.26 kB {0} [built]
-Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin/dist node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-2!node_modules/_postcss-loader@2.1.4@postcss-loader/lib/index.js??postcss!node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!client/components/TabBar/index.less:
-       [0] ./node_modules/_css-loader@0.28.11@css-loader??ref--5-2!./node_modules/_postcss-loader@2.1.4@postcss-loader/lib??postcss!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!./client/components/TabBar/index.less 1.8 kB {0} [built]
-       [1] ./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js 2.26 kB {0} [built]
 Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin/dist node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-2!node_modules/_postcss-loader@2.1.4@postcss-loader/lib/index.js??postcss!node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!client/containers/Home/index.less:
        [0] ./node_modules/_css-loader@0.28.11@css-loader??ref--5-2!./node_modules/_postcss-loader@2.1.4@postcss-loader/lib??postcss!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!./client/containers/Home/index.less 662 bytes {0} [built]
+       [1] ./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js 2.26 kB {0} [built]
+Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin/dist node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-2!node_modules/_postcss-loader@2.1.4@postcss-loader/lib/index.js??postcss!node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!client/components/TabBar/index.less:
+       [0] ./node_modules/_css-loader@0.28.11@css-loader??ref--5-2!./node_modules/_postcss-loader@2.1.4@postcss-loader/lib??postcss!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!./client/components/TabBar/index.less 1.8 kB {0} [built]
        [1] ./node_modules/_css-loader@0.28.11@css-loader/lib/css-base.js 2.26 kB {0} [built]
 Child extract-text-webpack-plugin node_modules/_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin/dist node_modules/_css-loader@0.28.11@css-loader/index.js??ref--5-2!node_modules/_postcss-loader@2.1.4@postcss-loader/lib/index.js??postcss!node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!node_modules/_antd-mobile@2.1.8@antd-mobile/lib/style/index.less:
        [0] ./node_modules/_css-loader@0.28.11@css-loader??ref--5-2!./node_modules/_postcss-loader@2.1.4@postcss-loader/lib??postcss!./node_modules/_less-loader@4.1.0@less-loader/dist/cjs.js??ref--5-4!./node_modules/_antd-mobile@2.1.8@antd-mobile/lib/style/index.less 6.66 kB {0} [built]

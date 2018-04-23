@@ -7,12 +7,15 @@
     "start": "beidou start",
     "debug": "beidou debug",
     "stop": "beidou stop",
-    "dev": "beidou dev",
+    "dev": "beidou dev --port=6001",
     "build": "beidou build",
     "build:node": "beidou build --target=node"
   },
   "dependencies": {
     "babel-eslint": "^8.1.2",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-import-inspector": "^2.0.0",
+    "import-inspector": "^2.0.0",
     "babel-polyfill": "^6.26.0",
     "beidou-cli": "^1.0.0",
     "beidou-core": "^1.0.1",
@@ -44,7 +47,8 @@
     "react-lazy-load":"*",
     "egg-cors":"2.0.0",
     "web-storage-cache":"1.0.3",
-    "react-lazy":"^0.5.1"
+    "react-lazy":"^0.5.1",
+    "react-loadable":"^5.3.1"
   },
   "engines": {
     "node": ">= 8.0.0"

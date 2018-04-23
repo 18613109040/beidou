@@ -25,9 +25,10 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-  }
 
+  }
   componentDidMount() {
+
     var isPC = typeof window.orientation == 'undefined';
     //创建MeScroll对象,内部已默认开启下拉刷新,自动执行up.callback,刷新列表数据;
     var mescroll = new MeScroll("mescroll", {
@@ -218,14 +219,11 @@ class Home extends React.Component {
         <div id="mescroll" className="mescroll">
           {this.renderCarousel()}
 
-
-            <img src='http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg' />
-
-
+          <img src='http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg' />
             <img src='http://apod.nasa.gov/apod/image/1502/2015_02_20_conj_bourque1024.jpg' />
 
             <img src='http://apod.nasa.gov/apod/image/1502/MarsPlume_jaeschke_480.gif' />
-
+          <div className="test">sss</div>
         </div>
         <TabBar tabs={tabBarData}/>
       </div>

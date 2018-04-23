@@ -10,10 +10,10 @@
       "domainWhiteList": [
         "http://localhost:6001",
         "http://127.0.0.1:6001",
-        "http://192.168.120.103:6001",
+        "http://192.168.120.37:6001",
         "http://localhost:6000",
         "http://127.0.0.1:6000",
-        "http://192.168.120.103:6000",
+        "http://192.168.120.37:6000",
         "http://vbimg.sibumbg.com"
       ],
       "protocolWhiteList": [],
@@ -195,7 +195,16 @@
           ".jsx",
           ".mjs"
         ],
-        "cache": true
+        "cache": true,
+        "plugins": [
+          "D:\\VB同构\\node_modules\\_babel-plugin-dynamic-import-node@1.2.0@babel-plugin-dynamic-import-node\\lib\\index.js",
+          [
+            "D:\\VB同构\\node_modules\\_babel-plugin-import-inspector@2.0.0@babel-plugin-import-inspector\\index.js",
+            {
+              "serverSideRequirePath": true
+            }
+          ]
+        ]
       },
       "universal": {
         "assetsFilePath": "D:\\VB同构\\.isomorphic\\assets.json",
@@ -259,12 +268,15 @@
         "start": "beidou start",
         "debug": "beidou debug",
         "stop": "beidou stop",
-        "dev": "beidou dev",
+        "dev": "beidou dev --port=6001",
         "build": "beidou build",
         "build:node": "beidou build --target=node"
       },
       "dependencies": {
         "babel-eslint": "^8.1.2",
+        "babel-plugin-dynamic-import-node": "^1.2.0",
+        "babel-plugin-import-inspector": "^2.0.0",
+        "import-inspector": "^2.0.0",
         "babel-polyfill": "^6.26.0",
         "beidou-cli": "^1.0.0",
         "beidou-core": "^1.0.1",
@@ -296,7 +308,8 @@
         "react-lazy-load": "*",
         "egg-cors": "2.0.0",
         "web-storage-cache": "1.0.3",
-        "react-lazy": "^0.5.1"
+        "react-lazy": "^0.5.1",
+        "react-loadable": "^5.3.1"
       },
       "engines": {
         "node": ">= 8.0.0"
