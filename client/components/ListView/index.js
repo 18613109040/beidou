@@ -1,80 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
-import {connect} from "react-redux";
-import {Carousel} from 'antd-mobile';
 import MeScroll from 'mescroll.js'
+import objectAssign  from 'object-assign'
 import 'mescroll.js/mescroll.min.css'
 import './index.less'
-import WebStorageCache from 'web-storage-cache'
-import TabBar from '../../components/TabBar'
-import TopBar from  '../../components/TopBar'
-import SilderBar from  '../../components/SilderBar'
-
-class Item extends  React.Component{
-  constructor(props){
-    super(props)
-  }
-  render(){
-    console.dir("++++++++")
-    console.dir(this.props)
-    return (<div>
-      测试组件
-    </div>)
-  }
-
-}
-function  Test(props) {
-  return (
-    <div >
-      {props.name}
-    </div>
-  )
-}
-
-class Home extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object.isRequired
+import  {warningFunc,equals} from '../../utils/tools'
+class ListView extends React.Component {
+  static propTypes = {
+    component: PropTypes.element,
+    FetchAction:PropTypes.func,
+    fiterData:PropTypes.object,
+    top:PropTypes.number,
+    bottom:PropTypes.number
   };
-
+  static defaultProps = {
+    component:{},
+    fiterData:{},
+    top:0,
+    bottom:0
+  };
   constructor(props) {
     super(props)
-    const {pathname} = this.props.location;
     this.state = {
-      selectedTab: 'redTab',
-      hidden: false,
-      fullScreen: false
+      dataSource:[]
     }
-  }
-
-  componentWillMount() {
 
   }
 
+  componentDidUpdate(nextProps, nextState){
+
+    if(!equals(nextProps,this.props)){
+      this.setState({
+        dataSource:[]
+      })
+      this.mescroll.resetUpScroll();
+      this.mescroll.hideTopBtn();
+
+    }
+
+  }
+
+  componentWillUnmount(){
+    this.mescroll.destroy();
+  }
   componentDidMount() {
-
-    var isPC = typeof window.orientation == 'undefined';
+    let isPC = typeof window.orientation == 'undefined' ;
     //创建MeScroll对象,内部已默认开启下拉刷新,自动执行up.callback,刷新列表数据;
-    var mescroll = new MeScroll("mescroll", {
+    this.mescroll = new MeScroll("mescroll", {
       //下拉刷新的所有配置项
-      down: {
-        use: true, //是否初始化下拉刷新; 默认true
+      down:{
+        use: false, //是否初始化下拉刷新; 默认true
         auto: false, //是否在初始化完毕之后自动执行下拉回调callback; 默认true
         autoShowLoading: false, //如果在初始化完毕之后自动执行下拉回调,是否显示下拉刷新进度; 默认false
         isLock: false, //是否锁定下拉,默认false;
         isBoth: false, //下拉刷新时,如果滑动到列表底部是否可以同时触发上拉加载;默认false,两者不可同时触发;
-        callback: (mescroll) => {
-          // 加载轮播数据 loadSwiper();
-          // 下拉刷新的回调,默认重置上拉加载列表为第一页(down的auto默认true,初始化Mescroll之后会自动执行到这里,而mescroll.resetU
-          // p Scroll会触发up的callback)
-          console.dir("++++++++")
-          console.dir(mescroll)
-          let offsetY = mescroll.lastPoint.y - mescroll.startPoint.y;
-          console.dir(offsetY)
-          mescroll.endDownScroll();
+        callback: (mescroll)=> {
 
+          //下拉刷新的回调,默认重置上拉加载列表为第一页(down的auto默认true,初始化Mescroll之后会自动执行到这里,而mescroll.resetUpScroll会触发up的callback)
+          mescroll.resetUpScroll();
         },
-        offset: 300, //触发刷新的距离,默认80
+        offset: 60, //触发刷新的距离,默认80
         outOffsetRate: 0.2, //超过指定距离范围外时,改变下拉区域高度比例;值小于1且越接近0,越往下拉高度变化越小;
         bottomOffset: 20, //当手指touchmove位置在距离body底部20px范围内的时候结束上拉刷新,避免Webview嵌套导致touchend事件不执行
         minAngle: 45, //向下滑动最少偏移的角度,取值区间  [0,90];默认45度,即向下滑动的角度大于45度则触发下拉;而小于45度,将不触发下拉,避免与左右滑动的轮播等组件冲突;
@@ -83,56 +68,54 @@ class Home extends React.Component {
         warpClass: "mescroll-downwarp", //容器,装载布局内容,参见mescroll.css
         resetClass: "mescroll-downwarp-reset", //高度重置的动画,参见mescroll.css
         htmlContent: '<p class="downwarp-progress"></p><p class="downwarp-tip">下拉刷新 </p>', //布局内容
-        inited: function (mescroll, downwarp) {
+        inited: function(mescroll, downwarp) {
+          console.log("down --> inited");
           //初始化完毕的回调,可缓存dom
           mescroll.downTipDom = downwarp.getElementsByClassName("downwarp-tip")[0];
           mescroll.downProgressDom = downwarp.getElementsByClassName("downwarp-progress")[0];
         },
-        inOffset: function (mescroll) {
-
+        inOffset: function(mescroll) {
+          console.log("down --> inOffset");
           //进入指定距离offset范围内那一刻的回调
-          if (mescroll.downTipDom)
-            mescroll.downTipDom.innerHTML = "下拉刷新";
-          if (mescroll.downProgressDom)
-            mescroll.downProgressDom.classList.remove("mescroll-rotate");
+          if(mescroll.downTipDom) mescroll.downTipDom.innerHTML = "下拉刷新";
+          if(mescroll.downProgressDom) mescroll.downProgressDom.classList.remove("mescroll-rotate");
         },
-        outOffset: function (mescroll) {
+        outOffset: function(mescroll) {
+          console.log("down --> outOffset");
           //下拉超过指定距离offset那一刻的回调
-          if (mescroll.downTipDom)
-            mescroll.downTipDom.innerHTML = "释放更新";
+          if(mescroll.downTipDom) mescroll.downTipDom.innerHTML = "释放更新";
         },
-        onMoving: function (mescroll, rate, downHight) {
-          // 下拉过程中的回调,滑动过程一直在执行; rate下拉区域当前高度与指定距离offset的比值(inOffset: rate<1; outOffset:
-          // rate>=1); downHight当前下拉区域的高度
-          console.log("down --> onMoving --> mescroll.optDown.offset=" + mescroll.optDown.offset + ", downHight=" + downHight + ", rate=" + rate);
-          if (mescroll.downProgressDom) {
-            var progress = 360 * rate;
+        onMoving: function(mescroll, rate, downHight) {
+          //下拉过程中的回调,滑动过程一直在执行; rate下拉区域当前高度与指定距离offset的比值(inOffset: rate<1; outOffset: rate>=1); downHight当前下拉区域的高度
+          console.log("down --> onMoving --> mescroll.optDown.offset="+mescroll.optDown.offset+", downHight="+downHight+", rate="+rate);
+          if(mescroll.downProgressDom) {
+            let progress = 360 * rate;
             mescroll.downProgressDom.style.webkitTransform = "rotate(" + progress + "deg)";
             mescroll.downProgressDom.style.transform = "rotate(" + progress + "deg)";
           }
         },
-        beforeLoading: function (mescroll, downwarp) {
+        beforeLoading: function(mescroll, downwarp) {
           console.log("down --> beforeLoading");
           //准备触发下拉刷新的回调
           return false; //如果要完全自定义下拉刷新,那么return true,此时将不再执行showLoading(),callback();
         },
-        showLoading: function (mescroll) {
+        showLoading: function(mescroll) {
           console.log("down --> showLoading");
           //触发下拉刷新的回调
-          if (mescroll.downTipDom)
-            mescroll.downTipDom.innerHTML = "加载中 ...";
-          if (mescroll.downProgressDom)
-            mescroll.downProgressDom.classList.add("mescroll-rotate");
+          if(mescroll.downTipDom) mescroll.downTipDom.innerHTML = "加载中 ...";
+          if(mescroll.downProgressDom) mescroll.downProgressDom.classList.add("mescroll-rotate");
         }
       },
       //上拉加载的所有配置项
       up: {
-        use: false, //是否初始化上拉加载; 默认true
-        auto: false, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认true
+        use: true, //是否初始化上拉加载; 默认true
+        auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认true
         isLock: false, //是否锁定上拉,默认false
         isBoth: false, //上拉加载时,如果滑动到列表顶部是否可以同时触发下拉刷新;默认false,两者不可同时触发; 这里为了演示改为true,不必等列表加载完毕才可下拉;
         isBounce: false, //是否允许ios的bounce回弹;默认true,允许回弹; 此处配置为false,可解决微信,QQ,Safari等等iOS浏览器列表顶部下拉和底部上拉露出浏览器灰色背景和卡顿2秒的问题
-        callback: (page, mescroll) => {
+        callback: (page,mescroll)=>{
+
+          this.getListData(page,mescroll)
         }, //上拉回调,此处可简写; 相当于 callback: function (page, mescroll) { getListData(page); }
         page: {
           num: 0, //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
@@ -146,7 +129,7 @@ class Home extends React.Component {
           warpId: null, //父布局的id; 默认添加在body中
           src: require("../../assets/images/mescroll-totop.png"), //图片路径,默认null;
           html: null, //html标签内容,默认null; 如果同时设置了src,则优先取src
-          offset: 1000, //列表滚动多少距离才显示回到顶部按钮,默认1000
+          offset: 300, //列表滚动多少距离才显示回到顶部按钮,默认1000
           warpClass: "mescroll-totop", //按钮样式,参见mescroll.css
           showClass: "mescroll-fade-in", //显示样式,参见mescroll.css
           hideClass: "mescroll-fade-out", //隐藏样式,参见mescroll.css
@@ -159,39 +142,37 @@ class Home extends React.Component {
         },
         empty: {
           //列表第一页无任何数据时,显示的空提示布局; 需配置warpId或clearEmptyId才生效;
-          warpId: null, //父布局的id; 如果此项有值,将不使用clearEmptyId的值;
+          warpId:"dataList", //父布局的id; 如果此项有值,将不使用clearEmptyId的值;
           icon: require("../../assets/images/empty.png"), //图标,默认null
           tip: "暂无相关数据~", //提示
           btntext: "去逛逛 >", //按钮,默认""
-          btnClick: function () { //点击按钮的回调,默认null
+          btnClick: function(){//点击按钮的回调,默认null
             alert("点击了按钮,具体逻辑自行实现");
           },
           supportTap: false //默认点击事件用onclick,会有300ms的延时;如果您的运行环境支持tap,则可配置true;
         },
-        clearId: null, //加载第一页时需清空数据的列表id; 如果此项有值,将不使用clearEmptyId的值;
+        //clearId: null, //加载第一页时需清空数据的列表id; 如果此项有值,将不使用clearEmptyId的值;
         //clearEmptyId: "dataList", //相当于同时设置了clearId和empty.warpId; 简化写法,默认null;
         hardwareClass: "mescroll-hardware", //硬件加速样式,动画更流畅,参见mescroll.css
         warpId: null, //可配置上拉加载的布局添加到指定id的div;默认不配置,默认添加到mescrollId
         warpClass: "mescroll-upwarp", //容器,装载布局内容,参见mescroll.css
         htmlLoading: '<p class="upwarp-progress mescroll-rotate"></p><p class="upwarp-tip">加载中..</p>', //上拉加载中的布局
         htmlNodata: '<p class="upwarp-nodata">小主，到底了噢~</p>', //无数据的布局
-        inited: function (mescroll, upwarp) {
+        inited: function(mescroll, upwarp) {
           console.log("up --> inited");
-          // 初始化完毕的回调,可缓存dom 比如 mescroll.upProgressDom =
-          // upwarp.getElementsByClassName("upwarp-progress")[0];
+          //初始化完毕的回调,可缓存dom 比如 mescroll.upProgressDom = upwarp.getElementsByClassName("upwarp-progress")[0];
         },
-        showLoading: function (mescroll, upwarp) {
+        showLoading: function(mescroll, upwarp) {
           console.log("up --> showLoading");
-          // 上拉加载中.. mescroll.upProgressDom.style.display = "block"
-          // 不通过此方式显示,因为ios快速滑动到底部,进度条会无法及时渲染
-          upwarp.innerHTML = mescroll.optUp.htmlLoading;
+          //上拉加载中.. mescroll.upProgressDom.style.display = "block" 不通过此方式显示,因为ios快速滑动到底部,进度条会无法及时渲染
+           upwarp.innerHTML = mescroll.optUp.htmlLoading;
         },
-        showNoMore: function (mescroll, upwarp) {
+        showNoMore: function(mescroll, upwarp) {
           console.log("up --> showNoMore");
           //无更多数据
           upwarp.innerHTML = mescroll.optUp.htmlNodata;
         },
-        onScroll: function (mescroll, y, isUp) { //列表滑动监听,默认onScroll: null;
+        onScroll: function(mescroll, y, isUp){ //列表滑动监听,默认onScroll: null;
           //y为列表当前滚动条的位置
           console.log("up --> onScroll 列表当前滚动的距离 y = " + y + ", 是否向上滑动 isUp = " + isUp);
         },
@@ -200,71 +181,44 @@ class Home extends React.Component {
           barClass: "mescroll-bar"
         }
       }
-    });
-    var wsCache = new WebStorageCache();
-    wsCache.set('username1', 'wqteam', {exp: 10});
-    console.dir(wsCache.get("username1"))
+    })
   }
-
-  renderCarousel() {
-    const {imadvertlist} = this.props;
-    return (
-      <Carousel
-        className="my-carousel-sild"
-        autoplay={true}
-        infinite={true}
-        selectedIndex={0}
-        swipeSpeed={35}>
-        {imadvertlist.map((item, index) => (
-          <div
-            onClick={() => {
-              if (item.typeId == 1) {
-                this.context.router.push(`/product?id=${item.imProductId}`)
-              } else if (item.typeId == 2 && item.linkUrl != '') {
-                window.location.href = item.linkUrl
-              } else if (item.typeId == 3) {
-                this.context.router.push(`/activityProduct?id=${item.imProductId}`)
-              }
-            }}
-            key={index}>
-            <img src={item.imageUrl} className="lazy-image" onLoad={() => {
-              window.dispatchEvent(new Event('resize'))
-            }}/>
-          </div>
-        ))}
-      </Carousel>
-    )
+  getListData=(page,mescroll)=>{
+    let {fiterData} = this.props;
+    this.props.FetchAction({
+      pageNow:page.num,
+      pageSize:page.size,
+      ...fiterData
+    },(res)=>{
+      let currentData = [].concat(res.data.datas,this.state.dataSource)
+      this.setState({
+        dataSource:currentData
+      })
+      mescroll.endByPage(currentData.length, res.data.totalPage);
+    })
   }
   render() {
-    const {tabBarData} = this.props;
-    return (
-      <div className="home">
-        <div id="mescroll" className="mescroll">
-          <TopBar/>
-          {this.renderCarousel()}
-          {/*{*/}
-            {/*SilderBar(Item,tabBarData)*/}
-          {/*}*/}
-          <SilderBar
-            component={Item}
-            sliderData={tabBarData}
-          />
-          <Test name="xxxx"/>
+    let {dataSource} = this.state;
+    const {component,top,bottom} = this.props;
+    if (warningFunc(this.props.component)) {
+      return (
+        <div className='list-view'>
+          <div id="mescroll" className="mescroll" style={{top:`${top}rem`,bottom:`${bottom}rem`}} >
+            <div id="dataList">
+              {
+                dataSource.map((item,index)=>(
+                  <div className="item" key={index}>
+                    {component}
+                  </div>
+                ))
+              }
+            </div>
+          </div>
         </div>
-        <TabBar tabs={tabBarData}/>
-      </div>
-    )
+      )
+    }
+
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    home: state.home,
-    tabBarData: state.tabBarData,
-    imadvertlist: state.home.imadvertlist.data || [],
-    imcampaginList: state.home.imcampaginList.data || [],
-    imcategorylist: state.home.imcategorylist.data || []
-  }
-}
-
-export default connect(mapStateToProps)(Home)
+export default ListView

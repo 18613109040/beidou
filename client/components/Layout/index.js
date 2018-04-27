@@ -3,9 +3,13 @@ import React from 'react'
 import JRoll from './jroll'
 import PropTypes from 'prop-types';
 import objectAssign  from 'object-assign'
+import classnames from 'classnames';
+import './index.less'
 export default class Layout extends React.Component {
     static propTypes = {
         height:PropTypes.string,
+        width:PropTypes.string,
+        widthItem:PropTypes.string,
         prefixCls:PropTypes.string,
         style:PropTypes.object,
         options:PropTypes.object,
@@ -13,6 +17,8 @@ export default class Layout extends React.Component {
     };
     static defaultProps = {
         height:"100vh",
+        width:"100%",
+      widthItem:"100%",
         prefixCls:"my-iscroll",
         style:{
             background:'#fff'
@@ -49,10 +55,8 @@ export default class Layout extends React.Component {
     }
     render() {
         
-        let { height, maxHeight, bgColor,style ,prefixCls} = this.props;
-
+        let { height,style ,prefixCls} = this.props;
         style =  objectAssign({},style,{height:height});
-        
         return (
             <div
                 id={this.props.ID}
@@ -60,7 +64,7 @@ export default class Layout extends React.Component {
                 className={prefixCls}
             >
                 <div
-                    className="clearfix"
+                    className="clearfix scrollx-warp"
                     id="scroller"
                 >
                     {this.props.children}

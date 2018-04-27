@@ -9,6 +9,7 @@ import Home from '../containers/Home/index'
 // import lazyLoadComponent from 'lazy-load-component'
 // const  Home = lazyLoadComponent(() => import('./containers/Home/index'))
 import '../assets/style/index.less'
+import 'react-id-swiper/src/styles/less/swiper.less'
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
 
 export const Category = Loadable({
@@ -33,15 +34,16 @@ const Routers = (props) => {
     <Router {...props}>
       <Switch>
 
-        <Route exact path="/" render={() => (
-          <Redirect to="/home"/>
+        <Route exact path="/vb/" render={() => (
+          <Redirect to="/vb/home"/>
         )}/>
-        <Route  path="/activety" component={Activity}  />
-        <Route  path="/about" component={About}  />
-        <Route  path="/home"  component={Home} />
-        <Route  path="/category"  component={Category} />
-        <Route  path="/cart"  component={Cart} />
-        <Route  path="/user"  component={User} />
+        <Route  path="/vb/activety" component={Activity}  />
+        <Route  path="/vb/about" component={About}  />
+        <Route  path="/vb/home"  component={Home} />
+        <Route  path="/vb/category"  component={Category} />
+        <Route  path="/vb/cart"  component={Cart} />
+        <Route  path="/vb/user"  component={User} />
+
       </Switch>
 
     </Router>

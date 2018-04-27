@@ -362,7 +362,7 @@
         "loader": "D:\\VB同构\\node_modules\\_url-loader@0.6.2@url-loader\\index.js",
         "options": {
           "limit": 10000,
-          "name": "[name]-[hash:5].[ext]"
+          "name": "images/[name]-[hash:5].[ext]"
         }
       },
       {

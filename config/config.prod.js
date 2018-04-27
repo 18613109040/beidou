@@ -10,14 +10,14 @@ const localIP = ip.address();
   });
 
 module.exports = {
-  middleware : [
-    'proxy'
-  ],
-  proxy : {
-        match: '/api',
-        host:"http://120.77.6.187:8080",
-        cover:true
-  },
+  // middleware : [
+  //   'proxy'
+  // ],
+  // proxy : {
+  //       match: '/api',
+  //       host:"http://120.77.6.187:8080",
+  //       cover:true
+  // },
   proxyagent : {
     enable: true,
     package: 'egg-development-proxyagent',

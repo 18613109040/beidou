@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import {createPortal} from 'react-dom';
-import SetTitle from 'components/SetTitle'
 import MeScroll from 'mescroll.js'
 import 'mescroll.js/mescroll.min.css'
 import './index.less'

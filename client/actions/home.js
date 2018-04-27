@@ -17,7 +17,7 @@ export function testGet() {
 
 export function testAjax(options,cb=()=>{}){
   request({
-    url: "improduct/list/90ec3950-80a6-4117-8648-d7e1a1ab1ee3",
+    url: "imcampagin/listProduct/61",
     data:options
   }).then(res=>{
     cb(res)

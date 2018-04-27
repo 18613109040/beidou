@@ -61,12 +61,6 @@
       "checkAddress": "D:\\VB同构\\node_modules\\_egg-security@2.2.2@egg-security\\config\\config.default.js"
     }
   },
-  "middleware": "D:\\VB同构\\config\\config.local.js",
-  "proxy": {
-    "match": "D:\\VB同构\\config\\config.local.js",
-    "host": "D:\\VB同构\\config\\config.local.js",
-    "cover": "D:\\VB同构\\config\\config.local.js"
-  },
   "proxyagent": {
     "enable": "D:\\VB同构\\config\\config.local.js",
     "package": "D:\\VB同构\\config\\config.local.js"
@@ -199,6 +193,7 @@
   "cors": "D:\\VB同构\\node_modules\\_egg-cors@2.0.0@egg-cors\\config\\config.default.js",
   "env": "D:\\VB同构\\node_modules\\_beidou-core@1.0.2@beidou-core\\config\\config.default.js",
   "name": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+  "proxy": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
   "protocolHeaders": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
   "ipHeaders": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
   "hostHeaders": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
@@ -248,11 +243,15 @@
       "babel-plugin-import": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "lazy-load-component": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "bundle-loader": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
-      "react-lazy-load": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "egg-cors": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
       "web-storage-cache": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
-      "react-lazy": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
-      "react-loadable": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js"
+      "react-lazyload": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "react-loadable": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "classnames": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "react-id-swiper": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "koa-proxy": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "koa-connect": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js",
+      "react-keeper": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\config.default.js"

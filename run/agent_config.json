@@ -7,15 +7,7 @@
       "encrypt": true
     },
     "security": {
-      "domainWhiteList": [
-        "http://localhost:6001",
-        "http://127.0.0.1:6001",
-        "http://192.168.120.37:6001",
-        "http://localhost:6000",
-        "http://127.0.0.1:6000",
-        "http://192.168.120.37:6000",
-        "http://vbimg.sibumbg.com"
-      ],
+      "domainWhiteList": [],
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": false,
@@ -251,11 +243,7 @@
     "env": "local",
     "name": "beidou-example-with-react-router",
     "keys": "<String len: 6>",
-    "proxy": {
-      "match": "/api",
-      "host": "http://120.77.6.187:8080",
-      "cover": true
-    },
+    "proxy": false,
     "protocolHeaders": "x-forwarded-proto",
     "ipHeaders": "x-forwarded-for",
     "hostHeaders": "",
@@ -305,11 +293,15 @@
         "babel-plugin-import": "^1.7.0",
         "lazy-load-component": "^1.1.5",
         "bundle-loader": "^0.5.2",
-        "react-lazy-load": "*",
         "egg-cors": "2.0.0",
         "web-storage-cache": "1.0.3",
-        "react-lazy": "^0.5.1",
-        "react-loadable": "^5.3.1"
+        "react-lazyload": "^2.3.0",
+        "react-loadable": "^5.3.1",
+        "classnames": "^2.2.5",
+        "react-id-swiper": "^1.6.2",
+        "koa-proxy": "^0.9.0",
+        "koa-connect": "^2.0.1",
+        "react-keeper": "^2.1.7"
       },
       "engines": {
         "node": ">= 8.0.0"
@@ -413,16 +405,13 @@
       "name": "Beidou"
     },
     "hostapi": "https://napi.sibu.net.cn",
-    "middleware": [
-      "proxy"
-    ],
     "proxyagent": {
       "enable": true,
       "package": "egg-development-proxyagent"
     },
     "coreMiddlewares": "~config~coreMiddleware",
-    "appMiddlewares": "~config~middleware",
-    "appMiddleware": "~config~middleware"
+    "appMiddlewares": [],
+    "appMiddleware": "~config~appMiddlewares"
   },
   "plugins": {
     "session": {

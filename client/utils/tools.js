@@ -1,5 +1,12 @@
 import Cookie from "js-cookie";
-
+import warning from 'fbjs/lib/warning'
+export function warningFunc(children) {
+  if (typeof children !== 'object') {
+    warning(false, '你可能传入空元素，请传入react组件或者是DOM节点，children：%s')
+    return false
+  }
+  return true
+}
 /**
  * @desc 链接数组对象里的某个属性,并返回一个数组，如 [{mis_doctor_id:123},{mis_doctor_id:3497}] 返回数组[123, 3497]
  * @param arr
@@ -444,4 +451,26 @@ function isWeiXin() {
     } else { 
         return false; 
     } 
+}
+export function equals( x, y ) {
+  var in1 = x instanceof Object;
+  var in2 = y instanceof Object;
+  if(!in1||!in2){
+    return x===y;
+  }
+  if(Object.keys(x).length!==Object.keys(y).length){
+    return false;
+  }
+  for(var p in x){
+    var a = x[p] instanceof Object;
+    var b = y[p] instanceof Object;
+    if(a&&b){
+      return equals( x[p], y[p]);
+    }
+    else if(x[p]!==y[p]){
+      return false;
+    }
+  }
+
+  return true;
 }

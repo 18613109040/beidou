@@ -1067,6 +1067,7 @@
       // x方向滑动
       if (me.s === 'scrollX') {
         me.x = x - me._s.startX + me._s.endX
+        console.dir(me.x)
         me._doScroll(px, e)
         return
       }

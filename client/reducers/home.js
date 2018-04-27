@@ -19,23 +19,23 @@ export function home(state={}, action) {
 //设置TabBar 数据
 const initTabBarData=[{
   title:"首页",
-  link:"/home",
+  link:"/vb/home",
   icon:require("../assets/images/home.png"),
   selectedIcon:require("../assets/images/home-fill.png")
 },{
   title:"分类",
-  link:"/category",
+  link:"/vb/category",
   icon:require("../assets/images/class.png"),
   selectedIcon:require("../assets/images/class-fill.png")
 
 },{
   title:"购物车",
-  link:"/cart",
+  link:"/vb/cart",
   icon:require("../assets/images/cart.png"),
   selectedIcon:require("../assets/images/cart-fill.png")
 },{
   title:"我的",
-  link:"/user",
+  link:"/vb/user",
   icon:require("../assets/images/my.png"),
   selectedIcon:require("../assets/images/my-fill.png")
 }]
