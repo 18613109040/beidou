@@ -73,13 +73,14 @@
     },
     "onerror": {
       "errorPageUrl": "",
-      "appErrorFilter": null
+      "appErrorFilter": null,
+      "templatePath": "F:\\beidou\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\lib\\onerror_page.mustache"
     },
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "D:\\VB同构\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\default",
-        "development": "D:\\VB同构\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\development"
+        "default": "F:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\default",
+        "development": "F:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\development"
       }
     },
     "multipart": {
@@ -103,7 +104,7 @@
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "D:\\VB同构\\logs\\beidou-example-with-react-router\\egg-schedule.log"
+        "file": "F:\\beidou\\logs\\beidou-example-with-react-router\\egg-schedule.log"
       }
     },
     "logrotator": {
@@ -117,7 +118,7 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "D:\\VB同构\\app\\public",
+      "dir": "F:\\beidou\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
@@ -126,7 +127,7 @@
     },
     "view": {
       "root": [
-        "D:\\VB同构\\client"
+        "F:\\beidou\\client"
       ],
       "cache": false,
       "defaultExtension": ".jsx",
@@ -136,6 +137,7 @@
     "react": {
       "middlewares": [
         "cache",
+        "initialprops",
         "redux",
         "partial",
         "render",
@@ -150,7 +152,9 @@
       "assetPath": "/build/"
     },
     "webpack": {
-      "custom": {},
+      "custom": {
+        "configPath": "F:\\beidou\\config\\webpack.config.js"
+      },
       "output": {
         "path": "./build",
         "filename": "[name].js?[hash]",
@@ -164,7 +168,7 @@
           ".jsx"
         ],
         "alias": {
-          "client": "D:\\VB同构\\client"
+          "client": "F:\\beidou\\client"
         }
       },
       "devServer": {
@@ -192,13 +196,13 @@
       "polyfill": true,
       "babel": {
         "presets": [
-          "D:\\VB同构\\node_modules\\_babel-preset-beidou-server@1.0.0@babel-preset-beidou-server\\index.js"
+          "F:\\beidou\\node_modules\\_babel-preset-beidou-server@1.0.0@babel-preset-beidou-server\\index.js"
         ],
         "babelrc": false,
         "plugins": [
-          "D:\\VB同构\\node_modules\\_babel-plugin-dynamic-import-node@1.2.0@babel-plugin-dynamic-import-node\\lib\\index.js",
+          "F:\\beidou\\node_modules\\_babel-plugin-dynamic-import-node@2.0.0@babel-plugin-dynamic-import-node\\lib\\index.js",
           [
-            "D:\\VB同构\\node_modules\\_babel-plugin-import-inspector@2.0.0@babel-plugin-import-inspector\\index.js",
+            "F:\\beidou\\node_modules\\_babel-plugin-import-inspector@2.0.0@babel-plugin-import-inspector\\index.js",
             {
               "serverSideRequirePath": true
             }
@@ -206,7 +210,7 @@
         ]
       },
       "universal": {
-        "assetsFilePath": "D:\\VB同构\\.isomorphic\\assets.json",
+        "assetsFilePath": "F:\\beidou\\.isomorphic\\assets.json",
         "assets": [
           ".sass",
           ".scss",
@@ -233,7 +237,7 @@
         ]
       },
       "alias": {
-        "client": "D:\\VB同构\\client"
+        "client": "F:\\beidou\\client"
       }
     },
     "router": {
@@ -271,40 +275,40 @@
       },
       "dependencies": {
         "babel-eslint": "^8.1.2",
-        "babel-plugin-dynamic-import-node": "^1.2.0",
+        "babel-plugin-dynamic-import-node": "^2.0.0",
         "babel-plugin-import-inspector": "^2.0.0",
         "import-inspector": "^2.0.0",
         "babel-polyfill": "^6.26.0",
-        "beidou-cli": "^1.0.0",
-        "beidou-core": "^1.0.1",
+        "beidou-cli": "^1.0.5",
+        "beidou-core": "^1.0.4",
         "eslint": "^4.11.0",
         "eslint-config-beidou": "^1.0.0",
         "eslint-plugin-import": "^2.8.0",
         "eslint-plugin-react": "^7.5.1",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
-        "react-router-dom": "^4.2.2",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "react-router-dom": "^4.3.1",
         "isomorphic-fetch": "2.2.1",
         "egg-development-proxyagent": "1.0.0",
         "anyproxy": "4.0.6",
         "es6-promise": "4.2.4",
         "react-redux": "5.0.7",
-        "redux": "3.7.2",
-        "redux-thunk": "2.2.0",
+        "redux": "4.0.0",
+        "redux-thunk": "2.3.0",
         "fastclick": "1.0.6",
         "js-cookie": "2.2.0",
         "postcss-pxtorem": "4.0.1",
         "cssnano": "3.10.0",
-        "prop-types": "15.6.1",
+        "prop-types": "15.6.2",
         "object-assign": "4.1.1",
         "mescroll.js": "1.3.2",
-        "antd-mobile": "2.1.8",
-        "babel-plugin-import": "^1.7.0",
-        "lazy-load-component": "^1.1.5",
+        "antd-mobile": "2.2.2",
+        "antd": "3.6.6",
+        "ant-design-pro": "2.0.0-beta.2",
+        "babel-plugin-import": "1.8.0",
         "bundle-loader": "^0.5.2",
-        "egg-cors": "2.0.0",
+        "egg-cors": "2.1.0",
         "web-storage-cache": "1.0.3",
-        "react-lazyload": "^2.3.0",
         "react-loadable": "^5.3.1",
         "classnames": "^2.2.5",
         "react-id-swiper": "^1.6.2",
@@ -316,9 +320,9 @@
         "node": ">= 8.0.0"
       }
     },
-    "baseDir": "D:\\VB同构",
-    "HOME": "C:\\Users\\Administrator",
-    "rundir": "D:\\VB同构\\run",
+    "baseDir": "F:\\beidou",
+    "HOME": "C:\\Users\\igola",
+    "rundir": "F:\\beidou\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -349,7 +353,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "D:\\VB同构\\logs\\beidou-example-with-react-router",
+      "dir": "F:\\beidou\\logs\\beidou-example-with-react-router",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -364,7 +368,7 @@
       "coreLogger": {
         "consoleLevel": "WARN"
       },
-      "allowDebugAtProd": true,
+      "allowDebugAtProd": false,
       "type": "application"
     },
     "httpclient": {
@@ -412,10 +416,11 @@
       }
     },
     "clusterClient": {
+      "maxWaitTime": 60000,
       "responseTimeout": 60000
     },
     "onClientError": null,
-    "client": "D:\\VB同构\\client",
+    "client": "F:\\beidou\\client",
     "core": {
       "name": "Beidou"
     },
@@ -448,8 +453,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-session@3.1.0@egg-session",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-session@3.1.0@egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -461,9 +466,9 @@
         "session"
       ],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-security@2.2.2@egg-security",
-      "version": "2.2.2"
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-security@2.2.3@egg-security",
+      "version": "2.2.3"
     },
     "jsonp": {
       "enable": true,
@@ -474,8 +479,8 @@
         "security"
       ],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -487,9 +492,9 @@
         "jsonp"
       ],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-onerror@2.0.0@egg-onerror",
-      "version": "2.0.0"
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-onerror@2.1.0@egg-onerror",
+      "version": "2.1.0"
     },
     "watcher": {
       "enable": true,
@@ -498,8 +503,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-watcher@3.0.0@egg-watcher",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher",
       "version": "3.0.0"
     },
     "multipart": {
@@ -509,8 +514,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-multipart@2.0.0@egg-multipart",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart",
       "version": "2.0.0"
     },
     "development": {
@@ -524,9 +529,9 @@
       "env": [
         "local"
       ],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-development@2.2.0@egg-development",
-      "version": "2.2.0"
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development",
+      "version": "2.3.1"
     },
     "schedule": {
       "enable": true,
@@ -535,8 +540,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-schedule@3.3.0@egg-schedule",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-schedule@3.3.0@egg-schedule",
       "version": "3.3.0"
     },
     "logrotator": {
@@ -548,8 +553,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator",
       "version": "3.0.3"
     },
     "static": {
@@ -559,9 +564,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-static@2.1.0@egg-static",
-      "version": "2.1.0"
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-static@2.1.1@egg-static",
+      "version": "2.1.1"
     },
     "view": {
       "enable": true,
@@ -570,8 +575,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_egg@2.7.1@egg\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-view@2.1.0@egg-view",
+      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-view@2.1.0@egg-view",
       "version": "2.1.0"
     },
     "beidouView": {
@@ -581,9 +586,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_beidou-core@1.0.2@beidou-core\\config\\plugin.default.js",
-      "path": "D:\\VB同构\\node_modules\\_beidou-view@1.0.0@beidou-view",
-      "version": "1.0.0"
+      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "F:\\beidou\\node_modules\\_beidou-view@1.0.3@beidou-view",
+      "version": "1.0.3"
     },
     "react": {
       "enable": true,
@@ -594,9 +599,9 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_beidou-core@1.0.2@beidou-core\\config\\plugin.default.js",
-      "path": "D:\\VB同构\\node_modules\\_beidou-view-react@1.0.0@beidou-view-react",
-      "version": "1.0.0"
+      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react",
+      "version": "1.0.3"
     },
     "webpack": {
       "enable": true,
@@ -608,9 +613,9 @@
       "name": "webpack",
       "dependencies": [],
       "optionalDependencies": [],
-      "from": "D:\\VB同构\\node_modules\\_beidou-core@1.0.2@beidou-core\\config\\plugin.default.js",
-      "path": "D:\\VB同构\\node_modules\\_beidou-webpack@1.0.2@beidou-webpack",
-      "version": "1.0.2"
+      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack",
+      "version": "1.0.4"
     },
     "isomorphic": {
       "enable": true,
@@ -619,8 +624,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_beidou-core@1.0.2@beidou-core\\config\\plugin.default.js",
-      "path": "D:\\VB同构\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic",
+      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic",
       "version": "1.0.0"
     },
     "router": {
@@ -630,8 +635,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\node_modules\\_beidou-core@1.0.2@beidou-core\\config\\plugin.default.js",
-      "path": "D:\\VB同构\\node_modules\\_beidou-router@1.0.0@beidou-router",
+      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router",
       "version": "1.0.0"
     },
     "cors": {
@@ -641,9 +646,9 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\VB同构\\config\\plugin.js",
-      "path": "D:\\VB同构\\node_modules\\_egg-cors@2.0.0@egg-cors",
-      "version": "2.0.0"
+      "from": "F:\\beidou\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-cors@2.1.0@egg-cors",
+      "version": "2.1.0"
     }
   }
 }

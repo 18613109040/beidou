@@ -1,6 +1,6 @@
 {
   "output": {
-    "path": "D:\\VB同构\\build",
+    "path": "F:\\beidou\\build",
     "filename": "[name].js?[hash]",
     "chunkFilename": "[name].js",
     "publicPath": "/build/",
@@ -27,7 +27,7 @@
       ".jsx"
     ],
     "alias": {
-      "client": "D:\\VB同构\\client"
+      "client": "F:\\beidou\\client"
     },
     "unsafeCache": true,
     "modules": [
@@ -62,29 +62,17 @@
     "stats": {
       "colors": true,
       "chunks": false,
-      "context": "D:\\VB同构"
+      "context": "F:\\beidou"
     },
     "publicPath": "/build/",
     "hot": true
   },
   "bail": false,
   "devtool": "eval",
-  "context": "D:\\VB同构",
+  "context": "F:\\beidou",
   "entry": {
-    "index": [
-      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
-      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\VB同构\\client\\index.jsx"
-    ],
-    "reducers": [
-      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
-      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\VB同构\\client\\reducers\\index.js"
-    ],
-    "router": [
-      "D:\\VB同构\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
-      "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\hot\\only-dev-server.js",
-      "D:\\VB同构\\client\\router\\index.js"
+    "main": [
+      "F:\\beidou\\client\\index.jsx"
     ]
   },
   "module": {
@@ -94,28 +82,11 @@
         "test": "/\\.(js|jsx|mjs)$/",
         "exclude": "/node_modules/",
         "use": {
-          "loader": "D:\\VB同构\\node_modules\\_babel-loader@7.1.4@babel-loader\\lib\\index.js",
+          "loader": "F:\\beidou\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js",
           "options": {
             "babelrc": false,
-            "plugins": [
-              [
-                "transform-runtime",
-                {
-                  "polyfill": false
-                }
-              ],
-              [
-                "import",
-                [
-                  {
-                    "style": true,
-                    "libraryName": "antd-mobile"
-                  }
-                ]
-              ]
-            ],
             "presets": [
-              "D:\\VB同构\\node_modules\\_babel-preset-beidou-client@1.0.0@babel-preset-beidou-client\\index.js"
+              "F:\\beidou\\node_modules\\_babel-preset-beidou-client@1.0.0@babel-preset-beidou-client\\index.js"
             ],
             "cacheDirectory": true,
             "compact": false,
@@ -128,20 +99,20 @@
         "exclude": "/\\.module\\.css$/",
         "loader": [
           {
-            "loader": "D:\\VB同构\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -150,7 +121,7 @@
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_postcss-loader@2.1.4@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
@@ -161,20 +132,20 @@
         "test": "/\\.module\\.css$/",
         "loader": [
           {
-            "loader": "D:\\VB同构\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -184,7 +155,7 @@
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_postcss-loader@2.1.4@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
@@ -196,20 +167,20 @@
         "exclude": "/\\.module\\.s(c|a)ss$/",
         "use": [
           {
-            "loader": "D:\\VB同构\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -218,13 +189,13 @@
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_postcss-loader@2.1.4@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
+            "loader": "F:\\beidou\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
           }
         ]
       },
@@ -232,20 +203,20 @@
         "test": "/\\.module\\.s(c|a)ss$/",
         "use": [
           {
-            "loader": "D:\\VB同构\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -255,13 +226,13 @@
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_postcss-loader@2.1.4@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
+            "loader": "F:\\beidou\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
           }
         ]
       },
@@ -270,20 +241,20 @@
         "exclude": "/\\.module\\.less$/",
         "use": [
           {
-            "loader": "D:\\VB同构\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -292,18 +263,15 @@
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_postcss-loader@2.1.4@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
+            "loader": "F:\\beidou\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
             "options": {
-              "javascriptEnabled": true,
-              "modifyVars": {
-                "@hd": "2px"
-              }
+              "javascriptEnabled": true
             }
           }
         ]
@@ -312,20 +280,20 @@
         "test": "/\\.module\\.less$/",
         "use": [
           {
-            "loader": "D:\\VB同构\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -335,18 +303,15 @@
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_postcss-loader@2.1.4@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "D:\\VB同构\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
+            "loader": "F:\\beidou\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
             "options": {
-              "javascriptEnabled": true,
-              "modifyVars": {
-                "@hd": "2px"
-              }
+              "javascriptEnabled": true
             }
           }
         ]
@@ -359,10 +324,10 @@
           "/\\.png$/",
           "/\\.webp$/"
         ],
-        "loader": "D:\\VB同构\\node_modules\\_url-loader@0.6.2@url-loader\\index.js",
+        "loader": "F:\\beidou\\node_modules\\_url-loader@0.6.2@url-loader\\index.js",
         "options": {
           "limit": 10000,
-          "name": "images/[name]-[hash:5].[ext]"
+          "name": "[name]-[hash:5].[ext]"
         }
       },
       {
@@ -376,7 +341,7 @@
           "/\\.eot$/",
           "/\\.midi?$/"
         ],
-        "loader": "D:\\VB同构\\node_modules\\_file-loader@1.1.11@file-loader\\dist\\cjs.js",
+        "loader": "F:\\beidou\\node_modules\\_file-loader@1.1.11@file-loader\\dist\\cjs.js",
         "options": {
           "name": "[name]-[hash:5].[ext]"
         }
@@ -403,7 +368,7 @@
     {
       "<IsomorphicPlugin>": {
         "options": {
-          "assetsFilePath": "D:\\VB同构\\.isomorphic\\assets.json",
+          "assetsFilePath": "F:\\beidou\\.isomorphic\\assets.json",
           "assets": [
             ".sass",
             ".scss",
@@ -428,7 +393,7 @@
             ".mid",
             ".midi"
           ],
-          "context": "D:\\VB同构"
+          "context": "F:\\beidou"
         },
         "exts": {
           ".sass": {
@@ -540,7 +505,7 @@
           "manifest"
         ],
         "filenameTemplate": "manifest.js",
-        "ident": "D:\\VB同构\\node_modules\\_webpack@3.11.0@webpack\\lib\\optimize\\CommonsChunkPlugin.js0"
+        "ident": "F:\\beidou\\node_modules\\_webpack@3.12.0@webpack\\lib\\optimize\\CommonsChunkPlugin.js0"
       }
     },
     {

@@ -1,7 +1,6 @@
 'use strict';
-const ip = require('ip');
-const path = require('path');
-const localIP = ip.address();
+
+
 const domainWhiteList = [];
 // [6001, 6000].forEach(port => {
 //   domainWhiteList.push(`http://localhost:${port}`);
@@ -11,13 +10,13 @@ const domainWhiteList = [];
 // });
 // domainWhiteList.push(`http://testxws.sibumbg.com`);
 module.exports = {
-  proxyagent:{
-    enable:true,
+  proxyagent: {
+    enable: true,
     package: 'egg-development-proxyagent',
   },
-  react : {
-    static: true
+  react: {
+    static: true,
   },
-  security : { domainWhiteList }
-}
+  security: { domainWhiteList },
+};
 

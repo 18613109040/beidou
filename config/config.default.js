@@ -1,9 +1,10 @@
 'use strict';
+
 const path = require('path');
 
-module.exports= {
-  keys : 'secret',
-  hostapi:"https://napi.sibu.net.cn",
+module.exports = {
+  keys: 'secret',
+  hostapi: 'https://napi.sibu.net.cn',
   isomorphic: {
     babel: {
       plugins: [
@@ -12,18 +13,17 @@ module.exports= {
           serverSideRequirePath: true,
         }],
       ],
-    }
+    },
   },
 
-  // webpack: {
-  //   custom: {
-  //     configPath: path.join(__dirname, './webpack.config.js'),
-  //   },
-  // },
-  //关闭scrf安全策略
-  security : {
-    csrf: false
-  }
+  webpack: {
+    custom: {
+      configPath: path.join(__dirname, './webpack.config.js'),
+    },
+  },
+  // 关闭scrf安全策略
+  security: {
+    csrf: false,
+  },
 };
-
 
