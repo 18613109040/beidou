@@ -71,8 +71,8 @@
   "devtool": "eval",
   "context": "F:\\beidou",
   "entry": {
-    "main": [
-      "F:\\beidou\\client\\index.jsx"
+    "login": [
+      "F:\\beidou\\client\\pages\\login\\index.jsx"
     ]
   },
   "module": {
@@ -85,6 +85,23 @@
           "loader": "F:\\beidou\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js",
           "options": {
             "babelrc": false,
+            "plugins": [
+              [
+                "transform-runtime",
+                {
+                  "polyfill": false
+                }
+              ],
+              [
+                "import",
+                [
+                  {
+                    "style": true,
+                    "libraryName": "antd"
+                  }
+                ]
+              ]
+            ],
             "presets": [
               "F:\\beidou\\node_modules\\_babel-preset-beidou-client@1.0.0@babel-preset-beidou-client\\index.js"
             ],
@@ -334,6 +351,9 @@
         "test": [
           "/\\.ico$/",
           "/\\.svgz?$/",
+          "/\\.png?$/",
+          "/\\.jpe?$/",
+          "/\\.gif?$/",
           "/\\.woff2?$/",
           "/\\.otf$/",
           "/\\.tiff?$/",

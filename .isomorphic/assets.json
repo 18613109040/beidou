@@ -1,3 +1,4 @@
 {
-  "client\\assets\\style\\index.less": {}
+  "client\\pages\\login\\container\\index.less": {},
+  "client\\pages\\login\\index.less": {}
 }

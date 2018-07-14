@@ -55,6 +55,41 @@
       "hot": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
     }
   },
+  "logger": {
+    "level": "F:\\beidou\\config\\config.default.js",
+    "dir": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "encoding": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "env": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "outputJSON": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "buffer": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "appLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "coreLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "agentLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "errorLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+  },
+  "router": {
+    "root": "F:\\beidou\\config\\config.default.js",
+    "entry": "F:\\beidou\\config\\config.default.js",
+    "urlPrefix": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "exclude": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "mapping": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
+    "ext": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js"
+  },
+  "react": {
+    "static": "F:\\beidou\\config\\config.default.js",
+    "middlewares": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
+    "beautify": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
+    "cache": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.local.js",
+    "doctype": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
+    "assetHost": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
+    "assetPath": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js"
+  },
   "security": {
     "csrf": "F:\\beidou\\config\\config.default.js",
     "domainWhiteList": "F:\\beidou\\config\\config.local.js",
@@ -101,15 +136,6 @@
   "proxyagent": {
     "enable": "F:\\beidou\\config\\config.local.js",
     "package": "F:\\beidou\\config\\config.local.js"
-  },
-  "react": {
-    "static": "F:\\beidou\\config\\config.local.js",
-    "middlewares": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
-    "beautify": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
-    "cache": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.local.js",
-    "doctype": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
-    "assetHost": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
-    "assetPath": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js"
   },
   "session": {
     "maxAge": "F:\\beidou\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
@@ -184,14 +210,6 @@
     "defaultExtension": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
     "defaultViewEngine": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
     "mapping": "F:\\beidou\\node_modules\\_egg-view@2.1.0@egg-view\\config\\config.default.js"
-  },
-  "router": {
-    "root": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
-    "urlPrefix": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
-    "exclude": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
-    "mapping": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
-    "entry": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
-    "ext": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js"
   },
   "cors": "F:\\beidou\\node_modules\\_egg-cors@2.1.0@egg-cors\\config\\config.default.js",
   "env": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js",
@@ -290,24 +308,6 @@
       "depth": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "parameterLimit": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
     }
-  },
-  "logger": {
-    "dir": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "encoding": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "env": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "level": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "disableConsoleAfterReady": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "outputJSON": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "buffer": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "appLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "coreLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "agentLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "errorLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "coreLogger": {
-      "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.local.js"
-    },
-    "allowDebugAtProd": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
   },
   "httpclient": {
     "enableDNSCache": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",

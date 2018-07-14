@@ -21,6 +21,16 @@ module.exports = {
       configPath: path.join(__dirname, './webpack.config.js'),
     },
   },
+  logger: {
+    level: 'DEBUG',
+  },
+  router: {
+    root: '/pages',
+    entry: 'page',
+  },
+  react: {
+    static: true,
+  },
   // 关闭scrf安全策略
   security: {
     csrf: false,

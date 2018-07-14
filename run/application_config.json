@@ -241,11 +241,11 @@
       }
     },
     "router": {
-      "root": "/",
+      "root": "/pages",
       "urlPrefix": "/",
       "exclude": "_*",
       "mapping": null,
-      "entry": null,
+      "entry": "page",
       "ext": [
         ".jsx"
       ]
@@ -356,7 +356,7 @@
       "dir": "F:\\beidou\\logs\\beidou-example-with-react-router",
       "encoding": "utf8",
       "env": "local",
-      "level": "INFO",
+      "level": "DEBUG",
       "consoleLevel": "INFO",
       "disableConsoleAfterReady": false,
       "outputJSON": false,
