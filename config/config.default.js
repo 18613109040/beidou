@@ -5,17 +5,17 @@ const path = require('path');
 module.exports = {
   keys: 'secret',
   hostapi: 'https://napi.sibu.net.cn',
-  isomorphic: {
-    babel: {
-      plugins: [
-        require.resolve('babel-plugin-dynamic-import-node'),
-        [require.resolve('babel-plugin-import-inspector'), {
-          serverSideRequirePath: true,
-        }],
-      ],
-    },
-  },
-
+  // isomorphic: {
+  //   babel: {
+  //     plugins: [
+  //       require.resolve('babel-plugin-dynamic-import-node'),
+  //       [require.resolve('babel-plugin-import-inspector'), {
+  //         serverSideRequirePath: true,
+  //       }],
+  //     ],
+  //   },
+  // },
+  middleware: ['errorHandler'],
   webpack: {
     custom: {
       configPath: path.join(__dirname, './webpack.config.js'),

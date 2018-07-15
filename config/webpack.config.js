@@ -181,7 +181,7 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
   resolve: {
     extensions: ['.json', '.js', '.jsx'],
     alias: {
-      client: path.join(__dirname, '../client'),
+      client: path.join(__dirname, '../client')
     },
   },
 });

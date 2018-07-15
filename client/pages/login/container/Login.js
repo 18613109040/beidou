@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Icon, Input, Button } from 'antd';
 import './index.less';
+import request from '../../../utils/request';
 
 const FormItem = Form.Item;
 
@@ -33,6 +34,10 @@ class Login extends React.Component {
           this.setState({
             loading: true,
           });
+          request('/api/user/access/login', {
+            method: 'POST',
+            body: values,
+          });
           console.log('Received values of form: ', values);
         }
       });
@@ -48,7 +53,7 @@ class Login extends React.Component {
             </div>
             <Form onSubmit={this.handleSubmit} className="login-form">
               <FormItem>
-                {getFieldDecorator('userName', {
+                {getFieldDecorator('email', {
                   rules: [{ required: true, message: '请输入邮箱账号' }],
                 })(
                   <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="邮箱" />

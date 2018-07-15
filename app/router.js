@@ -13,5 +13,5 @@ module.exports = (app) => {
   //     pathRewrite: { '^/api': '' },
   //   }))(this, next);
   // });
-  // router.post('/api/user/access/login', controller.userAccess.login);
+  router.post('/api/user/access/login', controller.userAccess.login);
 };

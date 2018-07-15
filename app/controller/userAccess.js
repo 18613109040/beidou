@@ -12,8 +12,8 @@ class UserAccessController extends Controller {
     super(ctx);
 
     this.UserLoginTransfer = {
-      mobile: { type: 'string', required: true, allowEmpty: false },
-      password: { type: 'string', required: true, allowEmpty: false },
+      email: { type: 'email', required: true, allowEmpty: false },
+      password: { type: 'password', required: true, allowEmpty: false },
     };
 
     this.UserResetPswTransfer = {
