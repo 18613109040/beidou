@@ -3,9 +3,9 @@
 const { Controller } = require('beidou-core');
 
 class IndexController extends Controller {
-  async route() {
+  async index() {
     const { ctx } = this;
-    await ctx.render('index');
+    await ctx.render('pages/home');
   }
 }
 

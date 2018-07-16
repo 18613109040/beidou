@@ -14,6 +14,7 @@ module.exports = {
     enable: true,
     package: 'egg-development-proxyagent',
   },
+  react: {},
   // webpack: {
   //   devServer: {
   //     disableHostCheck: true, // 由于绑定了host, webpack-dev-server 校验header时抛出错误, 可以通过修改devServer配置关闭header校验:

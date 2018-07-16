@@ -74,15 +74,4 @@ if (__CLIENT__) {
     <Provider store={store}>
       <Routers />
     </Provider>, document.getElementById('container'));
-  if (module.hot) {
-    module.hot.accept('./router', () => {
-      const NewTodoApp = require('./router').default;
-      ReactDOM.hydrate(
-        <Provider store={store}>
-          <NewTodoApp />
-        </Provider>,
-        document.getElementById('container')
-      );
-    });
-  }
 }

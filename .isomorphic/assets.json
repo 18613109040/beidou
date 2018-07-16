@@ -1,4 +1,7 @@
 {
+  "client\\pages\\home\\container\\Home\\index.less": {},
+  "client\\pages\\home\\container\\Role\\index.less": {},
+  "client\\pages\\home\\index.less": {},
   "client\\pages\\login\\container\\index.less": {},
   "client\\pages\\login\\index.less": {}
 }

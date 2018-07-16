@@ -14,16 +14,7 @@ class UserAccessController extends Controller {
     this.UserLoginTransfer = {
       email: { type: 'email', required: true, allowEmpty: false },
       password: { type: 'password', required: true, allowEmpty: false },
-    };
 
-    this.UserResetPswTransfer = {
-      password: { type: 'password', required: true, allowEmpty: false, min: 6 },
-      oldPassword: { type: 'password', required: true, allowEmpty: false, min: 6 },
-    };
-
-    this.UserUpdateTransfer = {
-      mobile: { type: 'string', required: true, allowEmpty: false },
-      realName: { type: 'string', required: true, allowEmpty: false, format: /^[\u2E80-\u9FFF]{2,6}$/ },
     };
   }
 

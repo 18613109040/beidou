@@ -147,6 +147,7 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
   ...defaultConfig,
   entry: {
     login: [path.join(__dirname, '../client/pages/login/index.jsx')],
+    main: [path.join(__dirname, '../client/pages/home/index.jsx')],
   },
   module: {
     ...defaultConfig.module,
@@ -181,7 +182,7 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
   resolve: {
     extensions: ['.json', '.js', '.jsx'],
     alias: {
-      client: path.join(__dirname, '../client')
+      client: path.join(__dirname, '../client'),
     },
   },
 });
