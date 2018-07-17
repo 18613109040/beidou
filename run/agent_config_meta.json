@@ -238,6 +238,8 @@
       "babel-eslint": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "babel-plugin-dynamic-import-node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "babel-plugin-import-inspector": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "babel-plugin-transform-decorators-legacy": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "babel-plugin-transform-runtime": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "import-inspector": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "babel-polyfill": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "beidou-cli": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
@@ -277,7 +279,13 @@
       "koa-connect": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "react-keeper": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "egg-validate": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-mongoose": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "egg-mongoose": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "enquire-js": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "react-container-query": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "path-to-regexp": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "react-document-title": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "lodash": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"

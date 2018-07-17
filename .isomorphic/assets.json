@@ -1,4 +1,7 @@
 {
+  "client\\pages\\home\\components\\GlobalHeader\\index.less": {},
+  "client\\pages\\home\\components\\HeaderSearch\\index.less": {},
+  "client\\pages\\home\\components\\SiderMenu\\index.less": {},
   "client\\pages\\home\\container\\Home\\index.less": {},
   "client\\pages\\home\\container\\Role\\index.less": {},
   "client\\pages\\home\\index.less": {},

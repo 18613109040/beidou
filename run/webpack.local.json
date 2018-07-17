@@ -89,6 +89,7 @@
           "options": {
             "babelrc": false,
             "plugins": [
+              "transform-decorators-legacy",
               [
                 "transform-runtime",
                 {

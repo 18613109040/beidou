@@ -7,10 +7,10 @@ const { Sider } = Layout;
 const { SubMenu } = Menu;
 const getIcon = (icon) => {
   if (typeof icon === 'string' && icon.indexOf('http') === 0) {
-    return <img src={icon} alt="icon" className={'sider-menu-item-img'} />;
+    return <img src={icon} alt="icon" className="icon sider-menu-item-img" />;
   }
   if (typeof icon === 'string') {
-    return <Icon type={icon} />;
+    return <i className={`icon iconfont ${icon}`} />;
   }
   return icon;
 };
@@ -37,6 +37,7 @@ export default class SiderMenu extends PureComponent {
         // make dom
         const ItemDom = this.getSubMenuOrItem(item);
         return ItemDom;
+        // return this.checkPermissionItem(item.authority, ItemDom);
       })
       .filter(item => item);
   };
@@ -45,7 +46,6 @@ export default class SiderMenu extends PureComponent {
    * get SubMenu or Item
    */
   getSubMenuOrItem = (item) => {
-    console.dir(item);
     if (item.children && item.children.some(child => child.name)) {
       const childrenItems = this.getNavMenuItems(item.children);
       // 当无子菜单时就不展示菜单
@@ -56,7 +56,7 @@ export default class SiderMenu extends PureComponent {
               item.icon ? (
                 <span>
                   {getIcon(item.icon)}
-                  <span>{item.name}</span>
+                  <span className="menu-name">{item.name}</span>
                 </span>
               ) : (
                 item.name
@@ -74,7 +74,6 @@ export default class SiderMenu extends PureComponent {
     }
   };
 
-
   /**
    * 判断是否是http链接.返回 Link 或 a
    * Judge whether it is http link.return a or Link
@@ -89,7 +88,7 @@ export default class SiderMenu extends PureComponent {
       return (
         <a href={itemPath} target={target}>
           {icon}
-          <span>{name}</span>
+          <span className="menu-name">{name}</span>
         </a>
       );
     }
@@ -108,7 +107,7 @@ export default class SiderMenu extends PureComponent {
         }
       >
         {icon}
-        <span>{name}</span>
+        <span className="menu-name">{name}</span>
       </Link>
     );
   };
@@ -123,36 +122,36 @@ export default class SiderMenu extends PureComponent {
     }
   };
 
-  render() {
-    const { logo, collapsed } = this.props;
-    const { openKeys } = this.state;
-    // if pathname can't match, use the nearest parent's key
-    // let selectedKeys = this.getSelectedMenuKeys();
-    // if (!selectedKeys.length) {
-    //   selectedKeys = [openKeys[openKeys.length - 1]];
-    // }
-    return (
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        width={256}
-      >
-        <div key="logo">
-          <Link to="/">
-            <img src={logo} alt="logo" />
-          </Link>
-        </div>
-        <Menu
-          key="Menu"
-          theme="dark"
-          mode="inline"
-        //   selectedKeys={selectedKeys}
-          style={{ padding: '16px 0', width: '100%' }}
-        >
-          {this.getNavMenuItems(this.menus)}
-        </Menu>
-      </Sider>
-    );
-  }
+ // permission to check
+ checkPermissionItem = (authority, ItemDom) => {
+   const { Authorized } = this.props;
+   if (Authorized && Authorized.check) {
+     const { check } = Authorized;
+     return check(authority, ItemDom);
+   }
+   return ItemDom;
+ };
+
+ render() {
+   console.dir(this.props);
+   const { collapsed } = this.props;
+   return (
+     <Sider
+       trigger={null}
+       collapsible
+       collapsed={collapsed}
+       className="sider"
+     >
+       <div className="logo" key="logo">
+         <Link to="/">
+           <img src="http://lb.sit.igola.com:9000/assets/images/igola_logo.png" alt="logo" />
+           <h1>iGola CMS</h1>
+         </Link>
+       </div>
+       <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} style={{ width: '100%' }}>
+         {this.getNavMenuItems(this.menus)}
+       </Menu>
+     </Sider>
+   );
+ }
 }

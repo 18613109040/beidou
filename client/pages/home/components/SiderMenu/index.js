@@ -11,11 +11,11 @@ const SiderMenuWrapper = (props) => {
       level={null}
       handleChild={<i className="drawer-handle-icon" />}
       onHandleClick={() => {
-        // props.onCollapse(!collapsed);
+        props.onCollapse(!collapsed);
       }}
       open={!collapsed}
       onMaskClick={() => {
-        // props.onCollapse(true);
+        props.onCollapse(true);
       }}
     >
       <SiderMenu {...props} collapsed={isMobile ? false : collapsed} />

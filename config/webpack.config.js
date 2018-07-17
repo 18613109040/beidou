@@ -160,6 +160,7 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
           options: {
             babelrc: false,
             plugins: [
+              'transform-decorators-legacy',
               ['transform-runtime', { polyfill: false }], //= =>新增
               ['import', [{ style: true, libraryName: 'antd' }]], //= =>新增
             ],
