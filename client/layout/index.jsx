@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore from '../store';
 
 /**
  * custom view template
@@ -46,29 +45,13 @@ export class View extends React.Component {
   }
 }
 
-export const render = (App, reducers) => {
-  /**
-   * client scope, wrapped in __CLIENT__ detect block
-   * only run in client side
-   */
+export const render = (App, store) => {
   if (__CLIENT__) {
-    const store = configureStore(reducers, window.__INITIAL_STATE__);
     const app = (
       <Provider store={store}>
         <App />
       </Provider>
     );
     ReactDOM.render(app, document.getElementById('container'));
-    // if (module.hot) {
-    //   module.hot.accept(App, () => {
-    //     const NewTodoApp = App;
-    //     ReactDOM.hydrate(
-    //       <Provider store={store}>
-    //         <NewTodoApp />
-    //       </Provider>,
-    //       document.getElementById('container')
-    //     );
-    //   });
-    // }
   }
 };

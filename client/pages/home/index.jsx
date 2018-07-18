@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import configureStore from 'client/store';
 import { View } from 'client/layout';
-import reducers from './reducers';
 import routes from './routes';
 import Layout from './layout';
+import configureStore from './store';
 import './index.less';
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
@@ -19,7 +18,7 @@ export default class RouteView extends View {
   };
 
   static async getStore() {
-    const store = configureStore(reducers);
+    const store = configureStore();
     return store;
   }
 
@@ -50,7 +49,7 @@ export default class RouteView extends View {
  * only run in client side
  */
 if (__CLIENT__) {
-  const store = configureStore(reducers, window.__INITIAL_STATE__);
+  const store = configureStore(window.__INITIAL_STATE__);
   const app = (
     <Provider store={store}>
       <Router>

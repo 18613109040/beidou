@@ -33,7 +33,20 @@ function checkStatus(response) {
   error.response = response;
   throw error;
 }
-
+/**
+ * @desc 格式化一个对象为字符串如 name=pat&city_no=020&old=99;
+ * @param data string
+ * */
+function parseParams(data) {
+  if (data == null) {
+    return '';
+  }
+  const list = [];
+  for (const item in data) {
+    list.push(`${item}=${data[item]}`);
+  }
+  return list.join('&');
+}
 /**
  * Requests a URL, returning a promise.
  *
@@ -67,6 +80,9 @@ export default function request(url, options) {
         ...newOptions.headers,
       };
     }
+  } else {
+    const params = parseParams(newOptions.body);
+    url = newOptions.body == null ? url : `${url}?${params}`;
   }
 
   return fetch(url, newOptions)

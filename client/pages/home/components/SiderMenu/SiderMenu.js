@@ -133,7 +133,6 @@ export default class SiderMenu extends PureComponent {
  };
 
  render() {
-   console.dir(this.props);
    const { collapsed } = this.props;
    return (
      <Sider

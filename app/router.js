@@ -5,6 +5,7 @@
 
 module.exports = (app) => {
   const { router, controller } = app;
+  router.get('/api/role', controller.role.index);
   router.get('login', '/login', controller.user.login);
   router.get('/', '/*', controller.index.index);
   // router.get('/api/*', function* (next) {
@@ -16,5 +17,7 @@ module.exports = (app) => {
   // });
   router.post('/api/user', controller.user.create);
   router.post('/api/role', controller.role.create);
+
+
   router.post('/api/user/access/login', controller.userAccess.login);
 };

@@ -8,24 +8,24 @@ import request from '../../../utils/request';
 const FormItem = Form.Item;
 
 class Login extends React.Component {
-    static contextTypes = {
-      router: PropTypes.object.isRequired,
+  // static contextTypes = {
+  //   router: PropTypes.object.isRequired,
+  // };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
     };
+  }
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        loading: false,
-      };
-    }
+  componentWillMount() {
 
-    componentWillMount() {
+  }
 
-    }
+  componentDidMount() {
 
-    componentDidMount() {
-
-    }
+  }
 
     handleSubmit = (e) => {
       e.preventDefault();

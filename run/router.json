@@ -1,5 +1,18 @@
 [
   {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/api/role",
+    "regexp": "/^\\/api\\/role(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
     "name": "login",
     "methods": [
       "HEAD",

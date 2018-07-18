@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
 import { getMenuData } from '../common/menu';
-import { enquireScreen, unenquireScreen } from 'enquire-js';
+
 
 const { Header, Content } = Layout;
 
@@ -54,7 +54,7 @@ class BasicLayout extends React.Component {
               onCollapse={this.handleMenuCollapse}
             />
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+          <Content style={{ margin: '24px 24px', background: '#fff', minHeight: 280 }}>
             {this.props.children}
           </Content>
         </Layout>

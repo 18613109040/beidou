@@ -22,7 +22,7 @@ export default class GlobalHeader extends PureComponent {
     window.dispatchEvent(event);
   }
   onMenuClick(key){
-    console.dir(key)
+  
     if (key === 'triggerError') {
      
       return;
