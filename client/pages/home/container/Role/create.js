@@ -77,6 +77,25 @@ class RoleCreate extends React.Component {
           xxl: { span: 8 },
         },
       };
+
+      const { selectedRows, tableLoading } = this.state;
+      const columns = [
+        { title: 'Date', dataIndex: 'date', key: 'date' },
+        { title: 'Name', dataIndex: 'name', key: 'name' },
+        { title: 'Status', dataIndex: 'Status', key: 'state' },
+        { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
+      ];
+      const data = [];
+      for (let i = 0; i < 3; ++i) {
+        data.push({
+          key: i,
+          date: '2014-12-24 23:12:00',
+          name: 'This is production name',
+          upgradeNum: 'Upgraded: 56',
+        });
+      }
+      data.list = data;
+
       return (
         <div className="role">
           <Card bordered={false}>
@@ -101,7 +120,21 @@ class RoleCreate extends React.Component {
                   <Input placeholder="请填写描述" />
                 )}
               </FormItem>
-
+              <FormItem
+                label="权限模块"
+                {...formItemLayout}
+              />
+              <StandardTable
+                StandardTable={false}
+                selectedRows={selectedRows}
+                tableAlert={false}
+                selections={false}
+                loading={tableLoading}
+                data={data}
+                columns={columns}
+                onSelectRow={this.handleSelectRows}
+                onChange={this.handleStandardTableChange}
+              />
               <FormItem>
                 <Button type="primary" htmlType="submit" className="login-form-button" loading={this.state.loading} size="large">提交</Button>
               </FormItem>

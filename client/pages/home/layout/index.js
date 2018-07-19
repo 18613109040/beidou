@@ -37,15 +37,19 @@ class BasicLayout extends React.Component {
       name: '曲丽丽',
     };
     const logo = 'http://lb.sit.igola.com:9000/assets/images/igola_logo.png';
+    const pathname = location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/operation';
+    const menuData = getMenuData().find(item => item.path === pathname).children;
+    console.dir('=================');
+    console.dir(menuData);
     return (
       <Layout>
         <SiderMenu
-          menuData={getMenuData()}
+          menuData={menuData}
           location={location}
           collapsed={collapsed}
         />
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
+          <Header style={{ background: '#fff', padding: 0 }} location={location}>
             <GlobalHeader
               logo={logo}
               currentUser={currentUser}

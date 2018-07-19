@@ -18,7 +18,6 @@ const getIcon = (icon) => {
 export default class SiderMenu extends PureComponent {
   constructor(props) {
     super(props);
-    this.menus = props.menuData;
     this.state = {
     };
   }
@@ -62,7 +61,7 @@ export default class SiderMenu extends PureComponent {
                 item.name
               )
             }
-            key={item.path}
+            key={item.name}
           >
             {childrenItems}
           </SubMenu>
@@ -133,7 +132,7 @@ export default class SiderMenu extends PureComponent {
  };
 
  render() {
-   const { collapsed } = this.props;
+   const { collapsed, menuData } = this.props;
    return (
      <Sider
        trigger={null}
@@ -148,7 +147,7 @@ export default class SiderMenu extends PureComponent {
          </Link>
        </div>
        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} style={{ width: '100%' }}>
-         {this.getNavMenuItems(this.menus)}
+         {this.getNavMenuItems(menuData)}
        </Menu>
      </Sider>
    );

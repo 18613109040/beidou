@@ -1,10 +1,16 @@
 import React, { PureComponent } from 'react';
 import { Menu, Icon, Spin, Dropdown, Avatar, Divider, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import HeaderSearch from '../HeaderSearch';
+import { getMenuData } from '../../common/menu';
 import './index.less';
 
 export default class GlobalHeader extends PureComponent {
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  };
+
   componentWillUnmount() {
     this.triggerResizeEvent.cancel();
   }
@@ -31,6 +37,21 @@ export default class GlobalHeader extends PureComponent {
      
     }
   }
+  handleMenuClick=(item)=>{
+    this.context.router.history.push(item.key) 
+  }
+  getMenuItem = (data) => {
+    console.dir(data)
+    return data.map((item,index)=>{
+      console.dir(item)
+      return (
+        <Menu.Item  key={item.path}>
+          {/* <i className={`iconfont ${item.icon}`}/> */}
+          {item.name}
+        </Menu.Item>
+      )
+    })
+  }
   render() {
     const {
       currentUser = {},
@@ -38,6 +59,7 @@ export default class GlobalHeader extends PureComponent {
       isMobile,
       logo
     } = this.props;
+    const { pathname } = this.context.router.route.location
     const menu = (
       <Menu className="menu" selectedKeys={[]} onClick={this.onMenuClick}>
         <Menu.Item disabled>
@@ -68,6 +90,16 @@ export default class GlobalHeader extends PureComponent {
           type={collapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={this.toggle}
         />
+        <div className='menu-root'>
+          <Menu
+            onClick={this.handleMenuClick}
+            mode="horizontal"
+            
+            selectedKeys={[`/${[pathname.split('/')[1]]}`]}
+          >
+            {this.getMenuItem(getMenuData())}
+          </Menu>
+        </div>
         <div className="right">
           <HeaderSearch
             placeholder="站内搜索"

@@ -149,37 +149,37 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
     login: [path.join(__dirname, '../client/pages/login/index.jsx')],
     main: [path.join(__dirname, '../client/pages/home/index.jsx')],
   },
-  module: {
-    ...defaultConfig.module,
-    rules: [
-      {
-        test: /\.(js|jsx|mjs)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: require.resolve('babel-loader'),
-          options: {
-            babelrc: false,
-            plugins: [
-              'transform-decorators-legacy',
-              ['transform-runtime', { polyfill: false }], //= =>新增
-              ['import', [{ style: true, libraryName: 'antd' }]], //= =>新增
-            ],
-            presets: [require.resolve('babel-preset-beidou-client')],
-            // This is a feature of `babel-loader` for webpack (not Babel itself).
-            // It enables caching results in ./node_modules/.cache/babel-loader/
-            // directory for faster rebuilds.
-            cacheDirectory: dev,
-            compact: !dev,
-            highlightCode: true,
-          },
-        },
-      },
-      ...getStyleCongfigs(dev),
-      imageLoaderConfig,
-      fileLoaderConfig,
-    ],
+  // module: {
+  //   ...defaultConfig.module,
+  //   rules: [
+  //     {
+  //       test: /\.(js|jsx|mjs)$/,
+  //       exclude: /node_modules/,
+  //       use: {
+  //         loader: require.resolve('babel-loader'),
+  //         options: {
+  //           babelrc: false,
+  //           plugins: [
+  //             'transform-decorators-legacy',
+  //             ['transform-runtime', { polyfill: false }], //= =>新增
+  //             ['import', [{ style: 'css', libraryName: 'antd' }]], //= =>新增
+  //           ],
+  //           presets: [require.resolve('babel-preset-beidou-client')],
+  //           // This is a feature of `babel-loader` for webpack (not Babel itself).
+  //           // It enables caching results in ./node_modules/.cache/babel-loader/
+  //           // directory for faster rebuilds.
+  //           cacheDirectory: dev,
+  //           compact: !dev,
+  //           highlightCode: true,
+  //         },
+  //       },
+  //     },
+  //     ...getStyleCongfigs(dev),
+  //     imageLoaderConfig,
+  //     fileLoaderConfig,
+  //   ],
 
-  },
+  // },
   resolve: {
     extensions: ['.json', '.js', '.jsx'],
     alias: {

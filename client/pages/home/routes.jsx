@@ -10,11 +10,30 @@ export default (
       exact
       path="/"
       render={() => (
-        <Redirect to="/home" />
+        <Redirect to="/operation/home" />
       )}
     />
-    <Route exact path="/home" component={Home} />
-    <Route exact path="/role" component={RoleList} />
-    <Route exact path="/role/create" component={RoleCreate} />
+    <Route
+      exact
+      path="/operation"
+      render={() => (
+        <Redirect to="/operation/home" />
+      )}
+    />
+    <Route exact path="/operation/home" component={Home} />
+
+
+    <Route
+      exact
+      path="/activites"
+      render={() => (
+        <Redirect to="/activites/home" />
+      )}
+    />
+    <Route exact path="/activites/home" component={Home} />
+
+
+    <Route exact path="/system/role" component={RoleList} />
+    <Route exact path="/system/role/create" component={RoleCreate} />
   </Switch>
 );

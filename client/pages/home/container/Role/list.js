@@ -33,7 +33,7 @@ class RoleList extends React.Component {
 
     create = () => {
       console.dir(this.props);
-      this.props.history.push('/role/create');
+      this.props.history.push('/system/role/create');
     }
     // onLoadMore = () => {
     //     this.setState({

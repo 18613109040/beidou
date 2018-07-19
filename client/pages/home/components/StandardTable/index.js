@@ -67,6 +67,9 @@ class StandardTable extends PureComponent {
       loading,
       columns,
       rowKey,
+      showPagination,
+      tableAlert,
+      selections,
     } = this.props;
 
     const paginationProps = {
@@ -85,7 +88,7 @@ class StandardTable extends PureComponent {
 
     return (
       <div className="standardTable">
-        <div className="tableAlert">
+        {tableAlert ? (<div className="tableAlert">
           <Alert
             message={
               <Fragment>
@@ -107,14 +110,14 @@ class StandardTable extends PureComponent {
             type="info"
             showIcon
           />
-        </div>
+        </div>) : ''}
         <Table
           loading={loading}
           rowKey={rowKey || 'key'}
-          rowSelection={rowSelection}
+          rowSelection={selections ? rowSelection : null}
           dataSource={list}
           columns={columns}
-          pagination={paginationProps}
+          pagination={showPagination ? paginationProps : false}
           onChange={this.handleTableChange}
         />
       </div>

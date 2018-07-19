@@ -1,324 +1,309 @@
 import { isUrl } from '../../../utils/tools';
 
 const menuData = [
-  // {
-  //   name: '运营管理',
-  //   icon: 'icon-operation-management',
-  //   path: 'operation',
-  //   children: [
   {
-    name: 'APP',
-    icon: 'icon-app',
-    path: 'app',
+    name: '运营管理',
+    icon: 'icon-operation-management',
+    path: 'operation',
     children: [
       {
-        name: '开屏广告',
-        icon: 'icon-advert',
-        path: 'advert',
-      },
-      {
-        name: 'Banner',
-        icon: 'icon-banner',
-        path: 'banner',
+        name: 'APP',
+        icon: 'icon-app',
+        path: 'app',
         children: [
           {
-            name: '机票首页',
-            path: 'airTickets',
+            name: '开屏广告',
+            icon: 'icon-advert',
+            path: 'advert',
           },
           {
-            name: '酒店首页',
-            path: 'hotel',
+            name: 'Banner',
+            icon: 'icon-banner',
+            path: 'banner',
+            children: [
+              {
+                name: '机票首页',
+                path: 'airTickets',
+              },
+              {
+                name: '酒店首页',
+                path: 'hotel',
+              },
+              {
+                name: '探索页',
+                path: 'explorationPage',
+              },
+            ],
           },
           {
-            name: '探索页',
-            path: 'explorationPage',
+            name: '探索页界面管理',
+            icon: 'icon-explore',
+            path: 'exploration',
+            children: [
+              {
+                name: '栏目模块',
+                path: 'column',
+              },
+              {
+                name: '何时出发',
+                path: 'leave',
+              },
+              {
+                name: '动态航线',
+                path: 'route',
+              },
+              {
+                name: '目的地推荐',
+                path: 'destination',
+              },
+              {
+                name: '自定义栏目',
+                path: 'custom',
+              },
+            ],
+          },
+          {
+            name: '航线配置',
+            icon: 'icon-route',
+            path: 'routeConfig',
+          },
+          {
+            name: '酒店推荐',
+            icon: 'icon-hotel',
+            path: 'hotelRecommendation',
+            children: [
+              {
+                name: '推荐名单',
+                path: 'recommended',
+              },
+              {
+                name: '酒店列表',
+                path: 'list',
+              },
+            ],
+          },
+          {
+            name: '运营推送',
+            icon: 'icon-operation',
+            path: 'operationalPush',
           },
         ],
       },
       {
-        name: '探索页界面管理',
-        icon: 'icon-explore',
-        path: 'exploration',
+        name: 'M站',
+        icon: 'icon-m',
+        path: 'mWebsite',
         children: [
           {
-            name: '栏目模块',
-            path: 'column',
-          },
-          {
-            name: '何时出发',
-            path: 'leave',
-          },
-          {
-            name: '动态航线',
-            path: 'route',
-          },
-          {
-            name: '目的地推荐',
-            path: 'destination',
-          },
-          {
-            name: '自定义栏目',
-            path: 'custom',
+            name: '引导下载层',
+            path: 'download',
           },
         ],
       },
       {
-        name: '航线配置',
-        icon: 'icon-route',
-        path: 'routeConfig',
+        name: 'Where to Go City',
+        icon: 'icon-go',
+        path: 'wheretoGoCity',
       },
       {
-        name: '酒店推荐',
-        icon: 'icon-hotel',
-        path: 'hotelRecommendation',
-        children: [
-          {
-            name: '推荐名单',
-            path: 'recommended',
-          },
-          {
-            name: '酒店列表',
-            path: 'list',
-          },
-        ],
+        name: '文章管理',
+        icon: 'icon-article',
+        path: 'article',
       },
-      {
-        name: '运营推送',
-        icon: 'icon-operation',
-        path: 'operationalPush',
-      },
-    ],
-  },
-  {
-    name: 'M站',
-    icon: 'icon-m',
-    path: 'mWebsite',
-    children: [
-      {
-        name: '引导下载层',
-        path: 'download',
-      },
-    ],
-  },
-  {
-    name: 'Where to Go City',
-    icon: 'icon-go',
-    path: 'wheretoGoCity',
-  },
-  {
-    name: '文章管理',
-    icon: 'icon-article',
-    path: 'article',
-  },
-  {
-    name: '用户管理',
-    icon: 'icon-user',
-    path: '',
-    children: [
-      {
-        name: '角色',
-        path: 'role',
-      }, {
-        name: '用户',
-        path: 'user',
-      },
-    ],
 
+    ],
   },
-  //   ],
-  // },
-  // {
-  //   name: '活动管理',
-  //   icon: 'form',
-  //   path: 'form',
-  //   children: [
-  //     {
-  //       name: 'Event',
-  //       path: 'basic-form',
-  //       children: [
-  //         {
-  //           name: 'Coupon',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Coupon Crossoer',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Lucky Draw',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Mini',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       name: 'Hotel Event',
-  //       path: 'step-form',
-  //       children: [
-  //         {
-  //           name: 'Special Event',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Special Event2',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       name: '组件管理',
-  //       authority: 'admin',
-  //       path: 'advanced-form',
-  //       children: [
-  //         {
-  //           name: '商品墙组件',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: 'PC配置',
-  //   icon: 'form',
-  //   path: 'form',
-  //   children: [
-  //     {
-  //       name: 'WEB',
-  //       path: 'basic-form',
-  //       children: [
-  //         {
-  //           name: 'Flight Section',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Hotel Section',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Where to Go背景',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Find Flights背景',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'When to Go背景',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: '维护公告',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       name: 'News',
-  //       path: 'step-form',
-  //     },
-  //     {
-  //       name: 'About iGola',
-  //       authority: 'admin',
-  //       path: 'advanced-form',
-  //       children: [
-  //         {
-  //           name: 'About Us',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Faq',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Join Us',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Our Team',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-  // {
-  //   name: '系统配置',
-  //   icon: 'form',
-  //   path: 'form',
-  //   children: [
-  //     {
-  //       name: 'OTA Airline Logo',
-  //       path: 'basic-form',
-  //       children: [
-  //         {
-  //           name: 'OTA Logo',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Airline Logo',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       name: 'i18n',
-  //       path: 'step-form',
-  //       children: [
-  //         {
-  //           name: 'PC-Flights-Web',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'PC-Hotel-Web',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Mobile-Flights-Web',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Member-Web',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'B2B',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'H5-Web',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Hybrid-Hotel-APP',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'Hybrid-Flights-APP',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       name: 'User Manage',
-  //       authority: 'admin',
-  //       path: 'advanced-form',
-  //       children: [
-  //         {
-  //           name: 'Role',
-  //           path: 'login',
-  //         },
-  //         {
-  //           name: 'User',
-  //           path: 'login',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
+  {
+    name: '活动管理',
+    icon: 'form',
+    path: 'activites',
+    children: [
+      {
+        name: 'Event',
+        path: '',
+        children: [
+          {
+            name: 'Coupon',
+            path: 'coupon',
+          },
+          {
+            name: 'Coupon Crossoer',
+            path: 'coupon-cross',
+          },
+          {
+            name: 'Lucky Draw',
+            path: 'lucky-draw',
+          },
+          {
+            name: 'Mini',
+            path: 'mini',
+          },
+        ],
+      },
+      {
+        name: 'Hotel Event',
+        path: '',
+        children: [
+          {
+            name: 'Special Event',
+            path: 'special-event',
+          },
+          {
+            name: 'Special Event2',
+            path: 'special-event2',
+          },
+        ],
+      },
+      {
+        name: '组件管理',
+        authority: 'admin',
+        path: '',
+        children: [
+          {
+            name: '商品墙组件',
+            path: 'commodity-wall',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'PC配置',
+    icon: 'form',
+    path: 'options',
+    children: [
+      {
+        name: 'WEB',
+        path: '',
+        children: [
+          {
+            name: 'Flight Section',
+            path: 'flight-section',
+          },
+          {
+            name: 'Hotel Section',
+            path: 'hotel-section',
+          },
+          {
+            name: 'Where to Go背景',
+            path: 'background',
+          },
+          {
+            name: 'Find Flights背景',
+            path: 'backgroundFlights',
+          },
+          {
+            name: 'When to Go背景',
+            path: 'backgroundGo',
+          },
+          {
+            name: '维护公告',
+            path: 'notice',
+          },
+        ],
+      },
+      {
+        name: 'News',
+        path: 'news',
+      },
+      {
+        name: 'About iGola',
+        path: '',
+        children: [
+          {
+            name: 'About Us',
+            path: 'about-us',
+          },
+          {
+            name: 'Faq',
+            path: 'faq',
+          },
+          {
+            name: 'Join Us',
+            path: 'join-us',
+          },
+          {
+            name: 'Our Team',
+            path: 'our-team',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: '系统配置',
+    icon: 'form',
+    path: 'system',
+    children: [
+      {
+        name: 'OTA Airline Logo',
+        path: '',
+        children: [
+          {
+            name: 'OTA Logo',
+            path: 'ota-logo',
+          },
+          {
+            name: 'Airline Logo',
+            path: 'airline-logo',
+          },
+        ],
+      },
+      {
+        name: 'i18n',
+        path: '',
+        children: [
+          {
+            name: 'PC-Flights-Web',
+            path: 'languageWeb',
+          },
+          {
+            name: 'PC-Hotel-Web',
+            path: 'languageHotel',
+          },
+          {
+            name: 'Mobile-Flights-Web',
+            path: 'languageMobile',
+          },
+          {
+            name: 'Member-Web',
+            path: 'languageMember',
+          },
+          {
+            name: 'B2B',
+            path: 'languageB2B',
+          },
+          {
+            name: 'H5-Web',
+            path: 'languageH5',
+          },
+          {
+            name: 'Hybrid-Hotel-APP',
+            path: 'languageHotelAPP',
+          },
+          {
+            name: 'Hybrid-Flights-APP',
+            path: 'languageFlightsAPP',
+          },
+        ],
+      },
+      {
+        name: '用户管理',
+        icon: 'icon-user',
+        path: '',
+        children: [
+          {
+            name: '角色',
+            path: 'role',
+          },
+          {
+            name: '用户',
+            path: 'users',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 function formatter(data, parentPath = '/', parentAuthority) {

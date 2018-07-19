@@ -1,6 +1,23 @@
 {
   "keys": "F:\\beidou\\config\\config.default.js",
   "middleware": "F:\\beidou\\config\\config.default.js",
+  "isomorphic": {
+    "babel": {
+      "plugins": "F:\\beidou\\config\\config.default.js",
+      "presets": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "babelrc": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "extensions": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "cache": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    },
+    "polyfill": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+    "universal": {
+      "assetsFilePath": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
+      "assets": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    },
+    "alias": {
+      "client": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
+    }
+  },
   "webpack": {
     "custom": {
       "configPath": "F:\\beidou\\config\\config.default.js"
@@ -198,22 +215,6 @@
     "defaultViewEngine": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react\\config\\config.default.js",
     "mapping": "F:\\beidou\\node_modules\\_egg-view@2.1.0@egg-view\\config\\config.default.js"
   },
-  "isomorphic": {
-    "polyfill": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-    "babel": {
-      "presets": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "babelrc": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "extensions": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "cache": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
-    },
-    "universal": {
-      "assetsFilePath": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
-      "assets": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
-    },
-    "alias": {
-      "client": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
-    }
-  },
   "cors": "F:\\beidou\\node_modules\\_egg-cors@2.1.0@egg-cors\\config\\config.default.js",
   "env": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js",
   "name": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
@@ -267,7 +268,6 @@
       "mescroll.js": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "antd-mobile": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "antd": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "babel-plugin-import": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "bundle-loader": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "egg-cors": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
@@ -285,7 +285,8 @@
       "path-to-regexp": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "react-document-title": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "lodash": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"

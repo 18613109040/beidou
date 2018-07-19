@@ -1,8 +1,9 @@
 @import '~antd/lib/style/themes/default.less';
 
 .header {
+  display: flex;
+  align-items: center;
   height: 64px;
-  padding: 0 12px 0 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
   position: relative;
@@ -12,7 +13,21 @@
       overflow-x: hidden;
     }
   }
-  
+  .menu-root{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 20px;
+    .ant-menu-horizontal{
+      border-bottom: none;
+    }
+    .ant-menu-item{
+      font-size: 16px;
+    }
+    .ant-menu-item-selected{
+     
+    }
+  }
   .logo {
     height: 64px;
     line-height: 58px;
@@ -48,8 +63,9 @@
   }
   
   .right {
-    float: right;
+  
     height: 100%;
+    text-align: end;
     .action {
       cursor: pointer;
       padding: 0 12px;
