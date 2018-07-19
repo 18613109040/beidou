@@ -78,108 +78,114 @@ const getStyleFallbackConfig = dev => ({
 });
 
 function getStyleCongfigs(dev) {
-  return [
-    {
-      test: /\.css$/,
-      exclude: /\.module\.css$/,
-      loader: ExtractTextPlugin.extract({
-        fallback: getStyleFallbackConfig(dev),
-        use: [getCssLoaderConfig(dev), postCssLoaderConfig],
-      }),
-    },
-    {
-      test: /\.module\.css$/,
-      loader: ExtractTextPlugin.extract({
-        fallback: getStyleFallbackConfig(dev),
-        use: [getCssLoaderConfig(dev, true), postCssLoaderConfig],
-      }),
-    },
-    {
-      test: /\.s(c|a)ss$/,
-      exclude: /\.module\.s(c|a)ss$/,
-      use: ExtractTextPlugin.extract({
-        fallback: getStyleFallbackConfig(dev),
-        use: [
-          getCssLoaderConfig(dev),
-          postCssLoaderConfig,
-          {
-            loader: require.resolve('sass-loader'),
-          },
-        ],
-      }),
-    },
-    {
-      test: /\.module\.s(c|a)ss$/,
-      use: ExtractTextPlugin.extract({
-        fallback: getStyleFallbackConfig(dev),
-        use: [
-          getCssLoaderConfig(dev, true),
-          postCssLoaderConfig,
-          {
-            loader: require.resolve('sass-loader'),
-          },
-        ],
-      }),
-    },
-    {
-      test: /\.less$/,
-      exclude: /\.module\.less$/,
-      use: ExtractTextPlugin.extract({
-        fallback: getStyleFallbackConfig(dev),
-        use: [getCssLoaderConfig(dev), postCssLoaderConfig, lessLoaderConfig],
-      }),
-    },
-    {
-      test: /\.module\.less$/,
-      use: ExtractTextPlugin.extract({
-        fallback: getStyleFallbackConfig(dev),
-        use: [
-          getCssLoaderConfig(dev, true),
-          postCssLoaderConfig,
-          lessLoaderConfig,
-        ],
-      }),
-    },
+  return [{
+    test: /\.css$/,
+    exclude: /\.module\.css$/,
+    loader: ExtractTextPlugin.extract({
+      fallback: getStyleFallbackConfig(dev),
+      use: [getCssLoaderConfig(dev), postCssLoaderConfig],
+    }),
+  },
+  {
+    test: /\.module\.css$/,
+    loader: ExtractTextPlugin.extract({
+      fallback: getStyleFallbackConfig(dev),
+      use: [getCssLoaderConfig(dev, true), postCssLoaderConfig],
+    }),
+  },
+  {
+    test: /\.s(c|a)ss$/,
+    exclude: /\.module\.s(c|a)ss$/,
+    use: ExtractTextPlugin.extract({
+      fallback: getStyleFallbackConfig(dev),
+      use: [
+        getCssLoaderConfig(dev),
+        postCssLoaderConfig,
+        {
+          loader: require.resolve('sass-loader'),
+        },
+      ],
+    }),
+  },
+  {
+    test: /\.module\.s(c|a)ss$/,
+    use: ExtractTextPlugin.extract({
+      fallback: getStyleFallbackConfig(dev),
+      use: [
+        getCssLoaderConfig(dev, true),
+        postCssLoaderConfig,
+        {
+          loader: require.resolve('sass-loader'),
+        },
+      ],
+    }),
+  },
+  {
+    test: /\.less$/,
+    exclude: /\.module\.less$/,
+    use: ExtractTextPlugin.extract({
+      fallback: getStyleFallbackConfig(dev),
+      use: [getCssLoaderConfig(dev), postCssLoaderConfig, lessLoaderConfig],
+    }),
+  },
+  {
+    test: /\.module\.less$/,
+    use: ExtractTextPlugin.extract({
+      fallback: getStyleFallbackConfig(dev),
+      use: [
+        getCssLoaderConfig(dev, true),
+        postCssLoaderConfig,
+        lessLoaderConfig,
+      ],
+    }),
+  },
   ];
 }
 
 module.exports = (app, defaultConfig, dev = 'local') => ({
   ...defaultConfig,
   entry: {
-    login: [path.join(__dirname, '../client/pages/login/index.jsx')],
-    main: [path.join(__dirname, '../client/pages/home/index.jsx')],
-  },
-  // module: {
-  //   ...defaultConfig.module,
-  //   rules: [
-  //     {
-  //       test: /\.(js|jsx|mjs)$/,
-  //       exclude: /node_modules/,
-  //       use: {
-  //         loader: require.resolve('babel-loader'),
-  //         options: {
-  //           babelrc: false,
-  //           plugins: [
-  //             'transform-decorators-legacy',
-  //             ['transform-runtime', { polyfill: false }], //= =>新增
-  //             ['import', [{ style: 'css', libraryName: 'antd' }]], //= =>新增
-  //           ],
-  //           presets: [require.resolve('babel-preset-beidou-client')],
-  //           // This is a feature of `babel-loader` for webpack (not Babel itself).
-  //           // It enables caching results in ./node_modules/.cache/babel-loader/
-  //           // directory for faster rebuilds.
-  //           cacheDirectory: dev,
-  //           compact: !dev,
-  //           highlightCode: true,
-  //         },
-  //       },
-  //     },
-  //     ...getStyleCongfigs(dev),
-  //     imageLoaderConfig,
-  //     fileLoaderConfig,
-  //   ],
 
-  // },
+    login: ['webpack-dev-server/client?http://localhost:6001/', // 资源服务器地址
+      'webpack/hot/only-dev-server', path.join(__dirname, '../client/pages/login/index.jsx')],
+    main: ['webpack-dev-server/client?http://localhost:6001/', // 资源服务器地址
+      'webpack/hot/only-dev-server', path.join(__dirname, '../client/pages/home/index.jsx')],
+  },
+  module: {
+    ...defaultConfig.module,
+    rules: [{
+      test: /\.(js|jsx|mjs)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: require.resolve('babel-loader'),
+        options: {
+          babelrc: false,
+          plugins: [
+            'react-hot-loader/babel',
+            'transform-decorators-legacy', ['transform-runtime', {
+              polyfill: false,
+            }], //= =>新增
+            ['import', [{
+              style: true,
+              libraryName: 'antd',
+            }]], //= =>新增
+          ],
+          presets: [require.resolve('babel-preset-beidou-client')],
+          // This is a feature of `babel-loader` for webpack (not Babel itself).
+          // It enables caching results in ./node_modules/.cache/babel-loader/
+          // directory for faster rebuilds.
+          cacheDirectory: dev,
+          compact: !dev,
+          highlightCode: true,
+        },
+      },
+    },
+    ...getStyleCongfigs(dev),
+    imageLoaderConfig,
+    fileLoaderConfig,
+    ],
+
+  },
   resolve: {
     extensions: ['.json', '.js', '.jsx'],
     alias: {

@@ -41,9 +41,8 @@ export default class GlobalHeader extends PureComponent {
     this.context.router.history.push(item.key) 
   }
   getMenuItem = (data) => {
-    console.dir(data)
+
     return data.map((item,index)=>{
-      console.dir(item)
       return (
         <Menu.Item  key={item.path}>
           {/* <i className={`iconfont ${item.icon}`}/> */}

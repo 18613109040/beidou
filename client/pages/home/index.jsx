@@ -58,4 +58,13 @@ if (__CLIENT__) {
     </Provider>
   );
   ReactDOM.hydrate(app, document.getElementById('container'));
+
+  if (module.hot) {
+    module.hot.accept((err) => { // 地址参数可以省去
+      if (err) {
+        console.error('Cannot apply hot update', err);
+      }
+      ReactDOM.hydrate(app, document.getElementById('container'));
+    });
+  }
 }

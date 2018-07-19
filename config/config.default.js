@@ -5,16 +5,19 @@ const path = require('path');
 module.exports = {
   keys: 'secret',
   middleware: ['errorHandler'],
-  isomorphic: {
-    babel: {
-      plugins: [
-        require.resolve('babel-plugin-dynamic-import-node'),
-        [require.resolve('babel-plugin-import-inspector'), {
-          serverSideRequirePath: true,
-        }],
-      ],
-    },
-  },
+  // https://github.com/alibaba/beidou/blob/master/packages/beidou-isomorphic/README.md
+  // isomorphic: {
+  //   babel: {
+  //     presets: ['babel-preset-beidou-server'].map(require.resolve),
+  //     plugins: [
+  //       require.resolve('babel-plugin-dynamic-import-node'), [require.resolve('babel-plugin-import-inspector'), {
+  //         serverSideRequirePath: true,
+  //       }],
+  //     ],
+  //     extensions: ['.js', '.jsx', '.mjs'],
+  //   },
+  //   polyfill: true,
+  // },
   webpack: {
     custom: {
       configPath: path.join(__dirname, './webpack.config.js'),
@@ -23,10 +26,10 @@ module.exports = {
   logger: {
     level: 'DEBUG',
   },
-  router: {
-    root: '/pages',
-    entry: 'page',
-  },
+  // router: {
+  //   root: '/pages',
+  //   entry: 'page',
+  // },
   react: {
     static: true,
   },
@@ -44,4 +47,3 @@ module.exports = {
     },
   },
 };
-

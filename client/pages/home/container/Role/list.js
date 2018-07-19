@@ -32,7 +32,7 @@ class RoleList extends React.Component {
     }
 
     create = () => {
-      console.dir(this.props);
+      // console.dir(this.props);
       this.props.history.push('/system/role/create');
     }
     // onLoadMore = () => {
@@ -83,7 +83,7 @@ class RoleList extends React.Component {
                 dataSource={roleList.list}
                 pagination={{
                   onChange: (page) => {
-                    console.log(page);
+                    // console.log(page);
                   },
                   showTotal: (total, range) => `${range[1]}/${total}`,
                   current: roleList.currentPage,

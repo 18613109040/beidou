@@ -29,3 +29,11 @@ export default class Page extends View {
 }
 const store = configureStore(reducers, window.__INITIAL_STATE__);
 render(Login, store);
+if (module.hot) {
+  module.hot.accept((err) => { // 地址参数可以省去
+    if (err) {
+      console.error('Cannot apply hot update', err);
+    }
+    render(Login, store);
+  });
+}

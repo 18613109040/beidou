@@ -38,9 +38,8 @@ class BasicLayout extends React.Component {
     };
     const logo = 'http://lb.sit.igola.com:9000/assets/images/igola_logo.png';
     const pathname = location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/operation';
+    console.dir(pathname);
     const menuData = getMenuData().find(item => item.path === pathname).children;
-    console.dir('=================');
-    console.dir(menuData);
     return (
       <Layout>
         <SiderMenu

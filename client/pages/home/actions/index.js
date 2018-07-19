@@ -12,4 +12,3 @@ const domains = {
 };
 
 export const host = domains[env];
-
