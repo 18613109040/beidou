@@ -5,7 +5,7 @@ module.exports = (app) => {
     name: { type: String, unique: true, required: true },
     des: { type: String },
     access: { type: String, default: 'user' },
-    extra: { type: mongoose.Schema.Types.Mixed },
+    modules: { type: mongoose.Schema.Types.Mixed },
     createdAt: { type: Date, default: Date.now },
   });
 

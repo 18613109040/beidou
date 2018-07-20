@@ -91,8 +91,32 @@ export default function request(url, options) {
       if (newOptions.method === 'DELETE' || response.status === 204) {
         return response.text();
       }
+      // if (response.status === 200 && newOptions.method === 'POST') {
+      //   response.json().then((res) => {
+      //     notification.success({
+      //       message: res.msg,
+      //     });
+      //   });
+      // }
       return response.json();
-    }).catch((e) => {
+    })
+    .then((res) => {
+      if (newOptions.method === 'POST') {
+        if (res.code === 0) {
+          notification.success({
+            message: res.msg,
+          });
+        } else {
+          notification.error({
+            message: res.error,
+          });
+        }
+      }
+      return new Promise((resolve) => {
+        resolve(res);
+      });
+    })
+    .catch((e) => {
       // const { dispatch } = store;
       const status = e.name;
       if (status === 401) {

@@ -190,6 +190,7 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
     extensions: ['.json', '.js', '.jsx'],
     alias: {
       client: path.join(__dirname, '../client'),
+      // home: path.join(__dirname, '../client/pages/home'),
     },
   },
 });

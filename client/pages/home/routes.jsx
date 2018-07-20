@@ -3,6 +3,12 @@ import { Route, Switch, Redirect } from 'react-router';
 import Home from './container/Home';
 import RoleCreate from './container/Role/create';
 import RoleList from './container/Role/list';
+// import Loadable from 'react-loadable';
+
+// export const Activity = Loadable({
+//   loader: () => import('./container/Home'),
+//   loading: () => (<div>loading</div>),
+// });
 
 export default (
   <Switch>
@@ -33,7 +39,7 @@ export default (
     <Route exact path="/activites/home" component={Home} />
 
 
-    <Route exact path="/system/role" component={RoleList} />
-    <Route exact path="/system/role/create" component={RoleCreate} />
+    <Route exact path="/system/manage/role" component={RoleList} />
+    <Route exact path="/system/manage/role/create" component={RoleCreate} />
   </Switch>
 );

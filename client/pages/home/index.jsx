@@ -64,7 +64,7 @@ if (__CLIENT__) {
       if (err) {
         console.error('Cannot apply hot update', err);
       }
-      ReactDOM.hydrate(app, document.getElementById('container'));
+      ReactDOM.render(app, document.getElementById('container'));
     });
   }
 }

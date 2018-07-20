@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Form, Input, Button, Card } from 'antd';
+import { Form, Input, Button, Card, Checkbox, notification } from 'antd';
+import { getMenuData } from '../../common/menu';
 import request from '../../../../utils/request';
 import StandardTable from '../../components/StandardTable';
+import { getRoleModule, changeRoleModule, createRole } from '../../actions/role';
 import './index.less';
+
+const CheckboxGroup = Checkbox.Group;
 
 const FormItem = Form.Item;
 class RoleCreate extends React.Component {
@@ -18,29 +22,55 @@ class RoleCreate extends React.Component {
         loading: false,
         tableLoading: false,
         selectedRows: [],
+        indeterminate: true,
+        checkAllRead: false,
+        checkAllWrite: false,
       };
     }
 
     componentWillMount() {
-
+      this.props.dispatch(getRoleModule(getMenuData()));
     }
 
     componentDidMount() {
 
     }
 
+    // 更新权限列表
+    roleListSet(data) {
+      const { roleModule } = this.props;
+      data.map((item) => {
+        if (item.children) {
+          this.roleListSet(item.children);
+        } else {
+          item.operating = roleModule.find(it => it.id === item.id).operating;
+        }
+        return item;
+      });
+    }
+
     handleSubmit = (e) => {
       e.preventDefault();
+
+      const modules = getMenuData();
+      modules.map((item) => {
+        this.roleListSet(item.children);
+        return item;
+      });
       this.props.form.validateFields((err, values) => {
         if (!err) {
-          // this.setState({
-          //   loading: true,
-          // });
-          request('/api/role', {
-            method: 'POST',
-            body: values,
+          this.setState({
+            loading: true,
           });
-          console.log('Received values of form: ', values);
+          createRole(Object.assign(values, { modules }), (res) => {
+            this.setState({
+              loading: false,
+            });
+            console.dir(res);
+            if (res.code === 0) {
+              this.props.history.goBack();
+            }
+          });
         }
       });
     }
@@ -57,8 +87,16 @@ class RoleCreate extends React.Component {
       console.dir(sorter);
     }
 
+    onChange=(checkedList, index) => {
+      this.props.dispatch(changeRoleModule({
+        checkedList,
+        index,
+      }));
+    }
+
     render() {
       const { getFieldDecorator } = this.props.form;
+      const { tableData } = this.props;
       const formItemLayout = {
         labelCol: {
           xs: { span: 24 },
@@ -77,25 +115,16 @@ class RoleCreate extends React.Component {
           xxl: { span: 8 },
         },
       };
-
+      const options = [
+        { label: '读', value: 'read' },
+        { label: '写', value: 'write' },
+      ];
       const { selectedRows, tableLoading } = this.state;
       const columns = [
-        { title: 'Date', dataIndex: 'date', key: 'date' },
-        { title: 'Name', dataIndex: 'name', key: 'name' },
-        { title: 'Status', dataIndex: 'Status', key: 'state' },
-        { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
+        { title: '模块命名', dataIndex: 'name', key: 'name' },
+        { title: '模块', dataIndex: 'path', key: 'path' },
+        { title: '权限', dataIndex: 'operating', key: 'operating', render: (text, record, index) => <CheckboxGroup options={options} value={record.operating} onChange={e => this.onChange(e, index)} /> },
       ];
-      const data = [];
-      for (let i = 0; i < 3; ++i) {
-        data.push({
-          key: i,
-          date: '2014-12-24 23:12:00',
-          name: 'This is production name',
-          upgradeNum: 'Upgraded: 56',
-        });
-      }
-      data.list = data;
-
       return (
         <div className="role">
           <Card bordered={false}>
@@ -125,12 +154,13 @@ class RoleCreate extends React.Component {
                 {...formItemLayout}
               />
               <StandardTable
+                rowKey="id"
                 StandardTable={false}
                 selectedRows={selectedRows}
                 tableAlert={false}
                 selections={false}
                 loading={tableLoading}
-                data={data}
+                data={tableData}
                 columns={columns}
                 onSelectRow={this.handleSelectRows}
                 onChange={this.handleStandardTableChange}
@@ -146,7 +176,12 @@ class RoleCreate extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return {
+    tableData: {
+      list: state.roleModule,
+    },
+    roleModule: state.roleModule,
+  };
 }
 export default connect(mapStateToProps)(Form.create()(RoleCreate));
 

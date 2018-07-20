@@ -20,8 +20,10 @@ class RoleController extends Controller {
     const payload = ctx.request.body || {};
     // 调用 Service 进行业务处理
     const res = await service.role.create(payload);
+    const status = 201;
+    const msg = '创建角色成功';
     // 设置响应内容和响应状态码
-    ctx.helper.success({ ctx, res });
+    ctx.helper.success({ ctx, res, status, msg });
   }
 
   // 删除单个角色
