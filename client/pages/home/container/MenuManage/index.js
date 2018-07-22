@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Tree, Icon, Card, Divider, Button, Modal, Form, Input, Switch, Select } from 'antd';
 import { getMenuData } from '../../common/menu';
+import { modules } from '../../common/modules';
 // import DescriptionList from '../../components/DescriptionList';
 import StandardTable from '../../components/StandardTable';
+
 import './index.less';
 
 // const { Description } = DescriptionList;
@@ -15,22 +17,31 @@ const Option = Select.Option;
 const MenuCreateForm = Form.create()(
   class extends React.Component {
     state = {
-      data: [],
+      data: modules,
       value: undefined,
+      fileType: '0',
     }
 
     handleSearch = (value) => {
-      fetch(value, data => this.setState({ data }));
+      // fetch(value, data => this.setState({ data }));
+      console.dir(value);
+      console.dir(modules.filter(item => item.name.includes(value)));
+      this.setState({
+        data: modules.filter(item => item.name.includes(value)),
+      });
     }
 
-    handleChange = (value) => {
-      this.setState({ value });
+    handleSelectChange=(value) => {
+      this.setState({
+        fileType: value,
+      });
     }
 
     render() {
       const { visible, onCancel, onCreate, form } = this.props;
       const { getFieldDecorator } = form;
-      const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
+      const { fileType } = this.state;
+      const options = this.state.data.map(d => <Option key={d.name}>{d.name}</Option>);
       const formItemLayout = {
         labelCol: {
           xs: { span: 24 },
@@ -41,7 +52,6 @@ const MenuCreateForm = Form.create()(
           sm: { span: 16 },
         },
       };
-      console.dir(this.props.form.getFieldValue('type'));
       return (
         <Modal
           visible={visible}
@@ -92,19 +102,22 @@ const MenuCreateForm = Form.create()(
               {...formItemLayout}
             >
               {getFieldDecorator('type')(
-                <Select defaultValue={{ key: '0' }} style={{ width: 120 }} >
+                <Select style={{ width: 120 }} onChange={this.handleSelectChange}>
                   <Option value="0" key="0">目录</Option>
                   <Option value="1" key="1">模块</Option>
                 </Select>
               )}
             </FormItem>
             {
-              this.props.form.getFieldDecorator('type') === '0' ? '' :
-                (<FormItem label="模块">
+              fileType === '0' ? '' :
+                (<FormItem
+                  {...formItemLayout}
+                  label="模块"
+                >
                   {getFieldDecorator('moduleid')(
                     <Select
                       showSearch
-                      value={this.state.value}
+
                       placeholder="请选择模块"
                       defaultActiveFirstOption={false}
                       showArrow={false}
@@ -118,13 +131,12 @@ const MenuCreateForm = Form.create()(
                   )}
                 </FormItem>)
             }
-
-
-            <FormItem className="collection-create-form_last-form-item">
-              {getFieldDecorator('modifier', {
-                initialValue: 'public',
-              })(
-                <Input />
+            <FormItem
+              label="是否隐藏"
+              {...formItemLayout}
+            >
+              {getFieldDecorator('hiden')(
+                <Switch />
               )}
             </FormItem>
           </Form>
