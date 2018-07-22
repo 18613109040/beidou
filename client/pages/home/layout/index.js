@@ -57,7 +57,7 @@ class BasicLayout extends React.Component {
               onCollapse={this.handleMenuCollapse}
             />
           </Header>
-          <Content style={{ margin: '24px 24px', background: '#fff', minHeight: 280 }}>
+          <Content style={{ margin: '24px 24px', background: '#fff', height: '100%', minHeight: 280 }}>
             {this.props.children}
           </Content>
         </Layout>

@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router';
 import Home from './container/Home';
 import RoleCreate from './container/Role/create';
 import RoleList from './container/Role/list';
+import MenuManage from './container/MenuManage';
 // import Loadable from 'react-loadable';
 
 // export const Activity = Loadable({
@@ -41,5 +42,6 @@ export default (
 
     <Route exact path="/system/manage/role" component={RoleList} />
     <Route exact path="/system/manage/role/create" component={RoleCreate} />
+    <Route exact path="/system/menuManage" component={MenuManage} />
   </Switch>
 );
