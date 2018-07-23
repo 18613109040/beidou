@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Tree, Icon, Card, Divider, Button, Modal, Form, Input, Switch, Select } from 'antd';
-import { getMenuData } from '../../common/menu';
+import { Tree, Icon, Card, Divider, Button, Modal, Form, Input, Switch, Select, Table } from 'antd';
 import { modules } from '../../common/modules';
 // import DescriptionList from '../../components/DescriptionList';
 import StandardTable from '../../components/StandardTable';
+import { createModules, getModules } from '../../actions/menu';
 
 import './index.less';
 
@@ -55,8 +55,8 @@ const MenuCreateForm = Form.create()(
       return (
         <Modal
           visible={visible}
-          title="Create a new collection"
-          okText="Create"
+          title="目录"
+          okText="新增"
           onCancel={onCancel}
           onOk={onCreate}
         >
@@ -93,7 +93,7 @@ const MenuCreateForm = Form.create()(
               label="新窗口打开"
               {...formItemLayout}
             >
-              {getFieldDecorator('target')(
+              {getFieldDecorator('target', { initialValue: false })(
                 <Switch />
               )}
             </FormItem>
@@ -101,7 +101,10 @@ const MenuCreateForm = Form.create()(
               label="类型"
               {...formItemLayout}
             >
-              {getFieldDecorator('type')(
+              {getFieldDecorator('type', {
+                initialValue: '0',
+                rules: [{ required: true, message: '请选择类型' }],
+              })(
                 <Select style={{ width: 120 }} onChange={this.handleSelectChange}>
                   <Option value="0" key="0">目录</Option>
                   <Option value="1" key="1">模块</Option>
@@ -114,7 +117,9 @@ const MenuCreateForm = Form.create()(
                   {...formItemLayout}
                   label="模块"
                 >
-                  {getFieldDecorator('moduleid')(
+                  {getFieldDecorator('moduleid', {
+                    rules: [{ required: true, message: '请选择模块' }],
+                  })(
                     <Select
                       showSearch
 
@@ -135,7 +140,7 @@ const MenuCreateForm = Form.create()(
               label="是否隐藏"
               {...formItemLayout}
             >
-              {getFieldDecorator('hiden')(
+              {getFieldDecorator('hiden', { initialValue: false })(
                 <Switch />
               )}
             </FormItem>
@@ -154,7 +159,6 @@ class MenuManage extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        treeData: getMenuData(),
         selectedKey: 'root',
         selectTitle: '根目录',
         tableLoading: false,
@@ -167,40 +171,54 @@ class MenuManage extends React.Component {
     }
 
     componentDidMount() {
-
-
+      this.props.dispatch(getModules());
     }
 
     onTreeSelect=(selectedKeys, e) => {
-      console.dir(selectedKeys);
-      console.dir(e);
+      if (selectedKeys.length) {
+        this.setState({
+          selectedKey: selectedKeys[0],
+        });
+      }
     }
 
-    renderTreeNodes=treeData => treeData.map((item) => {
+    renderTreeNodes=modulesTree => modulesTree.map((item) => {
       if (item.children) {
         return (
-          <TreeNode title={item.name} key={item.id} dataRef={item}>
+          <TreeNode title={item.menuNameCh} key={item._id} dataRef={item}>
             {this.renderTreeNodes(item.children)}
           </TreeNode>);
       } else {
-        return <TreeNode title={item.name} key={item.id} />;
+        return <TreeNode title={item.menuNameCh} key={item._id} />;
       }
     })
 
-    handleSubmit = (e) => {
-      e.preventDefault();
-    }
 
     handleStandardTableChange=() => {
 
     }
 
     handleCreate = () => {
-
+      const form = this.formRef.props.form;
+      form.validateFields((err, values) => {
+        console.dir(err);
+        if (err) {
+          return;
+        }
+        createModules(Object.assign(values, { parentId: this.state.selectedKey }), (res) => {
+          form.resetFields();
+          this.props.dispatch(getModules());
+          this.setState({ visible: false });
+        });
+      });
     }
 
     handleCancel=() => {
-
+      const form = this.formRef.props.form;
+      form.resetFields();
+      this.setState({
+        visible: false,
+      });
     }
 
     showFrom=() => {
@@ -209,25 +227,37 @@ class MenuManage extends React.Component {
       });
     }
 
+    saveFormRef = (formRef) => {
+      this.formRef = formRef;
+    }
+
+    eidtMenu = (data) => {
+      const form = this.formRef.props.form;
+      this.setState({
+        visible: true,
+      });
+      form.setFieldsValue(data);
+    }
+
     render() {
-      const { treeData, selectedKey, selectTitle, tableLoading, visible } = this.state;
+      const { selectedKey, selectTitle, tableLoading, visible } = this.state;
+      const { menuTree } = this.props;
       const columns = [
         { title: '菜单名称（中文）', dataIndex: 'menuNameCh', key: 'menuNameCh' },
         { title: '菜单名称（英文）', dataIndex: 'menuNameEn', key: 'menuNameEn' },
-        { title: '更新时间', dataIndex: 'upDate', key: 'path' },
-        { title: '操作人', dataIndex: 'operatorName', key: 'path' },
+        { title: '类型', dataIndex: 'type', key: 'type', render: text => (<span>{text === '0' ? '目录' : '模块'}</span>) },
+        { title: '创建人', dataIndex: 'founder', key: 'founder' },
+        { title: '最后修改人', dataIndex: 'modifier', key: 'modifier' },
         { title: '操作',
           dataIndex: 'operating',
           key: 'operating',
           render: (text, record, index) => (<span>
-            <span>编辑</span>
+            <a onClick={() => this.eidtMenu(record)}>编辑</a>
             <Divider type="vertical" />
-            <span>删除</span>
+            <a>删除</a>
           </span>) },
       ];
-      const tableData = {
-
-      };
+      const dataSource = menuTree;
       return (
         <div className="menu-manage" >
           <div className="tree">
@@ -238,7 +268,7 @@ class MenuManage extends React.Component {
                 onSelect={this.onTreeSelect}
               >
                 <TreeNode title="根目录" key="root">
-                  {this.renderTreeNodes(treeData)}
+                  {this.renderTreeNodes(menuTree)}
                 </TreeNode>
               </Tree>
             </Card>
@@ -249,16 +279,10 @@ class MenuManage extends React.Component {
               <div>
                 <Button type="primary" onClick={this.showFrom}>新增</Button>
               </div>
-              <StandardTable
-                rowKey="id"
-                StandardTable={false}
-                selectedRows={[]}
-                tableAlert={false}
-                selections={false}
-                loading={tableLoading}
-                data={tableData}
+              <Table
+                rowKey="_id"
+                dataSource={dataSource}
                 columns={columns}
-                onChange={this.handleStandardTableChange}
               />
             </Card>
           </div>
@@ -274,7 +298,9 @@ class MenuManage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return state;
+  return {
+    menuTree: state.menuTree,
+  };
 }
 export default connect(mapStateToProps)(MenuManage);
 

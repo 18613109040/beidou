@@ -1,6 +1,6 @@
 'use strict';
 
-const { Controller } = require('beidou-core');
+const { Controller } = require('../../node_modules/_beidou-core@1.0.4@beidou-core');
 
 class RoleController extends Controller {
   constructor(ctx) {
@@ -20,10 +20,9 @@ class RoleController extends Controller {
     const payload = ctx.request.body || {};
     // 调用 Service 进行业务处理
     const res = await service.role.create(payload);
-    const status = 201;
     const msg = '创建角色成功';
     // 设置响应内容和响应状态码
-    ctx.helper.success({ ctx, res, status, msg });
+    ctx.helper.success({ ctx, res, msg });
   }
 
   // 删除单个角色
