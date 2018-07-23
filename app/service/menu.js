@@ -15,9 +15,9 @@ module.exports = (app) => {
     getChildren(item, data) {
       const filterData = data.filter(it => it.parentId === item._id.toString());
       if (filterData.length > 0) {
-        filterData.map((d) => {
+        filterData.map((d, index) => {
           if (d.type === '0') {
-            d.children = this.getChildren(d, data);
+            filterData[index].children = this.getChildren(filterData[index], data);
             return d;
           } else {
             return d;
@@ -28,9 +28,9 @@ module.exports = (app) => {
     }
 
     // index======================================================================================================>
-    async index(payload) {
+    async index() {
       const res = await this.ctx.model.Menu.find().sort({ createdAt: -1 }).exec();
-      const data = res.map((e, i) => {
+      const data = res.map((e) => {
         const jsonObject = Object.assign({}, e._doc);
         return jsonObject;
       });

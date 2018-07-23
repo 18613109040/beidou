@@ -63,13 +63,13 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "F:\\beidou\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "G:\\beidou\\node_modules\\_egg-onerror@2.1.0@egg-onerror\\lib\\onerror_page.mustache"
     },
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "F:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\default",
-        "development": "F:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\development"
+        "default": "G:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\default",
+        "development": "G:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher\\lib\\event-sources\\development"
       }
     },
     "multipart": {
@@ -93,7 +93,7 @@
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "F:\\beidou\\logs\\beidou-example-with-react-router\\egg-schedule.log"
+        "file": "G:\\beidou\\logs\\beidou-example-with-react-router\\egg-schedule.log"
       }
     },
     "logrotator": {
@@ -107,14 +107,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "F:\\beidou\\app\\public",
+      "dir": "G:\\beidou\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "F:\\beidou\\app\\views,F:\\beidou\\client",
+      "root": "G:\\beidou\\app\\views,G:\\beidou\\client",
       "cache": false,
       "defaultExtension": ".jsx",
       "defaultViewEngine": "react",
@@ -139,10 +139,10 @@
     },
     "webpack": {
       "custom": {
-        "configPath": "F:\\beidou\\config\\webpack.config.js"
+        "configPath": "G:\\beidou\\config\\webpack.config.js"
       },
       "output": {
-        "path": "F:\\beidou\\build",
+        "path": "G:\\beidou\\build",
         "filename": "[name].js?[hash]",
         "chunkFilename": "[name].js",
         "publicPath": "/build/"
@@ -154,7 +154,7 @@
           ".jsx"
         ],
         "alias": {
-          "client": "F:\\beidou\\client"
+          "client": "G:\\beidou\\client"
         }
       },
       "devServer": {
@@ -173,7 +173,7 @@
         "stats": {
           "colors": true,
           "chunks": false,
-          "context": "F:\\beidou"
+          "context": "G:\\beidou"
         },
         "publicPath": "/build/",
         "hot": true
@@ -183,7 +183,7 @@
       "polyfill": true,
       "babel": {
         "presets": [
-          "F:\\beidou\\node_modules\\_babel-preset-beidou-server@1.0.0@babel-preset-beidou-server\\index.js"
+          "G:\\beidou\\node_modules\\_babel-preset-beidou-server@1.0.0@babel-preset-beidou-server\\index.js"
         ],
         "babelrc": false,
         "extensions": [
@@ -194,7 +194,7 @@
         "cache": true
       },
       "universal": {
-        "assetsFilePath": "F:\\beidou\\.isomorphic\\assets.json",
+        "assetsFilePath": "G:\\beidou\\.isomorphic\\assets.json",
         "assets": [
           ".sass",
           ".scss",
@@ -221,7 +221,7 @@
         ]
       },
       "alias": {
-        "client": "F:\\beidou\\client"
+        "client": "G:\\beidou\\client"
       }
     },
     "router": {
@@ -324,9 +324,9 @@
         "node": ">= 8.0.0"
       }
     },
-    "baseDir": "F:\\beidou",
-    "HOME": "C:\\Users\\igola",
-    "rundir": "F:\\beidou\\run",
+    "baseDir": "G:\\beidou",
+    "HOME": "C:\\Users\\Administrator",
+    "rundir": "G:\\beidou\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -356,7 +356,7 @@
       }
     },
     "logger": {
-      "dir": "F:\\beidou\\logs\\beidou-example-with-react-router",
+      "dir": "G:\\beidou\\logs\\beidou-example-with-react-router",
       "encoding": "utf8",
       "env": "local",
       "level": "DEBUG",
@@ -418,7 +418,7 @@
       "responseTimeout": 60000
     },
     "onClientError": null,
-    "client": "F:\\beidou\\client",
+    "client": "G:\\beidou\\client",
     "core": {
       "name": "Beidou"
     },
@@ -441,8 +441,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-session@3.1.0@egg-session",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-session@3.1.0@egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -454,8 +454,8 @@
         "session"
       ],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-security@2.2.3@egg-security",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-security@2.2.3@egg-security",
       "version": "2.2.3"
     },
     "jsonp": {
@@ -467,8 +467,8 @@
         "security"
       ],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-jsonp@2.0.0@egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -480,8 +480,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-onerror@2.1.0@egg-onerror",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-onerror@2.1.0@egg-onerror",
       "version": "2.1.0"
     },
     "watcher": {
@@ -491,8 +491,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-watcher@3.0.0@egg-watcher",
       "version": "3.0.0"
     },
     "multipart": {
@@ -502,8 +502,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart",
       "version": "2.0.0"
     },
     "development": {
@@ -517,8 +517,8 @@
       "env": [
         "local"
       ],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development",
       "version": "2.3.1"
     },
     "schedule": {
@@ -528,8 +528,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-schedule@3.3.0@egg-schedule",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-schedule@3.3.0@egg-schedule",
       "version": "3.3.0"
     },
     "logrotator": {
@@ -541,8 +541,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-logrotator@3.0.3@egg-logrotator",
       "version": "3.0.3"
     },
     "static": {
@@ -552,8 +552,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-static@2.1.1@egg-static",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-static@2.1.1@egg-static",
       "version": "2.1.1"
     },
     "view": {
@@ -563,8 +563,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-view@2.1.0@egg-view",
+      "from": "G:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-view@2.1.0@egg-view",
       "version": "2.1.0"
     },
     "beidouView": {
@@ -574,8 +574,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
-      "path": "F:\\beidou\\node_modules\\_beidou-view@1.0.3@beidou-view",
+      "from": "G:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "G:\\beidou\\node_modules\\_beidou-view@1.0.3@beidou-view",
       "version": "1.0.3"
     },
     "react": {
@@ -587,8 +587,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
-      "path": "F:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react",
+      "from": "G:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "G:\\beidou\\node_modules\\_beidou-view-react@1.0.3@beidou-view-react",
       "version": "1.0.3"
     },
     "webpack": {
@@ -601,8 +601,8 @@
       "name": "webpack",
       "dependencies": [],
       "optionalDependencies": [],
-      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
-      "path": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack",
+      "from": "G:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "G:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack",
       "version": "1.0.4"
     },
     "isomorphic": {
@@ -612,8 +612,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
-      "path": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic",
+      "from": "G:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "G:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic",
       "version": "1.0.0"
     },
     "router": {
@@ -623,8 +623,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
-      "path": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router",
+      "from": "G:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\plugin.default.js",
+      "path": "G:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router",
       "version": "1.0.0"
     },
     "cors": {
@@ -634,8 +634,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-cors@2.1.0@egg-cors",
+      "from": "G:\\beidou\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-cors@2.1.0@egg-cors",
       "version": "2.1.0"
     },
     "validate": {
@@ -645,8 +645,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-validate@1.0.0@egg-validate",
+      "from": "G:\\beidou\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-validate@1.0.0@egg-validate",
       "version": "1.0.0"
     },
     "mongoose": {
@@ -656,8 +656,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\beidou\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose",
+      "from": "G:\\beidou\\config\\plugin.js",
+      "path": "G:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose",
       "version": "3.1.0"
     }
   }

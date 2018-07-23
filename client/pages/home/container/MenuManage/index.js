@@ -163,6 +163,11 @@ class MenuManage extends React.Component {
         selectTitle: '根目录',
         tableLoading: false,
         visible: false,
+        dataSource: null,
+        currentSelect: {
+          type: '0',
+          _id: 'root',
+        },
       };
     }
 
@@ -174,10 +179,12 @@ class MenuManage extends React.Component {
       this.props.dispatch(getModules());
     }
 
-    onTreeSelect=(selectedKeys, e) => {
+    onTreeSelect=(selectedKeys, { selectedNodes }) => {
       if (selectedKeys.length) {
         this.setState({
           selectedKey: selectedKeys[0],
+          dataSource: selectedNodes[0].props.dataRef.children,
+          currentSelect: selectedNodes[0].props.dataRef,
         });
       }
     }
@@ -240,7 +247,7 @@ class MenuManage extends React.Component {
     }
 
     render() {
-      const { selectedKey, selectTitle, tableLoading, visible } = this.state;
+      const { selectedKey, selectTitle, tableLoading, visible, dataSource } = this.state;
       const { menuTree } = this.props;
       const columns = [
         { title: '菜单名称（中文）', dataIndex: 'menuNameCh', key: 'menuNameCh' },
@@ -257,7 +264,6 @@ class MenuManage extends React.Component {
             <a>删除</a>
           </span>) },
       ];
-      const dataSource = menuTree;
       return (
         <div className="menu-manage" >
           <div className="tree">
@@ -281,14 +287,18 @@ class MenuManage extends React.Component {
               </div>
               <Table
                 rowKey="_id"
-                dataSource={dataSource}
+                dataSource={dataSource || menuTree}
                 columns={columns}
+                bordered
+                pagination={false}
+                childrenColumnName="childrens"
               />
             </Card>
           </div>
           <MenuCreateForm
             wrappedComponentRef={this.saveFormRef}
             visible={visible}
+
             onCancel={this.handleCancel}
             onCreate={this.handleCreate}
           />
@@ -296,6 +306,7 @@ class MenuManage extends React.Component {
       );
     }
 }
+
 
 function mapStateToProps(state) {
   return {
