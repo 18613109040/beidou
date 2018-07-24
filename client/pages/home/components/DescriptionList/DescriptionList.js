@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Row } from 'antd';
-import styles from './index.less';
+import './index.less';
 
 const DescriptionList = ({
   className,
@@ -13,14 +13,15 @@ const DescriptionList = ({
   size,
   ...restProps
 }) => {
-  const clsString = classNames(styles.descriptionList, styles[layout], className, {
-    [styles.small]: size === 'small',
-    [styles.large]: size === 'large',
+  const clsString = classNames('descriptionList', layout, className, {
+    small: size === 'small',
+    large: size === 'large',
   });
+  console.dir(clsString);
   const column = col > 4 ? 4 : col;
   return (
     <div className={clsString} {...restProps}>
-      {title ? <div className={styles.title}>{title}</div> : null}
+      {title ? <div className="title">{title}</div> : null}
       <Row gutter={gutter}>
         {React.Children.map(
           children,
