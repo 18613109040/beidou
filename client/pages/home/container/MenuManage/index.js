@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Tree, Card, Divider, Button, Table } from 'antd';
-import { createModules, getModules } from '../../actions/menu';
+import { Tree, Card, Divider, Button, Table, Popconfirm } from 'antd';
+import { createModules, getModules, destroyModule, updateModules } from '../../actions/menu';
 import MenuCreateForm from './MenuModal';
 import DescriptionList from '../../components/DescriptionList';
 import './index.less';
-
 
 const TreeNode = Tree.TreeNode;
 const { Description } = DescriptionList;
@@ -19,10 +18,10 @@ class MenuManage extends React.Component {
       super(props);
       this.state = {
         selectedKey: 'root',
-        selectTitle: '根目录',
-        tableLoading: false,
         visible: false,
+        eidtData: {},
         dataSource: null,
+        eidt: false,
         currentSelect: {
           type: '0',
           _id: 'root',
@@ -67,16 +66,24 @@ class MenuManage extends React.Component {
 
     handleCreate = () => {
       const { form } = this.formRef.props;
+      const { eidt, eidtData } = this.state;
       form.validateFields((err, values) => {
-        console.dir(err);
         if (err) {
           return;
         }
-        createModules(Object.assign(values, { parentId: this.state.selectedKey }), (res) => {
-          form.resetFields();
-          this.props.dispatch(getModules());
-          this.setState({ visible: false });
-        });
+        if (eidt) {
+          updateModules(Object.assign(eidtData, values), () => {
+            form.resetFields();
+            this.props.dispatch(getModules());
+            this.setState({ visible: false, eidt: false });
+          });
+        } else {
+          createModules(Object.assign(values, { parentId: this.state.selectedKey }), () => {
+            form.resetFields();
+            this.props.dispatch(getModules());
+            this.setState({ visible: false, eidt: false });
+          });
+        }
       });
     }
 
@@ -85,6 +92,7 @@ class MenuManage extends React.Component {
       form.resetFields();
       this.setState({
         visible: false,
+        eidt: false,
       });
     }
 
@@ -102,12 +110,20 @@ class MenuManage extends React.Component {
       const { form } = this.formRef.props;
       this.setState({
         visible: true,
+        eidt: true,
+        eidtData: data,
       });
       form.setFieldsValue(data);
     }
 
+    deleteMenu = (id) => {
+      destroyModule(id, () => {
+        this.props.dispatch(getModules());
+      });
+    }
+
     render() {
-      const { selectedKey, selectTitle, visible, dataSource, currentSelect } = this.state;
+      const { selectedKey, visible, dataSource, currentSelect, eidt } = this.state;
       const { menuTree } = this.props;
       const columns = [
         { title: '菜单名称（中文）', dataIndex: 'menuNameCh', key: 'menuNameCh' },
@@ -121,7 +137,9 @@ class MenuManage extends React.Component {
           render: (text, record, index) => (<span>
             <a onClick={() => this.eidtMenu(record)}>编辑</a>
             <Divider type="vertical" />
-            <a>删除</a>
+            <Popconfirm title="确定删除?" okText="确定" cancelText="取消" onConfirm={() => this.deleteMenu(record._id)}>
+              <a >删除</a>
+            </Popconfirm>
           </span>) },
       ];
       return (
@@ -133,7 +151,13 @@ class MenuManage extends React.Component {
                 defaultSelectedKeys={[selectedKey]}
                 onSelect={this.onTreeSelect}
               >
-                <TreeNode title="根目录" key="root">
+                <TreeNode
+                  title="根目录"
+                  key="root"
+                  dataRef={{ children: menuTree,
+                    type: '0',
+                    _id: 'root' }}
+                >
                   {this.renderTreeNodes(menuTree)}
                 </TreeNode>
               </Tree>
@@ -178,6 +202,7 @@ class MenuManage extends React.Component {
             visible={visible}
             onCancel={this.handleCancel}
             onCreate={this.handleCreate}
+            eidt={eidt}
           />
         </div>
       );

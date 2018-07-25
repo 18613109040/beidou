@@ -1,6 +1,6 @@
 {
   "output": {
-    "path": "G:\\beidou\\build",
+    "path": "F:\\beidou\\build",
     "filename": "[name].js?[hash]",
     "chunkFilename": "[name].js",
     "publicPath": "/build/",
@@ -27,7 +27,7 @@
       ".jsx"
     ],
     "alias": {
-      "client": "G:\\beidou\\client"
+      "client": "F:\\beidou\\client"
     },
     "unsafeCache": true,
     "modules": [
@@ -62,24 +62,19 @@
     "stats": {
       "colors": true,
       "chunks": false,
-      "context": "G:\\beidou"
+      "context": "F:\\beidou"
     },
     "publicPath": "/build/",
     "hot": true
   },
   "bail": false,
   "devtool": "eval",
-  "context": "G:\\beidou",
+  "context": "F:\\beidou",
   "entry": {
-    "login": [
-      "webpack-dev-server/client?http://localhost:6001/",
-      "webpack/hot/only-dev-server",
-      "G:\\beidou\\client\\pages\\login\\index.jsx"
-    ],
-    "main": [
-      "webpack-dev-server/client?http://localhost:6001/",
-      "webpack/hot/only-dev-server",
-      "G:\\beidou\\client\\pages\\home\\index.jsx"
+    "layout": [
+      "F:\\beidou\\node_modules\\_webpack-dev-server@2.11.2@webpack-dev-server\\client\\index.js?http://0.0.0.0:6002",
+      "F:\\beidou\\node_modules\\_webpack@3.12.0@webpack\\hot\\only-dev-server.js",
+      "F:\\beidou\\client\\layout\\index.jsx"
     ]
   },
   "module": {
@@ -89,7 +84,7 @@
         "test": "/\\.(js|jsx|mjs)$/",
         "exclude": "/node_modules/",
         "use": {
-          "loader": "G:\\beidou\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js",
+          "loader": "F:\\beidou\\node_modules\\_babel-loader@7.1.5@babel-loader\\lib\\index.js",
           "options": {
             "babelrc": false,
             "plugins": [
@@ -112,7 +107,7 @@
               ]
             ],
             "presets": [
-              "G:\\beidou\\node_modules\\_babel-preset-beidou-client@1.0.0@babel-preset-beidou-client\\index.js"
+              "F:\\beidou\\node_modules\\_babel-preset-beidou-client@1.0.0@babel-preset-beidou-client\\index.js"
             ],
             "cacheDirectory": true,
             "compact": false,
@@ -125,20 +120,20 @@
         "exclude": "/\\.module\\.css$/",
         "loader": [
           {
-            "loader": "G:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -147,7 +142,7 @@
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
@@ -158,20 +153,20 @@
         "test": "/\\.module\\.css$/",
         "loader": [
           {
-            "loader": "G:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -181,7 +176,7 @@
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
@@ -193,20 +188,20 @@
         "exclude": "/\\.module\\.s(c|a)ss$/",
         "use": [
           {
-            "loader": "G:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -215,13 +210,13 @@
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
+            "loader": "F:\\beidou\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
           }
         ]
       },
@@ -229,20 +224,20 @@
         "test": "/\\.module\\.s(c|a)ss$/",
         "use": [
           {
-            "loader": "G:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -252,13 +247,13 @@
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
+            "loader": "F:\\beidou\\node_modules\\_sass-loader@6.0.7@sass-loader\\lib\\loader.js"
           }
         ]
       },
@@ -267,20 +262,20 @@
         "exclude": "/\\.module\\.less$/",
         "use": [
           {
-            "loader": "G:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -289,13 +284,13 @@
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
+            "loader": "F:\\beidou\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
             "options": {
               "javascriptEnabled": true
             }
@@ -306,20 +301,20 @@
         "test": "/\\.module\\.less$/",
         "use": [
           {
-            "loader": "G:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
+            "loader": "F:\\beidou\\node_modules\\_extract-text-webpack-plugin@3.0.2@extract-text-webpack-plugin\\dist\\loader.js",
             "options": {
               "omit": 1,
               "remove": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_style-loader@0.19.1@style-loader\\index.js",
             "options": {
               "hmr": true
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_css-loader@0.28.11@css-loader\\index.js",
             "options": {
               "importLoaders": 1,
               "minimize": false,
@@ -329,13 +324,13 @@
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
+            "loader": "F:\\beidou\\node_modules\\_postcss-loader@2.1.6@postcss-loader\\lib\\index.js",
             "options": {
               "ident": "postcss"
             }
           },
           {
-            "loader": "G:\\beidou\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
+            "loader": "F:\\beidou\\node_modules\\_less-loader@4.1.0@less-loader\\dist\\cjs.js",
             "options": {
               "javascriptEnabled": true
             }
@@ -350,7 +345,7 @@
           "/\\.png$/",
           "/\\.webp$/"
         ],
-        "loader": "G:\\beidou\\node_modules\\_url-loader@0.6.2@url-loader\\index.js",
+        "loader": "F:\\beidou\\node_modules\\_url-loader@0.6.2@url-loader\\index.js",
         "options": {
           "limit": 10000,
           "name": "[name]-[hash:5].[ext]"
@@ -370,7 +365,7 @@
           "/\\.eot$/",
           "/\\.midi?$/"
         ],
-        "loader": "G:\\beidou\\node_modules\\_file-loader@1.1.11@file-loader\\dist\\cjs.js",
+        "loader": "F:\\beidou\\node_modules\\_file-loader@1.1.11@file-loader\\dist\\cjs.js",
         "options": {
           "name": "[name]-[hash:5].[ext]"
         }
@@ -397,7 +392,7 @@
     {
       "<IsomorphicPlugin>": {
         "options": {
-          "assetsFilePath": "G:\\beidou\\.isomorphic\\assets.json",
+          "assetsFilePath": "F:\\beidou\\.isomorphic\\assets.json",
           "assets": [
             ".sass",
             ".scss",
@@ -422,7 +417,7 @@
             ".mid",
             ".midi"
           ],
-          "context": "G:\\beidou"
+          "context": "F:\\beidou"
         },
         "exts": {
           ".sass": {
@@ -435,11 +430,11 @@
           },
           ".less": {
             "ext": ".less",
-            "exclude": "node_modules"
+            "exclude": "/node_modules/"
           },
           ".css": {
             "ext": ".css",
-            "exclude": "node_modules"
+            "exclude": "/node_modules/"
           },
           ".bmp": {
             "ext": ".bmp",
@@ -451,7 +446,7 @@
           },
           ".jpg": {
             "ext": ".jpg",
-            "exclude": "node_modules"
+            "exclude": "/node_modules/"
           },
           ".jpeg": {
             "ext": ".jpeg",
@@ -534,7 +529,7 @@
           "manifest"
         ],
         "filenameTemplate": "manifest.js",
-        "ident": "G:\\beidou\\node_modules\\_webpack@3.12.0@webpack\\lib\\optimize\\CommonsChunkPlugin.js0"
+        "ident": "F:\\beidou\\node_modules\\_webpack@3.12.0@webpack\\lib\\optimize\\CommonsChunkPlugin.js0"
       }
     },
     {

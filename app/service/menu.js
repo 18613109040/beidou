@@ -46,9 +46,34 @@ module.exports = (app) => {
         }
       });
       return roots;
-    //   return { count, list: data, pageSize: Number(pageSize), currentPage: Number(currentPage) };
+    }
+
+    // update======================================================================================================>
+    async update(_id, payload) {
+      const { ctx } = this;
+      const menu = await ctx.service.menu.find(_id);
+      if (!menu) {
+        ctx.throw(404, '没有发现该菜单');
+      }
+      return ctx.model.Menu.findByIdAndUpdate(_id, payload);
+    }
+
+    // destroy======================================================================================================>
+    async destroy(_id) {
+      const { ctx } = this;
+      const menu = await ctx.service.menu.find(_id);
+      if (!menu) {
+        ctx.throw(404, '没有发现该菜单');
+      }
+      return ctx.model.Menu.findByIdAndRemove(_id);
+    }
+
+    // Commons======================================================================================================>
+    async find(id) {
+      return this.ctx.model.Menu.findById(id);
     }
   }
+
   return MenuService;
 };
 

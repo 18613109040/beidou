@@ -89,6 +89,52 @@
   {
     "name": null,
     "methods": [
+      "DELETE"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/api/menu/:id",
+    "regexp": "/^\\/api\\/menu\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "PUT"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/api/menu/:id",
+    "regexp": "/^\\/api\\/menu\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
       "POST"
     ],
     "paramNames": [],

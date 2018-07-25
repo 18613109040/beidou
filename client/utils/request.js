@@ -89,19 +89,12 @@ export default function request(url, options) {
     .then(checkStatus)
     .then((response) => {
       if (newOptions.method === 'DELETE' || response.status === 204) {
-        return response.text();
+        // return response.text();
       }
-      // if (response.status === 200 && newOptions.method === 'POST') {
-      //   response.json().then((res) => {
-      //     notification.success({
-      //       message: res.msg,
-      //     });
-      //   });
-      // }
       return response.json();
     })
     .then((res) => {
-      if (newOptions.method === 'POST') {
+      if (newOptions.method === 'POST' || newOptions.method === 'DELETE') {
         if (res.code === 0) {
           notification.success({
             message: res.msg,

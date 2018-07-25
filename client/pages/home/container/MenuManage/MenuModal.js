@@ -26,10 +26,10 @@ const MenuCreateForm = Form.create()(
     }
 
     render() {
-      const { visible, onCancel, onCreate, form } = this.props;
+      const { visible, onCancel, onCreate, form, eidt } = this.props;
       const { getFieldDecorator } = form;
       const { fileType } = this.state;
-      const options = this.state.data.map(d => <Option key={d.name}>{d.name}</Option>);
+      const options = this.state.data.map(d => <Option key={d.path}>{d.name}</Option>);
       const formItemLayout = {
         labelCol: {
           xs: { span: 24 },
@@ -44,7 +44,8 @@ const MenuCreateForm = Form.create()(
         <Modal
           visible={visible}
           title="目录"
-          okText="新增"
+          cancelText="取消"
+          okText={eidt ? '更新' : '新增'}
           onCancel={onCancel}
           onOk={onCreate}
         >
@@ -110,7 +111,7 @@ const MenuCreateForm = Form.create()(
                   })(
                     <Select
                       showSearch
-
+                      labelInValue
                       placeholder="请选择模块"
                       defaultActiveFirstOption={false}
                       showArrow={false}

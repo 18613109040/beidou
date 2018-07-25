@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout } from 'antd';
+import { connect } from 'react-redux';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
 import { getMenuData } from '../common/menu';
@@ -38,7 +39,6 @@ class BasicLayout extends React.Component {
     };
     const logo = 'http://lb.sit.igola.com:9000/assets/images/igola_logo.png';
     const pathname = location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/operation';
-    console.dir(pathname);
     const menuData = getMenuData().find(item => item.path === pathname).children;
     return (
       <Layout>
@@ -65,4 +65,6 @@ class BasicLayout extends React.Component {
     );
   }
 }
+
+
 export default BasicLayout;

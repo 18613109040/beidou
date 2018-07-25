@@ -17,7 +17,7 @@ export default class RouteView extends View {
     asset: 'main',
   };
 
-  static async getStore() {
+  static async getStore({ ctx }) {
     const store = configureStore();
     return store;
   }

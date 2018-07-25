@@ -8,7 +8,7 @@ module.exports = (app) => {
     linkurl: { type: String, required: true },
     target: { type: Boolean, default: false },
     type: { type: String, required: true },
-    moduleid: { type: String },
+    moduleid: { type: mongoose.Schema.Types.Mixed },
     hiden: { type: Boolean, default: false },
     createdAt: { type: Date, default: Date.now },
     upDate: { type: Date, default: Date.now },
