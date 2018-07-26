@@ -12,3 +12,5 @@ export function userLogin(data, callback = () => {}) {
     callback(json);
   });
 }
+
+// 跳转首页

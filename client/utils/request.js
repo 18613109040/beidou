@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { notification } from 'antd';
 import store from 'store';
-import configureStore from '../../home/store';
+
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',

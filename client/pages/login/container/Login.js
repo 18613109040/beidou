@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Icon, Input, Button } from 'antd';
 import store from 'store';
+import { userLogin, goToHome } from '../actions/login';
+import createBrowserHistory from 'history/createBrowserHistory';
 import './index.less';
-import { userLogin } from '../actions/login';
 
+const history = createBrowserHistory();
 
 const FormItem = Form.Item;
 
 class Login extends React.Component {
-  // static contextTypes = {
-  //   router: PropTypes.object.isRequired,
-  // };
+  static contextTypes = {
+    router: PropTypes.object.isRequired,
+  };
 
   constructor(props) {
     super(props);
@@ -33,13 +35,17 @@ class Login extends React.Component {
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
         if (!err) {
-          // this.setState({
-          //   loading: true,
-          // });
-          userLogin(values, (res) => {
-            // Cookies.set('token', res.data.token);
-            store.set('token', res.data.token);
+          this.setState({
+            loading: true,
           });
+          userLogin(values, (res) => {
+            this.setState({
+              loading: false,
+            });
+            store.set('token', res.data.token);
+            window.location.href = '/';
+          });
+
           // request('/api/user/access/login', {
           //   method: 'POST',
           //   body: values,
