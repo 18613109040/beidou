@@ -12,7 +12,7 @@ module.exports = (app) => {
       const { ctx, service } = this;
       const role = await service.role.show(payload.role);
       if (!role) {
-        ctx.throw(404, 'role is not found');
+        ctx.throw(404, '角色没发现');
       }
       payload.password = await this.ctx.genHash(payload.password);
       return ctx.model.User.create(payload);

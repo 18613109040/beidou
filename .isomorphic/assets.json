@@ -1,1 +1,14 @@
-{}
+{
+  "client\\pages\\home\\components\\DescriptionList\\index.less": {},
+  "client\\pages\\home\\components\\GlobalHeader\\index.less": {},
+  "client\\pages\\home\\components\\HeaderSearch\\index.less": {},
+  "client\\pages\\home\\components\\SiderMenu\\index.less": {},
+  "client\\pages\\home\\components\\StandardTable\\index.less": {},
+  "client\\pages\\home\\container\\Home\\index.less": {},
+  "client\\pages\\home\\container\\MenuManage\\index.less": {},
+  "client\\pages\\home\\container\\Role\\index.less": {},
+  "client\\pages\\home\\container\\User\\index.less": {},
+  "client\\pages\\home\\index.less": {},
+  "client\\pages\\login\\container\\index.less": {},
+  "client\\pages\\login\\index.less": {}
+}

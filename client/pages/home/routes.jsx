@@ -4,6 +4,7 @@ import Home from './container/Home';
 import RoleCreate from './container/Role/create';
 import RoleList from './container/Role/list';
 import MenuManage from './container/MenuManage';
+import User from './container/User';
 // import Loadable from 'react-loadable';
 
 // export const Activity = Loadable({
@@ -42,6 +43,10 @@ export default (
 
     <Route exact path="/system/manage/role" component={RoleList} />
     <Route exact path="/system/manage/role/create" component={RoleCreate} />
+
+    <Route exact path="/system/manage/user" component={User} />
+
+
     <Route exact path="/system/menuManage" component={MenuManage} />
   </Switch>
 );

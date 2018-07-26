@@ -13,7 +13,7 @@ class UserAccessController extends Controller {
 
     this.UserLoginTransfer = {
       email: { type: 'email', required: true, allowEmpty: false },
-      password: { type: 'password', required: true, allowEmpty: false },
+      password: { type: 'password', required: true, allowEmpty: false, min: 2 },
 
     };
   }

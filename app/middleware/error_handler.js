@@ -17,7 +17,7 @@ module.exports = (option, app) => async function (ctx, next) {
     if (status === 422) {
       ctx.body.detail = err.errors;
     }
-    ctx.status = 200;
+    ctx.status = status; // 200;
   }
 };
 

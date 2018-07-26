@@ -2,20 +2,21 @@ export default class storage {
   constructor() {
     this.StorageKeys = {};
     this.regStorageKey = /^localstorage\_\_\_(.*)+\_\_\_\d*$/;
-    this.prefixText = "localstorage";
-    this.space = "___";
+    this.prefixText = 'localstorage';
+    this.space = '___';
     this.initCheck();
   }
+
   getRealKey(key) {
-    let tempArr = key.split(this.space);
-    let realKey = {};
-    realKey['realkey'] = tempArr[1];
-    realKey['expires'] = tempArr[2] || "";
+    const tempArr = key.split(this.space);
+    const realKey = {};
+    realKey.realkey = tempArr[1];
+    realKey.expires = tempArr[2] || '';
     return realKey;
   }
 
   isExpires(key, expires) {
-    var now = +new Date();
+    const now = +new Date();
     if (!expires) {
       return false;
     }
@@ -26,7 +27,7 @@ export default class storage {
   }
 
   clear() {
-    for (var key in window.localStorage) {
+    for (const key in window.localStorage) {
       if (this.regStorageKey.test(key)) {
         window.localStorage.removeItem(key);
       }
@@ -35,22 +36,23 @@ export default class storage {
   }
 
   removeItem(key) {
-    var item = this.StorageKeys[key];
+    const item = this.StorageKeys[key];
     if (item) {
-      window.localStorage.removeItem(item['key']);
+      window.localStorage.removeItem(item.key);
     }
     return this;
   }
+
   getItem(key) {
-    var item = this.StorageKeys[key];
+    const item = this.StorageKeys[key];
     if (item) {
       // 如果过期了，那么就返回空字符串
-      if (this.isExpires(key, item['expires'])) {
-        return "";
+      if (this.isExpires(key, item.expires)) {
+        return '';
       }
-      return window.localStorage[item['key']];
+      return window.localStorage[item.key];
     }
-    return "";
+    return '';
   }
 
   setItem(key, value, expires) {
@@ -59,14 +61,14 @@ export default class storage {
     }
     expires = expires || 0;
     this._key = key;
-    let  now = (+ new Date());
-    let localKey = this.prefixText + this.space + key + this.space + (expires? expires * 1000 + now: "");
+    const now = (+new Date());
+    const localKey = this.prefixText + this.space + key + this.space + (expires ? expires * 1000 + now : '');
     window.localStorage.setItem(localKey, value);
     this.StorageKeys[key] = {
-      "key": localKey,
-      "expires": expires
+      key: localKey,
+      expires: expires
         ? expires * 1000 + now
-        : ""
+        : '',
     };
     return this;
   }
@@ -75,10 +77,10 @@ export default class storage {
     if (!seconds) {
       return this;
     }
-    let key = this._key;
-    let item = this.StorageKeys[key] || {};
-    let value = window.localStorage[item['key']];
-    let now = (+ new Date());
+    const key = this._key;
+    const item = this.StorageKeys[key] || {};
+    const value = window.localStorage[item.key];
+    const now = (+new Date());
     if (!key) {
       return this;
     }
@@ -89,20 +91,19 @@ export default class storage {
 
   initCheck() {
     let realKey;
-    for (var key in window.localStorage) {
+    for (const key in window.localStorage) {
       if (this.regStorageKey.test(key)) {
         realKey = this.getRealKey(key);
         // 如果已经过期的local data，则删掉
-        if (this.isExpires(realKey['realkey'], realKey['expires'])) {
+        if (this.isExpires(realKey.realkey, realKey.expires)) {
           window.localStorage.removeItem(key);
           continue;
         }
-        this.StorageKeys[realKey['realkey']] = {
-          "key": key,
-          "expires": realKey['expires']
+        this.StorageKeys[realKey.realkey] = {
+          key,
+          expires: realKey.expires,
         };
       }
     }
   }
-
 }

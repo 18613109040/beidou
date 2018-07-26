@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Icon, Input, Button } from 'antd';
+import store from 'store';
 import './index.less';
-import request from '../../../utils/request';
+import { userLogin } from '../actions/login';
+
 
 const FormItem = Form.Item;
 
@@ -34,11 +36,15 @@ class Login extends React.Component {
           // this.setState({
           //   loading: true,
           // });
-          request('/api/user/access/login', {
-            method: 'POST',
-            body: values,
+          userLogin(values, (res) => {
+            // Cookies.set('token', res.data.token);
+            store.set('token', res.data.token);
           });
-          console.log('Received values of form: ', values);
+          // request('/api/user/access/login', {
+          //   method: 'POST',
+          //   body: values,
+          // });
+          // console.log('Received values of form: ', values);
         }
       });
     }

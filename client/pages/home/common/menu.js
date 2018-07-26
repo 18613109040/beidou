@@ -408,7 +408,7 @@ const menuData = [
             id: '3-2-1',
             name: '用户',
             operating: ['read', 'write'],
-            path: 'users',
+            path: 'user',
           },
         ],
       },

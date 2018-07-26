@@ -23,6 +23,10 @@ module.exports = {
       configPath: path.join(__dirname, './webpack.config.js'),
     },
   },
+
+  bcrypt: {
+    saltRounds: 10, // default 10
+  },
   logger: {
     level: 'DEBUG',
   },
@@ -37,13 +41,9 @@ module.exports = {
   security: {
     csrf: false,
   },
-  mongoose: {
-    url: 'mongodb://localhost:27017/cms',
-    options: {
-      useMongoClient: true,
-      autoReconnect: true,
-      reconnectTries: Number.MAX_VALUE,
-      bufferMaxEntries: 0,
-    },
+  jwt: {
+    secret: 'Great4-M',
+    enable: true, // default is false
+    match: '/jwt', // optional
   },
 };

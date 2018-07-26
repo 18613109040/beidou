@@ -8,7 +8,7 @@ class UserController extends Controller {
 
     this.UserCreateTransfer = {
       email: { type: 'email', required: true, allowEmpty: false },
-      password: { type: 'password', required: true, allowEmpty: false, min: 6 },
+      password: { type: 'password', required: true, allowEmpty: false, min: 2 },
       role: { type: 'string', required: true, allowEmpty: false },
     };
   }

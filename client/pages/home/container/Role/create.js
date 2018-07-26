@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Form, Input, Button, Card, Checkbox, notification } from 'antd';
+import { Form, Input, Button, Card, Checkbox } from 'antd';
 import { getMenuData } from '../../common/menu';
-import request from '../../../../utils/request';
 import StandardTable from '../../components/StandardTable';
 import { getRoleModule, changeRoleModule, createRole } from '../../actions/role';
 import './index.less';

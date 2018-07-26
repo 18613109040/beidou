@@ -246,6 +246,14 @@
       "app": true,
       "agent": false
     },
+    "bcrypt": {
+      "saltRounds": 10
+    },
+    "jwt": {
+      "secret": "<String len: 8>",
+      "enable": true,
+      "match": "/jwt"
+    },
     "env": "local",
     "name": "beidou-example-with-react-router",
     "keys": "<String len: 6>",
@@ -302,6 +310,7 @@
         "babel-plugin-import": "1.8.0",
         "bundle-loader": "^0.5.2",
         "egg-cors": "2.1.0",
+        "egg-jwt": "3.0.0",
         "web-storage-cache": "1.0.3",
         "react-loadable": "^5.3.1",
         "classnames": "^2.2.5",
@@ -310,6 +319,7 @@
         "koa-connect": "^2.0.1",
         "react-keeper": "^2.1.7",
         "egg-validate": "1.0.0",
+        "egg-bcrypt": "1.1.0",
         "egg-mongoose": "3.1.0",
         "enquire-js": "^0.2.1",
         "react-container-query": "^0.11.0",
@@ -317,7 +327,8 @@
         "react-document-title": "^2.0.3",
         "lodash": "4.17.10",
         "lodash-decorators": "6.0.0",
-        "ant-design-pro": "2.0.0-beta.2"
+        "ant-design-pro": "2.0.0-beta.2",
+        "store": "2.0.12"
       },
       "engines": {
         "node": ">= 8.0.0"
@@ -647,6 +658,30 @@
       "from": "F:\\beidou\\config\\plugin.js",
       "path": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose",
       "version": "3.1.0"
+    },
+    "bcrypt": {
+      "enable": true,
+      "package": "egg-bcrypt",
+      "name": "bcrypt",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "F:\\beidou\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-bcrypt@1.1.0@egg-bcrypt",
+      "version": "1.1.0"
+    },
+    "jwt": {
+      "enable": true,
+      "package": "egg-jwt",
+      "name": "jwt",
+      "dependencies": [],
+      "optionalDependencies": [
+        "onerror"
+      ],
+      "env": [],
+      "from": "F:\\beidou\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-jwt@3.0.0@egg-jwt",
+      "version": "3.0.0"
     }
   }
 }

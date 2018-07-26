@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 import { notification } from 'antd';
-// import store from '../index';
-
+import store from 'store';
+import configureStore from '../../home/store';
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -59,6 +59,9 @@ export default function request(url, options) {
     mode: 'cors', // no-cors, cors, *same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, *omit
+    headers: {
+      Authorization: `Bearer ${store.get('token')}`,
+    },
   };
   const newOptions = { ...defaultOptions, ...options };
   if (
@@ -84,7 +87,7 @@ export default function request(url, options) {
     const params = parseParams(newOptions.body);
     url = newOptions.body == null ? url : `${url}?${params}`;
   }
-
+  console.dir(newOptions);
   return fetch(url, newOptions)
     .then(checkStatus)
     .then((response) => {
@@ -116,6 +119,7 @@ export default function request(url, options) {
         // dispatch({
         //   type: 'login/logout',
         // });
+        console.dir(this);
         return;
       }
       if (status === 403) {

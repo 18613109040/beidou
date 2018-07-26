@@ -38,6 +38,9 @@
       "hot": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
     }
   },
+  "bcrypt": {
+    "saltRounds": "F:\\beidou\\config\\config.default.js"
+  },
   "logger": {
     "level": "F:\\beidou\\config\\config.default.js",
     "dir": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
@@ -108,21 +111,26 @@
       "checkAddress": "F:\\beidou\\node_modules\\_egg-security@2.2.3@egg-security\\config\\config.default.js"
     }
   },
-  "mongoose": {
-    "url": "F:\\beidou\\config\\config.default.js",
-    "options": {
-      "useMongoClient": "F:\\beidou\\config\\config.default.js",
-      "autoReconnect": "F:\\beidou\\config\\config.default.js",
-      "reconnectTries": "F:\\beidou\\config\\config.default.js",
-      "bufferMaxEntries": "F:\\beidou\\config\\config.default.js"
-    },
-    "loadModel": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
-    "app": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
-    "agent": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js"
+  "jwt": {
+    "secret": "F:\\beidou\\config\\config.default.js",
+    "enable": "F:\\beidou\\config\\config.default.js",
+    "match": "F:\\beidou\\config\\config.default.js"
   },
   "proxyagent": {
     "enable": "F:\\beidou\\config\\config.local.js",
     "package": "F:\\beidou\\config\\config.local.js"
+  },
+  "mongoose": {
+    "url": "F:\\beidou\\config\\config.local.js",
+    "options": {
+      "useMongoClient": "F:\\beidou\\config\\config.local.js",
+      "autoReconnect": "F:\\beidou\\config\\config.local.js",
+      "reconnectTries": "F:\\beidou\\config\\config.local.js",
+      "bufferMaxEntries": "F:\\beidou\\config\\config.local.js"
+    },
+    "loadModel": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
+    "app": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
+    "agent": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js"
   },
   "session": {
     "maxAge": "F:\\beidou\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
@@ -277,6 +285,7 @@
       "babel-plugin-import": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "bundle-loader": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "egg-cors": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "egg-jwt": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "web-storage-cache": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "react-loadable": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "classnames": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
@@ -285,6 +294,7 @@
       "koa-connect": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "react-keeper": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "egg-validate": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "egg-bcrypt": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "egg-mongoose": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "enquire-js": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "react-container-query": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
@@ -292,7 +302,8 @@
       "react-document-title": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "lodash": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "store": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
