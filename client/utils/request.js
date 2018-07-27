@@ -87,7 +87,6 @@ export default function request(url, options) {
     const params = parseParams(newOptions.body);
     url = newOptions.body == null ? url : `${url}?${params}`;
   }
-  console.dir(newOptions);
   return fetch(url, newOptions)
     .then(checkStatus)
     .then((response) => {

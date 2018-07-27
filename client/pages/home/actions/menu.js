@@ -1,6 +1,16 @@
 import request from 'client/utils/request';
 
 export const GET_MODULES = 'GET_MODULES';
+export const SET_MEUN = 'SET_MEUN';
+
+// 设置菜单数据
+export function setMenu(json) {
+  return {
+    type: SET_MEUN,
+    json,
+  };
+}
+
 // 获取菜单
 export function getModules(data, callback = () => {}) {
   return (dispatch) => {

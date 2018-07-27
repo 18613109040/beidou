@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout } from 'antd';
+import { Route, Switch, Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import { Layout } from 'antd';
+import Loadable from 'react-loadable';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
 import { getMenuData } from '../common/menu';
-
 
 const { Header, Content } = Layout;
 
@@ -24,6 +25,45 @@ class BasicLayout extends React.Component {
   handleMenuCollapse = (collapsed) => {
     this.setState({
       collapsed,
+    });
+  }
+
+  componentWillMount() {
+    // this.props.dispatch(getModules());
+    const token = storeLocalStorage.get('token');
+    console.dir(token);
+  }
+
+  componentDidMount() {
+
+  }
+
+  getRouter(data, routers, path = '') {
+    data.map((item) => {
+      const rootPath = `${path}/${item.path}`;
+      let redirectPath = `${path}/${item.path}`;
+      if (item.children && item.children.length > 0) {
+        redirectPath = `${path}/${item.path}/${item.children[0].path}`;
+      }
+      if (item.type === '1') {
+        routers.push(<Route
+          exact
+          path={redirectPath}
+          component={import('../container/MenuManage')}
+        />);
+      } else {
+        routers.push(<Route
+          exact
+          path={rootPath}
+          render={() => (
+            <Redirect to={redirectPath} />
+          )}
+        />);
+      }
+      if (item.children && item.children.length > 0) {
+        this.getRouter(item.children, routers, rootPath);
+      }
+      return item;
     });
   }
 
@@ -65,6 +105,10 @@ class BasicLayout extends React.Component {
     );
   }
 }
-
-
 export default BasicLayout;
+// function mapStateToProps(state) {
+//   return {
+//     menuTree: state.menuTree,
+//   };
+// }
+// export default connect(mapStateToProps)(BasicLayout);

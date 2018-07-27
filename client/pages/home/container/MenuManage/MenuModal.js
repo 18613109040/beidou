@@ -10,7 +10,6 @@ const MenuCreateForm = Form.create()(
     state = {
       data: modules,
       value: undefined,
-      fileType: '0',
     }
 
     handleSearch = (value) => {
@@ -19,17 +18,16 @@ const MenuCreateForm = Form.create()(
       });
     }
 
-    handleSelectChange=(value) => {
-      this.setState({
-        fileType: value,
-      });
+
+    componentDidMount() {
+
+
     }
 
     render() {
       const { visible, onCancel, onCreate, form, eidt } = this.props;
       const { getFieldDecorator } = form;
-      const { fileType } = this.state;
-      const options = this.state.data.map(d => <Option key={d.path}>{d.name}</Option>);
+      const options = this.state.data.map(d => <Option key={d.component}>{d.name}</Option>);
       const formItemLayout = {
         labelCol: {
           xs: { span: 24 },
@@ -48,6 +46,7 @@ const MenuCreateForm = Form.create()(
           okText={eidt ? '更新' : '新增'}
           onCancel={onCancel}
           onOk={onCreate}
+          maskClosable={false}
         >
           <Form >
             <FormItem
@@ -74,7 +73,7 @@ const MenuCreateForm = Form.create()(
               label="链接地址"
               {...formItemLayout}
             >
-              {getFieldDecorator('linkurl')(
+              {getFieldDecorator('path')(
                 <Input placeholder="请输入链接地址" />
               )}
             </FormItem>
@@ -94,14 +93,14 @@ const MenuCreateForm = Form.create()(
                 initialValue: '0',
                 rules: [{ required: true, message: '请选择类型' }],
               })(
-                <Select style={{ width: 120 }} onChange={this.handleSelectChange}>
+                <Select style={{ width: 120 }} >
                   <Option value="0" key="0">目录</Option>
                   <Option value="1" key="1">模块</Option>
                 </Select>
               )}
             </FormItem>
             {
-              fileType === '0' ? '' :
+              form.getFieldValue('type') === '0' ? '' :
                 (<FormItem
                   {...formItemLayout}
                   label="模块"
@@ -111,7 +110,6 @@ const MenuCreateForm = Form.create()(
                   })(
                     <Select
                       showSearch
-                      labelInValue
                       placeholder="请选择模块"
                       defaultActiveFirstOption={false}
                       showArrow={false}

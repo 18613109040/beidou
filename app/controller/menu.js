@@ -9,15 +9,16 @@ class MenuController extends Controller {
     this.MenuRule = {
       parentId: { type: 'string', required: true },
       menuNameCh: { type: 'string', required: true },
-      menuNameEn: { type: 'string', required: false },
-      linkurl: { type: 'string', required: false },
+      menuNameEn: { type: 'string', required: true },
+      path: { type: 'string', required: false },
       target: { type: 'boolean', required: true },
       type: { type: 'string', required: true },
-      moduleid: { type: 'object', required: false },
+      moduleid: { type: 'string', required: false },
       hiden: { type: 'boolean', required: true },
     };
   }
 
+  // 获取菜单列表
   async index() {
     const { ctx, service } = this;
     // 组装参数
@@ -63,7 +64,7 @@ class MenuController extends Controller {
     // 校验参数
     const { id } = ctx.params;
     // 调用 Service 进行业务处理
-    const res = await service.menu.destroy(id);
+    const res = await service.menu.deleted(id);
     const msg = '删除成功';
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res, msg });

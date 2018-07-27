@@ -114,6 +114,7 @@ class MenuManage extends React.Component {
         eidtData: data,
       });
       form.setFieldsValue(data);
+      form.setFieldsValue(data);
     }
 
     deleteMenu = (id) => {
@@ -123,7 +124,7 @@ class MenuManage extends React.Component {
     }
 
     render() {
-      const { selectedKey, visible, dataSource, currentSelect, eidt } = this.state;
+      const { selectedKey, visible, dataSource, currentSelect, eidt, eidtData } = this.state;
       const { menuTree } = this.props;
       const columns = [
         { title: '菜单名称（中文）', dataIndex: 'menuNameCh', key: 'menuNameCh' },
@@ -189,7 +190,7 @@ class MenuManage extends React.Component {
                     <Description term="新窗口打开">{currentSelect.target ? '是' : '否'}</Description>
 
                     <Description term="类型">{currentSelect.type === '1' ? '模块' : '目录'}</Description>
-                    <Description term="模块名称">{currentSelect.moduleid}</Description>
+                    <Description term="模块名称">{currentSelect.moduleid.label}</Description>
                     <Description term="是否隐藏">{currentSelect.hiden ? '是' : '否'}</Description>
                   </DescriptionList>
                 </Card>
@@ -203,6 +204,7 @@ class MenuManage extends React.Component {
             onCancel={this.handleCancel}
             onCreate={this.handleCreate}
             eidt={eidt}
+            eidtData={eidtData}
           />
         </div>
       );

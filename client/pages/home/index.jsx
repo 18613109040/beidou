@@ -7,6 +7,8 @@ import { View } from 'client/layout';
 import routes from './routes';
 import Layout from './layout';
 import configureStore from './store';
+// import storeLocalStorage from 'store';
+
 import './index.less';
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
@@ -18,7 +20,11 @@ export default class RouteView extends View {
   };
 
   static async getStore({ ctx }) {
+    // const result = await ctx.service.menu.index();
     const store = configureStore();
+    // const token = storeLocalStorage.get('token');
+    // console.dir(token);
+    // store.dispatch((setMenu(result)));
     return store;
   }
 
@@ -35,7 +41,9 @@ export default class RouteView extends View {
     const html = (
       <Provider store={store}>
         <Router {...props}>
-          <Layout>{routes}</Layout>
+          <Layout>
+            {routes}
+          </Layout>
         </Router>
       </Provider>
     );
@@ -53,7 +61,9 @@ if (__CLIENT__) {
   const app = (
     <Provider store={store}>
       <Router>
-        <Layout>{routes}</Layout>
+        <Layout>
+          {routes}
+        </Layout>
       </Router>
     </Provider>
   );
