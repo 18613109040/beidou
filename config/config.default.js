@@ -6,18 +6,29 @@ module.exports = {
   keys: '1513779989145_1674',
   middleware: ['errorHandler'],
   // https://github.com/alibaba/beidou/blob/master/packages/beidou-isomorphic/README.md
+  // isomorphic: {
+  //   babel: {
+  //     presets: ['babel-preset-beidou-server'].map(require.resolve),
+  //     plugins: [
+  //       // 解决服务端不能识别import
+  //       require.resolve('babel-plugin-dynamic-import-node'), [require.resolve('babel-plugin-import-inspector'), {
+  //         serverSideRequirePath: true,
+  //       }],
+  //     ],
+  //     extensions: ['.js', '.jsx', '.mjs'],
+  //   },
+  //   polyfill: true,
+  // },
   isomorphic: {
     babel: {
-      presets: ['babel-preset-beidou-server'].map(require.resolve),
       plugins: [
-        // 解决服务端不能识别import
-        require.resolve('babel-plugin-dynamic-import-node'), [require.resolve('babel-plugin-import-inspector'), {
+        require.resolve('babel-plugin-dynamic-import-node'),
+        [require.resolve('babel-plugin-import-inspector'), {
           serverSideRequirePath: true,
         }],
       ],
       extensions: ['.js', '.jsx', '.mjs'],
     },
-    polyfill: true,
   },
   webpack: {
     custom: {

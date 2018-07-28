@@ -165,10 +165,10 @@ module.exports = (app, defaultConfig, dev = 'local') => ({
             'transform-decorators-legacy', ['transform-runtime', {
               polyfill: false,
             }], //= =>新增
-            ['import', [{
-              style: true,
-              libraryName: 'antd',
-            }]], //= =>新增
+            // ['import', [{
+            //   style: true,
+            //   libraryName: 'antd',
+            // }]],
           ],
           presets: [require.resolve('babel-preset-beidou-client')],
           // This is a feature of `babel-loader` for webpack (not Babel itself).

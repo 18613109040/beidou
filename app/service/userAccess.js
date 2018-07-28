@@ -16,6 +16,7 @@ module.exports = (app) => {
       if (!verifyPsw) {
         ctx.throw(404, 'user password is error');
       }
+      // const menu = await service.menu.index(user._id);
       // 生成Token令牌
       return { token: await service.actionToken.apply(user._id) };
     }

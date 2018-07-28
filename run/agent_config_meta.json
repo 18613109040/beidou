@@ -3,13 +3,13 @@
   "middleware": "F:\\beidou\\config\\config.default.js",
   "isomorphic": {
     "babel": {
-      "presets": "F:\\beidou\\config\\config.default.js",
       "plugins": "F:\\beidou\\config\\config.default.js",
       "extensions": "F:\\beidou\\config\\config.default.js",
+      "presets": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
       "babelrc": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
       "cache": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"
     },
-    "polyfill": "F:\\beidou\\config\\config.default.js",
+    "polyfill": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
     "universal": {
       "assetsFilePath": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js",
       "assets": "F:\\beidou\\node_modules\\_beidou-isomorphic@1.0.0@beidou-isomorphic\\config\\config.default.js"

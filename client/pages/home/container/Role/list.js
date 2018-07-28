@@ -4,6 +4,7 @@ import { List, Avatar, Button, Card } from 'antd';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getRoleList } from '../../actions/role';
+import BaseTable from '../../components/BaseTable';
 
 import './index.less';
 
@@ -75,7 +76,8 @@ class RoleList extends React.Component {
                 </span>
               )} */}
               </div>
-              <List
+              <BaseTable />
+              {/* <List
                 key="1"
                 className="demo-loadmore-list"
                 loading={loading}
@@ -100,7 +102,7 @@ class RoleList extends React.Component {
                     <div>{item.createdAt}</div>
                   </List.Item>
                 )}
-              />
+              /> */}
             </div>
           </Card>
 

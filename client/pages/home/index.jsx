@@ -20,11 +20,7 @@ export default class RouteView extends View {
   };
 
   static async getStore({ ctx }) {
-    // const result = await ctx.service.menu.index();
     const store = configureStore();
-    // const token = storeLocalStorage.get('token');
-    // console.dir(token);
-    // store.dispatch((setMenu(result)));
     return store;
   }
 
@@ -60,7 +56,7 @@ if (__CLIENT__) {
   const store = configureStore(window.__INITIAL_STATE__);
   const app = (
     <Provider store={store}>
-      <Router>
+      <Router >
         <Layout>
           {routes}
         </Layout>

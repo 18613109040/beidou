@@ -1,6 +1,6 @@
 'use strict';
 
-const { Controller } = require('../../node_modules/_beidou-core@1.0.4@beidou-core');
+const { Controller } = require('beidou-core');
 
 class RoleController extends Controller {
   constructor(ctx) {

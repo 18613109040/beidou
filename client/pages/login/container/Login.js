@@ -43,6 +43,7 @@ class Login extends React.Component {
               loading: false,
             });
             store.set('token', res.data.token);
+            store.set('menu', res.data.menu);
             window.location.href = '/';
           });
 

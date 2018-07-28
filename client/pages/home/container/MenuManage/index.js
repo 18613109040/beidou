@@ -38,7 +38,6 @@ class MenuManage extends React.Component {
     }
 
     onTreeSelect=(selectedKeys, { selectedNodes }) => {
-      console.dir(selectedNodes);
       if (selectedKeys.length) {
         this.setState({
           selectedKey: selectedKeys[0],
@@ -147,21 +146,23 @@ class MenuManage extends React.Component {
         <div className="menu-manage" >
           <div className="tree">
             <Card style={{ width: 250 }}>
-              <Tree
-                showIcon
-                defaultSelectedKeys={[selectedKey]}
-                onSelect={this.onTreeSelect}
-              >
-                <TreeNode
-                  title="根目录"
-                  key="root"
-                  dataRef={{ children: menuTree,
-                    type: '0',
-                    _id: 'root' }}
+              {
+                menuTree.length > 0 ? (<Tree
+                  showIcon
+                  defaultSelectedKeys={[selectedKey]}
+                  onSelect={this.onTreeSelect}
                 >
-                  {this.renderTreeNodes(menuTree)}
-                </TreeNode>
-              </Tree>
+                  <TreeNode
+                    title="根目录"
+                    key="root"
+                    dataRef={{ children: menuTree,
+                      type: '0',
+                      _id: 'root' }}
+                  >
+                    {this.renderTreeNodes(menuTree)}
+                  </TreeNode>
+                </Tree>) : 'loading tree'
+              }
             </Card>
 
           </div>

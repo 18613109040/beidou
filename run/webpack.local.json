@@ -100,15 +100,6 @@
                 {
                   "polyfill": false
                 }
-              ],
-              [
-                "import",
-                [
-                  {
-                    "style": true,
-                    "libraryName": "antd"
-                  }
-                ]
               ]
             ],
             "presets": [

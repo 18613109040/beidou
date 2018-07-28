@@ -27,48 +27,34 @@ export const User = Loadable({
   loader: () => import('./container/User'),
   loading: () => (<div>loading</div>),
 });
-function getRouter(data, routers, path = '') {
-  data.map((item) => {
-    const rootPath = `${path}/${item.linkurl}`;
-    let redirectPath = `${path}/${item.linkurl}`;
-    if (item.children && item.children.length > 0) {
-      redirectPath = `${path}/${item.linkurl}/${item.children[0].linkurl}`;
-    }
-    if (item.type === '1') {
-      routers.push(<Route
-        exact
-        path={redirectPath}
-        component={Loadable({
-          loader: () => require(item.key),
-          loading: () => (<div>loading</div>),
-        })}
-      />);
-    } else {
-      routers.push(<Route
-        exact
-        path={rootPath}
-        render={() => (
-          <Redirect to={redirectPath} />
-        )}
-      />);
-    }
-    if (item.children && item.children.length > 0) { getRouter(item.children, routers, rootPath); }
-  });
-}
-// const router = request('/api/menu', {
-//   type: 'json',
-//   method: 'GET',
-//   body: {},
-//   contentType: 'application/json',
-// }).then((json) => {
-//   const routers = [];
-//   if (json.code === 0) {
-//     getRouter(json.data, routers);
-//     return routers;
-//   }
-// });
-
-// export default router;
+// function getRouter(data, routers, path = '') {
+//   data.map((item) => {
+//     const rootPath = `${path}/${item.linkurl}`;
+//     let redirectPath = `${path}/${item.linkurl}`;
+//     if (item.children && item.children.length > 0) {
+//       redirectPath = `${path}/${item.linkurl}/${item.children[0].linkurl}`;
+//     }
+//     if (item.type === '1') {
+//       routers.push(<Route
+//         exact
+//         path={redirectPath}
+//         component={Loadable({
+//           loader: () => require(item.key),
+//           loading: () => (<div>loading</div>),
+//         })}
+//       />);
+//     } else {
+//       routers.push(<Route
+//         exact
+//         path={rootPath}
+//         render={() => (
+//           <Redirect to={redirectPath} />
+//         )}
+//       />);
+//     }
+//     if (item.children && item.children.length > 0) { getRouter(item.children, routers, rootPath); }
+//   });
+// }
 export default (
   <Switch>
     <Route
@@ -86,8 +72,6 @@ export default (
       )}
     />
     <Route exact path="/operation/home" component={Home} />
-
-
     <Route
       exact
       path="/activites"
@@ -96,12 +80,9 @@ export default (
       )}
     />
     <Route exact path="/activites/home" component={Home} />
-
     <Route exact path="/system/manage/role" component={RoleList} />
     <Route exact path="/system/manage/role/create" component={RoleCreate} />
-
     <Route exact path="/system/manage/user" component={User} />
-
     <Route exact path="/system/menuManage" component={MenuManage} />
   </Switch>
 );

@@ -7,7 +7,7 @@ export const modules = [
   {
     name: '用户模块',
     path: 'user',
-    component: '../container/Role/user',
+    component: '../container/User',
   }, {
     name: '菜单管理',
     path: 'menuManage',

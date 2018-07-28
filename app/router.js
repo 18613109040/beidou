@@ -9,6 +9,7 @@ module.exports = (app) => {
 
   router.get('/api/role', app.jwt, controller.role.index);
   router.post('/api/role', app.jwt, controller.role.create);
+  router.delete('/api/role/:id', app.jwt, controller.role.create);
 
   router.get('/api/menu', app.jwt, controller.menu.index);
   router.delete('/api/menu/:id', app.jwt, controller.menu.destroy);
@@ -28,5 +29,6 @@ module.exports = (app) => {
   // });
 
   router.post('/api/user', app.jwt, controller.user.create);
+  router.post('/api/test', controller.test.test);
   router.post('/api/user/access/login', controller.userAccess.login);
 };
