@@ -2,7 +2,7 @@ module.exports = (app) => {
   const mongoose = app.mongoose;
 
   const RoleSchema = new mongoose.Schema({
-    name: { type: String, unique: true, required: true },
+    name: { type: String, required: true },
     des: { type: String },
     access: { type: String, default: 'user' },
     modules: { type: mongoose.Schema.Types.Mixed },

@@ -13,8 +13,13 @@ class TestController extends Controller {
 
   // 创建角色
   async test() {
-    const { service } = this;
-    await service.test.index();
+    const { ctx, service } = this;
+    // 组装参数
+    const payload = ctx.query;
+    // 调用 Service 进行业务处理
+    const res = await service.test.index(payload);
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ ctx, res });
   }
 }
 

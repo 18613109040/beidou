@@ -29,18 +29,28 @@ class Home extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      this.props.form.validateFields((err, values) => {
-        if (!err) {
-          // this.setState({
-          //   loading: true,
-          // });
-          request('/api/user/access/login', {
-            method: 'POST',
-            body: values,
-          });
-          console.log('Received values of form: ', values);
-        }
+      request('/api/test', {
+        method: 'GET',
+        body: {
+          currentPage: 1,
+          pageSize: 10,
+          isPaging: true,
+          keyword: 'd',
+          // search: JSON.stringify({ name: 'ssss' }),
+        },
       });
+      // this.props.form.validateFields((err, values) => {
+      //   if (!err) {
+      //     // this.setState({
+      //     //   loading: true,
+      //     // });
+      //     request('/api/user/access/login', {
+      //       method: 'POST',
+      //       body: values,
+      //     });
+      //     console.log('Received values of form: ', values);
+      //   }
+      // });
     }
 
     render() {

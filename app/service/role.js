@@ -50,10 +50,12 @@ module.exports = (app) => {
       if (isPaging) {
         if (search) {
           res = await this.ctx.model.Role.find({ name: { $regex: search }, isable: 0 }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 })
+            .lean()
             .exec();
           count = res.length;
         } else {
           res = await this.ctx.model.Role.find({ isable: 0 }).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 })
+            .lean()
             .exec();
           count = await this.ctx.model.Role.count({ isable: 0 }).exec();
         }
@@ -64,13 +66,14 @@ module.exports = (app) => {
         res = await this.ctx.model.Role.find({ isable: 0 }).sort({ createdAt: -1 }).exec();
         count = await this.ctx.model.Role.count({ isable: 0 }).exec();
       }
+      console.dir(res);
       // 整理数据源 -> Ant Design Pro
-      const data = res.map((e, i) => {
-        const jsonObject = Object.assign({}, e._doc);
-        jsonObject.key = i;
-        jsonObject.createdAt = this.ctx.helper.formatTime(e.createdAt);
-        return jsonObject;
-      });
+      // const data = res.map((e, i) => {
+      //   const jsonObject = Object.assign({}, e._doc);
+      //   jsonObject.key = i;
+      //   jsonObject.createdAt = this.ctx.helper.formatTime(e.createdAt);
+      //   return jsonObject;
+      // });
       const columns = [{
         title: '角色名',
         dataIndex: 'name',
@@ -81,7 +84,7 @@ module.exports = (app) => {
         key: 'des',
       }];
       // const filter = [{ name: '角色名', key: 'name' }];
-      return { columns, count, list: data, pageSize: Number(pageSize), currentPage: Number(currentPage) };
+      return { columns, count, list: res, pageSize: Number(pageSize), currentPage: Number(currentPage) };
     }
 
 

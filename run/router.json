@@ -126,6 +126,20 @@
     ]
   },
   {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/api/test",
+    "regexp": "/^\\/api\\/test(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
     "name": "login",
     "methods": [
       "HEAD",
@@ -181,18 +195,6 @@
       "POST"
     ],
     "paramNames": [],
-    "path": "/api/test",
-    "regexp": "/^\\/api\\/test(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
     "path": "/api/user/access/login",
     "regexp": "/^\\/api\\/user\\/access\\/login(?:\\/(?=$))?$/",
     "stack": [
@@ -219,6 +221,19 @@
     ],
     "path": "/(.*)",
     "regexp": "/^\\/((?:.*))(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/__loader_trace__",
+    "regexp": "/^\\/__loader_trace__(?:\\/(?=$))?$/",
     "stack": [
       "wrappedController"
     ]
