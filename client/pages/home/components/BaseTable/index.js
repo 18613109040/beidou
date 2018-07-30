@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Alert, Divider, Popconfirm, Button } from 'antd';
+import { Table, Alert, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { authOperation } from 'client/utils/utils';
 import { tableList, tableDelete } from '../../actions/baseTable';
 import './index.less';
 
+const FormItem = Form.Item;
+const Option = Select.Option;
 class BaseTable extends Component {
     static contextTypes = {
       router: PropTypes.object.isRequired,
@@ -100,6 +102,120 @@ class BaseTable extends Component {
     create() {
       const { pathname } = this.context.router.history.location;
       this.context.router.history.push(`${pathname}/create`);
+    }
+
+    renderSimpleForm() {
+      const { form } = this.props;
+      const { getFieldDecorator } = form;
+      const { fiter } = this.props.tableList;
+      return (
+        <Form onSubmit={this.handleSearch} layout="inline">
+          <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+            {
+              fiter.map(item => (<Col md={8} sm={24} key={item.key}>
+                <FormItem label={item.name}>
+                  {getFieldDecorator(item.key)(
+                    <Select placeholder="请选择" style={{ width: '100%' }}>
+                      {item.value.map(it => <Option value={item} key={item}>{it}</Option>)}
+                    </Select>
+                  )}
+                </FormItem>
+              </Col>))
+            }
+            <Col md={8} sm={24}>
+              <span className="submitButtons">
+                <Button type="primary" htmlType="submit">
+                  查询
+                </Button>
+                <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
+                  重置
+                </Button>
+                <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+                  展开 <Icon type="down" />
+                </a>
+              </span>
+            </Col>
+          </Row>
+        </Form>
+      );
+    }
+
+    renderAdvancedForm() {
+      const { form } = this.props;
+      const { getFieldDecorator } = form;
+      return (
+        <Form onSubmit={this.handleSearch} layout="inline">
+          <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+            <Col md={8} sm={24}>
+              <FormItem label="规则编号">
+                {getFieldDecorator('no')(<Input placeholder="请输入" />)}
+              </FormItem>
+            </Col>
+            <Col md={8} sm={24}>
+              <FormItem label="使用状态">
+                {getFieldDecorator('status')(
+                  <Select placeholder="请选择" style={{ width: '100%' }}>
+                    <Option value="0">关闭</Option>
+                    <Option value="1">运行中</Option>
+                  </Select>
+                )}
+              </FormItem>
+            </Col>
+            <Col md={8} sm={24}>
+              <FormItem label="调用次数">
+                {getFieldDecorator('number')(<InputNumber style={{ width: '100%' }} />)}
+              </FormItem>
+            </Col>
+          </Row>
+          <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+            <Col md={8} sm={24}>
+              <FormItem label="更新日期">
+                {getFieldDecorator('date')(
+                  <DatePicker style={{ width: '100%' }} placeholder="请输入更新日期" />
+                )}
+              </FormItem>
+            </Col>
+            <Col md={8} sm={24}>
+              <FormItem label="使用状态">
+                {getFieldDecorator('status3')(
+                  <Select placeholder="请选择" style={{ width: '100%' }}>
+                    <Option value="0">关闭</Option>
+                    <Option value="1">运行中</Option>
+                  </Select>
+                )}
+              </FormItem>
+            </Col>
+            <Col md={8} sm={24}>
+              <FormItem label="使用状态">
+                {getFieldDecorator('status4')(
+                  <Select placeholder="请选择" style={{ width: '100%' }}>
+                    <Option value="0">关闭</Option>
+                    <Option value="1">运行中</Option>
+                  </Select>
+                )}
+              </FormItem>
+            </Col>
+          </Row>
+          <div style={{ overflow: 'hidden' }}>
+            <span style={{ float: 'right', marginBottom: 24 }}>
+              <Button type="primary" htmlType="submit">
+                查询
+              </Button>
+              <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
+                重置
+              </Button>
+              <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+                收起 <Icon type="up" />
+              </a>
+            </span>
+          </div>
+        </Form>
+      );
+    }
+
+    renderForm() {
+      const { expandForm } = this.state;
+      return expandForm ? this.renderAdvancedForm() : this.renderSimpleForm();
     }
 
     render() {
