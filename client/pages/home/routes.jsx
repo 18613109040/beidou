@@ -23,6 +23,15 @@ export const RoleList = Loadable({
   loader: () => import('./container/Role/list'),
   loading: () => (<div>loading</div>),
 });
+export const Role = Loadable({
+  loader: () => import('./container/Role'),
+  loading: () => (<div>loading</div>),
+});
+export const AppLaunchAd = Loadable({
+  loader: () => import('./container/AppLaunchAd'),
+  loading: () => (<div>loading</div>),
+});
+
 export const User = Loadable({
   loader: () => import('./container/User'),
   loading: () => (<div>loading</div>),
@@ -80,8 +89,14 @@ export default (
       )}
     />
     <Route exact path="/activites/home" component={Home} />
+
     <Route exact path="/system/manage/role" component={RoleList} />
     <Route exact path="/system/manage/role/create" component={RoleCreate} />
+    <Route exact path="/system/manage/role/create/:id" component={RoleCreate} />
+    <Route exact path="/system/manage/role/:id" component={Role} />
+
+    <Route exact path="/operation/app/app-launch-ad" component={AppLaunchAd} />
+
     <Route exact path="/system/manage/user" component={User} />
     <Route exact path="/system/menuManage" component={MenuManage} />
   </Switch>

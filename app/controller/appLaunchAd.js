@@ -2,41 +2,44 @@
 
 const { Controller } = require('beidou-core');
 
-class RoleController extends Controller {
+class AppLaunchAdController extends Controller {
   constructor(ctx) {
     super(ctx);
     this.createRule = {
+      lang: { type: 'string', required: true, allowEmpty: false },
       name: { type: 'string', required: true, allowEmpty: false },
     };
   }
 
-  // 创建角色
+  // 创建开屏广告
   async create() {
     const { ctx, service } = this;
+    console.dir(ctx.request.body);
     // 校验参数
     ctx.validate(this.createRule);
     // 组装参数
     const payload = ctx.request.body || {};
+
     // 调用 Service 进行业务处理
-    const res = await service.role.create(payload);
-    const msg = '创建角色成功';
+    const res = await service.appLaunchAd.create(payload);
+    const msg = '新增成功';
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res, msg });
   }
 
-  // 删除单个角色
+  // 删除开屏广告
   async destroy() {
     const { ctx, service } = this;
     // 校验参数
     const { id } = ctx.params;
     // 调用 Service 进行业务处理
-    const res = await service.role.destroy(id);
+    const res = await service.appLaunchAd.destroy(id);
     // 设置响应内容和响应状态码
-    const msg = '删除角色成功';
+    const msg = '删除成功';
     ctx.helper.success({ ctx, res, msg });
   }
 
-  // 修改角色
+  // 修改开屏广告
   async update() {
     const { ctx, service } = this;
     // 校验参数
@@ -45,34 +48,34 @@ class RoleController extends Controller {
     const { id } = ctx.params;
     const payload = ctx.request.body || {};
     // 调用 Service 进行业务处理
-    const res = await service.role.update(id, payload);
+    const res = await service.appLaunchAd.update(id, payload);
     // 设置响应内容和响应状态码
-    const msg = '修改角色成功';
+    const msg = '修改成功';
     ctx.helper.success({ ctx, res, msg });
   }
 
-  // 获取单个角色
+  // 获取单个开屏广告
   async show() {
     const { ctx, service } = this;
     // 组装参数
     const { id } = ctx.params;
     // 调用 Service 进行业务处理
-    const res = await service.role.show(id);
+    const res = await service.appLaunchAd.show(id);
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res });
   }
 
-  // 获取所有角色(分页/模糊)
+  // 获取所有开屏广告(分页/模糊)
   async index() {
     const { ctx, service } = this;
     // 组装参数
     const payload = ctx.query;
     // 调用 Service 进行业务处理
-    const res = await service.role.index(payload);
+    const res = await service.appLaunchAd.index(payload);
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res });
   }
 }
 
 
-module.exports = RoleController;
+module.exports = AppLaunchAdController;

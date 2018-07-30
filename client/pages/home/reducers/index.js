@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import { roleList, roleModule } from './role';
+import { roleList, roleModules } from './role';
 import { menuTree } from './menu';
 import { tableList } from './tableBase';
 
 const rootReducer = combineReducers({
   roleList,
-  roleModule,
+  roleModules,
   menuTree,
   tableList,
 });

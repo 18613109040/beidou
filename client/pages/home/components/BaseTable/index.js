@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Alert, Divider, Popconfirm } from 'antd';
+import { Table, Alert, Divider, Popconfirm, Button } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { authOperation } from 'client/utils/utils';
 import { tableList, tableDelete } from '../../actions/baseTable';
 import './index.less';
 
@@ -23,11 +24,11 @@ class BaseTable extends Component {
     static defaultProps = {
       bordered: true,
       showPagination: true,
-      footer: false,
+      footer: () => {},
       showHeader: true,
       size: 'default',
       align: 'center',
-      operating: null,
+      operating: {},
     };
 
     constructor(props) {
@@ -35,7 +36,10 @@ class BaseTable extends Component {
       // const { columns } = props;
       this.state = {
         loading: false,
-        pagination: { pageSize: 10, currentPage: 1 },
+        pagination: {
+          pageSize: 10,
+          currentPage: 1,
+        },
       };
     }
 
@@ -55,11 +59,11 @@ class BaseTable extends Component {
     getData(pagination) {
       const { pathname } = this.context.router.history.location;
       const path = pathname.split('/').pop();
-      const { pageSize, current } = pagination;
+      const { pageSize, currentPage } = pagination;
       this.props.dispatch(tableList(`/api/${path}`,
         {
           pageSize,
-          currentPage: current,
+          currentPage,
           isPaging: true,
         }));
     }
@@ -83,30 +87,59 @@ class BaseTable extends Component {
       });
     }
 
+    search(record) {
+      const { pathname } = this.context.router.history.location;
+      this.context.router.history.push(`${pathname}/${record._id}`);
+    }
+
+    eidt(record) {
+      const { pathname } = this.context.router.history.location;
+      this.context.router.history.push(`${pathname}/create/${record._id}`);
+    }
+
+    create() {
+      const { pathname } = this.context.router.history.location;
+      this.context.router.history.push(`${pathname}/create`);
+    }
+
     render() {
       console.dir(this.props.tableList);
-
       const { loading } = this.state;
       const { bordered, footer, showPagination, showHeader, size, align, operating } = this.props;
-      const { count, list, pageSize, columns } = this.props.tableList;
+      const { count, list, pageSize, columns, fiter, auth } = this.props.tableList;
+      const option = authOperation(auth);
       columns.push({
         title: '操作',
-        dataIndex: 'operating',
-        key: 'operating',
+        // dataIndex: 'operating',
+        // key: 'operating',
         render: (text, record) => (<span>
-          <a onClick={() => this.eidtMenu(record)}>编辑</a>
-          <Divider type="vertical" />
-          <Popconfirm title="确定删除?" okText="确定" cancelText="取消" onConfirm={() => this.delete(record._id)}>
-            <a >删除</a>
-          </Popconfirm>
+          {option.updata ?
+            <span>
+              <a onClick={() => this.eidt(record)}>编辑</a>
+              <Divider type="vertical" />
+            </span> : ''
+          }
+          {
+            option.read ?
+              <span>
+                <a onClick={() => this.eidt(record)}>查看</a>
+                <Divider type="vertical" />
+              </span> : ''
+
+          }
+          {
+            option.delete ?
+              <Popconfirm title="确定删除?" okText="确定" cancelText="取消" onConfirm={() => this.delete(record._id)}>
+                <a >删除</a>
+              </Popconfirm> : ''
+          }
+
         </span>),
       });
       columns.map((item) => {
         item.align = align;
         return item;
       });
-
-
       const paginationProps = {
         showSizeChanger: true,
         total: count,
@@ -114,9 +147,14 @@ class BaseTable extends Component {
         hideOnSinglePage: true,
 
       };
-      console.dir(columns);
       return (
         <div className="base-table">
+          {option.add ?
+            <div className="tab-add">
+              <Button icon="plus" type="primary" onClick={() => this.create()}>
+                新建
+              </Button>
+            </div> : ''}
           <Table
             bordered={bordered}
             loading={loading}

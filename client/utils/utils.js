@@ -55,7 +55,7 @@ export function getTimeDistance(type) {
 
 export function getPlainNode(nodeList, parentPath = '') {
   const arr = [];
-  nodeList.forEach(node => {
+  nodeList.forEach((node) => {
     const item = node;
     item.path = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
     item.exact = true;
@@ -150,7 +150,7 @@ export function getRoutes(path, routerData) {
   // Get the route to be rendered to remove the deep rendering
   const renderArr = getRenderArr(routes);
   // Conversion and stitching parameters
-  const renderRoutes = renderArr.map(item => {
+  const renderRoutes = renderArr.map((item) => {
     const exact = !routes.some(route => route !== item && getRelation(route, item) === 1);
     return {
       exact,
@@ -180,3 +180,59 @@ const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(
 export function isUrl(path) {
   return reg.test(path);
 }
+
+/**
+ * @desc 设置菜单模块权限
+ * @num 小于15的数字
+ * @return object 。
+ */
+export function authOperation(num = 0) {
+  let binaryArray = [];
+  let dividend = num;
+  const opt = {
+    add: false, // 增加
+    delete: false, // 删除
+    updata: false, // 修改
+    read: false, // 查看
+  };
+  if (num > 15) {
+    return opt;
+  }
+  // 转换成二进制
+  for (let i = 0; i < Math.ceil(num / 2); i++) {
+    if (dividend !== 1) {
+      binaryArray.unshift(dividend % 2);
+      dividend = parseInt(dividend / 2);
+    } else {
+      binaryArray.unshift(1);
+      break;
+    }
+  }
+  // 转换成二进制后补全4位
+  switch (binaryArray.length) {
+    case 1:
+      binaryArray = [0, 0, 0].concat(binaryArray);
+      break;
+    case 2:
+      binaryArray = [0, 0].concat(binaryArray);
+      break;
+    case 3:
+      binaryArray = [0].concat(binaryArray);
+      break;
+    default:
+  }
+  if (binaryArray[0] === 1) {
+    opt.read = true;
+  }
+  if (binaryArray[1] === 1) {
+    opt.updata = true;
+  }
+  if (binaryArray[2] === 1) {
+    opt.delete = true;
+  }
+  if (binaryArray[3] === 1) {
+    opt.add = true;
+  }
+  return opt;
+}
+

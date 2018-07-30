@@ -2,7 +2,6 @@
 'use strict';
 
 const BaseService = require('./baseService');
-const Service = require('egg').Service;
 
 class TestService extends BaseService {
   constructor(ctx) {

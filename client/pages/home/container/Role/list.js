@@ -55,8 +55,6 @@ class RoleList extends React.Component {
     //   }
 
     render() {
-      const { loading } = this.state;
-      const { roleList } = this.props;
       return (
         <div className="role-list">
           <Card bordered={false}>

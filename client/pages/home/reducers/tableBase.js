@@ -5,6 +5,8 @@ const inintData = {
   list: [],
   pageSize: 10,
   columns: [],
+  fiter: [],
+  auth: 0,
 };
 export function tableList(state = inintData, action) {
   const json = action.json;
