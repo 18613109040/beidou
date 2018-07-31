@@ -13,8 +13,8 @@ module.exports = (app) => {
     type: { type: String, default: '' },
     version: { type: String },
     createdAt: { type: Date, default: Date.now },
-    upDate: { type: Date, default: Date.now },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    updatedAt: { type: Date, default: Date.now },
+    createUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     updataUser: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     isable: { type: Number, default: 0 },
   });

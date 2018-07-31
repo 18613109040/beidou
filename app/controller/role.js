@@ -30,7 +30,7 @@ class RoleController extends Controller {
     // 校验参数
     const { id } = ctx.params;
     // 调用 Service 进行业务处理
-    const res = await service.role.destroy(id);
+    const res = await service.role.delete(id);
     // 设置响应内容和响应状态码
     const msg = '删除角色成功';
     ctx.helper.success({ ctx, res, msg });
@@ -39,6 +39,7 @@ class RoleController extends Controller {
   // 修改角色
   async update() {
     const { ctx, service } = this;
+    console.dir('=======================');
     // 校验参数
     ctx.validate(this.createRule);
     // 组装参数

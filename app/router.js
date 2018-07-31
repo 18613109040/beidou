@@ -10,10 +10,13 @@ module.exports = (app) => {
   // router.get('/api/role', app.jwt, controller.role.index);
   // router.post('/api/role', app.jwt, controller.role.create);
   // router.delete('/api/role/:id', app.jwt, controller.role.destroy);
-  router.resources('role', '/api/role', controller.role);
+  router.resources('role', '/api/role', app.jwt, controller.role);
 
   router.resources('app-launch-ad', '/api/app-launch-ad', app.jwt, controller.appLaunchAd);
 
+  router.get('/api/user/detail', app.jwt, controller.user.detail);
+
+  
   router.get('/api/menu', app.jwt, controller.menu.index);
   router.delete('/api/menu/:id', app.jwt, controller.menu.destroy);
   router.put('/api/menu/:id', app.jwt, controller.menu.update);

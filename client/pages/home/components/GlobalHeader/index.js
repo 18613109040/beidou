@@ -3,7 +3,7 @@ import { Menu, Icon, Spin, Dropdown, Avatar, Divider, Tooltip } from 'antd';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import HeaderSearch from '../HeaderSearch';
-import { getMenuData } from '../../common/menu';
+
 import './index.less';
 
 export default class GlobalHeader extends PureComponent {
@@ -56,7 +56,8 @@ export default class GlobalHeader extends PureComponent {
       currentUser = {},
       collapsed,
       isMobile,
-      logo
+      logo,
+      menuData
     } = this.props;
     const { pathname } = this.context.router.route.location
     const menu = (
@@ -93,10 +94,9 @@ export default class GlobalHeader extends PureComponent {
           <Menu
             onClick={this.handleMenuClick}
             mode="horizontal"
-            
             selectedKeys={[`/${[pathname.split('/')[1]]}`]}
           >
-            {this.getMenuItem(getMenuData())}
+            {this.getMenuItem(menuData)}
           </Menu>
         </div>
         <div className="right">

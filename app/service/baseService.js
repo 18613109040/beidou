@@ -1,13 +1,14 @@
 const Service = require('egg').Service;
 
 class BaseService extends Service {
-  constructor(ctx, model, columns = [], searchKeys = [], fiterData = [], appPath = '') {
+  constructor(ctx, model, columns = [], searchKeys = [], fiterData = [], appPath = '', isUser = false) {
     super(ctx);
     this.model = model;
     this.columns = columns;
     this.searchKeys = searchKeys;
     this.fiterData = fiterData;
     this.appPath = appPath;
+    this.isUser = isUser;
   }
 
   queryFactory(keyword) {
@@ -30,9 +31,11 @@ class BaseService extends Service {
     const id = this.ctx.state.user.data._id;
     const { currentPage, pageSize, isPaging, search, keyword } = payload;
     const user = await this.ctx.model.User.findOne({ _id: id }).populate('role').lean().exec();
-    // console.dir(user.role.modules);
     const auth = user.role.modules.find(item => item.path === this.appPath).auth;
     let findQuery = { isable: 0 };
+    if (this.isUser) {
+      findQuery = Object.assign({}, findQuery, { createUser: id });
+    }
     if (search) {
       findQuery = Object.assign({}, findQuery, JSON.parse(search));
     }
@@ -51,7 +54,6 @@ class BaseService extends Service {
       res = await this.model.find(findQuery).sort({ createdAt: -1 }).lean().exec();
       count = await this.model.count(findQuery).exec();
     }
-    console.dir(res);
     return { columns: this.columns, auth, fiter: this.fiterData, count, list: res, pageSize: Number(pageSize), currentPage: Number(currentPage) };
   }
 
@@ -62,7 +64,7 @@ class BaseService extends Service {
    */
   async create(payload) {
     const id = this.ctx.state.user.data._id;
-    Object.assign(payload, { user: id, updataUser: id });
+    Object.assign(payload, { createUser: id, updataUser: id });
     return this.model.create(payload);
   }
 
@@ -96,6 +98,16 @@ class BaseService extends Service {
 
   async removes(values) {
     return this.model.remove({ _id: { $in: values } });
+  }
+
+  // 数据真删除
+  async delete(_id) {
+    const { ctx } = this;
+    const data = await this.model.find({ _id });
+    if (!data) {
+      ctx.throw(404, 'user not found');
+    }
+    return this.model.findByIdAndRemove(_id);
   }
 
   /**

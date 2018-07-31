@@ -31,6 +31,15 @@ class UserController extends Controller {
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res });
   }
+
+  // 获取当前用户详情
+  async detail() {
+    const { ctx, service } = this;
+    // 调用 Service 进行业务处理
+    const res = await service.user.detail();
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ ctx, res });
+  }
 }
 
 module.exports = UserController;

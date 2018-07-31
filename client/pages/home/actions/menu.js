@@ -2,6 +2,9 @@ import request from 'client/utils/request';
 
 export const GET_MODULES = 'GET_MODULES';
 export const SET_MEUN = 'SET_MEUN';
+export const GET_MEUN = 'GET_MEUN';
+
+
 
 // 设置菜单数据
 export function setMenu(json) {

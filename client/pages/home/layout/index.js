@@ -1,13 +1,14 @@
 import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch, Redirect } from 'react-router';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
 // import Loadable from 'react-loadable';
 // import store from 'store';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
-import { getMenuData } from '../common/menu';
+import { getMenuData, getRouters } from '../common/menu';
+import { getUser } from '../actions/user';
 
 const { Header, Content } = Layout;
 
@@ -30,16 +31,12 @@ class BasicLayout extends React.Component {
   }
 
   componentWillMount() {
-    // this.props.dispatch(getModules());
-    // const token = store.get('token');
-    // const menu = store.get('menu');
-    // if (!menu) { window.location.href = '/login'; }
+
   }
 
   componentDidMount() {
-
+    this.props.dispatch(getUser());
   }
-
   // getRouter(data, routers, path = '') {
   //   data.map((item) => {
   //     const rootPath = `${path}/${item.path}`;
@@ -77,24 +74,25 @@ class BasicLayout extends React.Component {
     const {
       collapsed,
     } = this.state;
-    const { router } = this.context;
-    const { location } = router.history;
-    const currentUser = {
-      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ZiESqWwCXBRQoaPONSJe.png',
-      name: '曲丽丽',
-    };
+    const { history, modules, avatar, email } = this.props;
+    const { location } = history;
     const logo = 'http://lb.sit.igola.com:9000/assets/images/igola_logo.png';
     const pathname = location.pathname.split('/')[1] ? `/${location.pathname.split('/')[1]}` : '/operation';
-    const menuData = getMenuData().find(item => item.path === pathname).children;
-    // const menu = store.get('menu');
-    // console.dir(menu);
-    // const data = [];
-    // this.getRouter(menu, data);
-    // const routes = (<Switch>{data}</Switch>);
+
+
+    const currentUser = {
+      avatar,
+      name: email,
+    };
+
+    let silderData = modules.find(item => item.path === pathname);
+    if (silderData && silderData.children) {
+      silderData = silderData.children;
+    }
     return (
       <Layout>
         <SiderMenu
-          menuData={menuData}
+          menuData={silderData}
           location={location}
           collapsed={collapsed}
         />
@@ -102,6 +100,7 @@ class BasicLayout extends React.Component {
           <Header style={{ background: '#fff', padding: 0 }} location={location}>
             <GlobalHeader
               logo={logo}
+              menuData={modules}
               currentUser={currentUser}
               collapsed={collapsed}
               isMobile={false}
@@ -116,10 +115,12 @@ class BasicLayout extends React.Component {
     );
   }
 }
-export default BasicLayout;
-// function mapStateToProps(state) {
-//   return {
-//     menuTree: state.menuTree,
-//   };
-// }
-// export default connect(mapStateToProps)(BasicLayout);
+
+function mapStateToProps(state) {
+  return {
+    modules: state.user.modules,
+    avatar: state.user.avatar,
+    email: state.user.email,
+  };
+}
+export default withRouter(connect(mapStateToProps)(BasicLayout));

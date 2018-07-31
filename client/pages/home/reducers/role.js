@@ -1,12 +1,27 @@
 // 地址管理
-import { GET_ROLE_LIST, GET_ROLE_MODULE, CHANGE_ROLE_MODULE } from '../actions/role';
-import modules from '../common/modules';
+import { GET_ROLE_LIST, GET_ROLE_MODULE, CHANGE_ROLE_MODULE, GET_ROLE_DETAILS } from '../actions/role';
+import { getRouters } from '../common/menu';
 
-export function roleModules(state = modules, action) {
+export function roleModules(state = getRouters(), action) {
   const json = action.json;
   switch (action.type) {
     case GET_ROLE_MODULE:
-      return json;
+      state = [];
+      json.map((item) => {
+        if (item.children) {
+          getPermission(item.children, state);
+        }
+        return item;
+      });
+      // 默认权限 15 (增删该查)
+      state.map(item => (item.auth = 15));
+      return state;
+    case GET_ROLE_DETAILS:
+      state.map((item) => {
+        const data = json.data.modules.find(it => it.id === item.id);
+        return Object.assign(item, data);
+      });
+      return state;
     case CHANGE_ROLE_MODULE:
       state[json.index].auth = json.auth;
       return [...state];
@@ -34,7 +49,7 @@ function getPermission(data, roleModule) {
     if (item.children) {
       getPermission(item.children, roleModule);
     } else {
-      roleModule.push({ name: item.name, path: item.path.split('/').pop(), operating: item.operating, id: item.id });
+      roleModule.push(item);
     }
     return item;
   });

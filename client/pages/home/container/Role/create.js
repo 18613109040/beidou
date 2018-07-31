@@ -2,14 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Card, Checkbox, Table } from 'antd';
-import { getRoleModule, changeRoleModule, createRole } from '../../actions/role';
+import { getRoleModule, changeRoleModule, createRole, getRoleDetails, updataRole } from '../../actions/role';
 import { authOperation } from 'client/utils/utils';
 import FooterToolbar from '../../components/FooterToolbar';
-import DescriptionList from '../../components/DescriptionList';
-import modules from '../../common/modules';
+import { getMenuData } from '../../common/menu';
 import './index.less';
-
-const CheckboxGroup = Checkbox.Group;
 
 const FormItem = Form.Item;
 class RoleCreate extends React.Component {
@@ -21,21 +18,24 @@ class RoleCreate extends React.Component {
       super(props);
       this.state = {
         loading: false,
-        tableLoading: false,
-        selectedRows: [],
-        indeterminate: true,
-        checkAllRead: false,
-        checkAllWrite: false,
       };
     }
 
     componentWillMount() {
-      // this.props.dispatch(getRoleModule(getMenuData()));
+
+
     }
 
     componentDidMount() {
-      // const { id } = this.props.match.params;
-      // console.dir(this.props.match.params);
+      const { id } = this.props.match.params;
+      if (id) {
+        this.props.dispatch(getRoleDetails(id, (res) => {
+          const { form } = this.props;
+          form.setFieldsValue({ name: res.data.name, des: res.data.des });
+        }));
+      } else {
+        this.props.dispatch(getRoleModule(getMenuData()));
+      }
     }
 
     // 更新权限列表
@@ -60,14 +60,26 @@ class RoleCreate extends React.Component {
             loading: true,
           });
           const { roleModules } = this.props;
-          createRole(Object.assign(values, { modules: roleModules }), (res) => {
-            this.setState({
-              loading: false,
+          const { id } = this.props.match.params;
+          if (id) {
+            updataRole(Object.assign(values, { modules: roleModules, id }), (res) => {
+              this.setState({
+                loading: false,
+              });
+              if (res.code === 0) {
+                this.props.history.goBack();
+              }
             });
-            if (res.code === 0) {
-              this.props.history.goBack();
-            }
-          });
+          } else {
+            createRole(Object.assign(values, { modules: roleModules }), (res) => {
+              this.setState({
+                loading: false,
+              });
+              if (res.code === 0) {
+                this.props.history.goBack();
+              }
+            });
+          }
         }
       });
     }

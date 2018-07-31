@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Alert, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon } from 'antd';
+import { Table, Alert, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon, Card } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { authOperation } from 'client/utils/utils';
@@ -41,7 +41,9 @@ class BaseTable extends Component {
         pagination: {
           pageSize: 10,
           currentPage: 1,
+          search: JSON.stringify({}),
         },
+        expandForm: false,
       };
     }
 
@@ -61,18 +63,19 @@ class BaseTable extends Component {
     getData(pagination) {
       const { pathname } = this.context.router.history.location;
       const path = pathname.split('/').pop();
-      const { pageSize, currentPage } = pagination;
+      const { pageSize, currentPage, search } = pagination;
       this.props.dispatch(tableList(`/api/${path}`,
         {
           pageSize,
           currentPage,
           isPaging: true,
+          search,
         }));
     }
 
     handleTableChange = (pagination, filters, sorter) => {
       this.setState({
-        pagination,
+        pagination: Object.assign({}, this.state.pagination, pagination),
       });
       this.getData(pagination);
 
@@ -104,35 +107,69 @@ class BaseTable extends Component {
       this.context.router.history.push(`${pathname}/create`);
     }
 
+    toggleForm=() => {
+      this.setState({
+        expandForm: !this.state.expandForm,
+      });
+    }
+
+    // 去除空对象
+    filterEmpty(obj) {
+      const newObj = {};
+      Object.keys(obj).map((item) => {
+        if (obj[item]) {
+          newObj[item] = obj[item];
+        }
+        return item;
+      });
+      return newObj;
+    }
+
+    handleSearch=(e) => {
+      e.preventDefault();
+      const { form } = this.props;
+      form.validateFields((err, fieldsValue) => {
+        if (err) return;
+        // console.dir(this.filterEmpty(fieldsValue));
+        this.getData(Object.assign({}, this.state.pagination, { search: JSON.stringify(this.filterEmpty(fieldsValue)) }));
+        this.setState({
+          pagination: Object.assign({}, this.state.pagination, { search: JSON.stringify(this.filterEmpty(fieldsValue)) }),
+        });
+      });
+    }
+
     renderSimpleForm() {
       const { form } = this.props;
       const { getFieldDecorator } = form;
-      const { fiter } = this.props.tableList;
+      let { fiter } = this.props.tableList;
+      if (fiter.length > 2) {
+        fiter = fiter.slice(0, 2);
+      }
       return (
         <Form onSubmit={this.handleSearch} layout="inline">
-          <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+          <Row gutter={{ md: 8, lg: 24, xl: 48 }} type="flex">
             {
-              fiter.map(item => (<Col md={8} sm={24} key={item.key}>
+              fiter.map(item => (<Col span={8} key={item.key}>
                 <FormItem label={item.name}>
                   {getFieldDecorator(item.key)(
                     <Select placeholder="请选择" style={{ width: '100%' }}>
-                      {item.value.map(it => <Option value={item} key={item}>{it}</Option>)}
+                      <Option value="" key="">全部</Option>
+                      {item.value.map(it => <Option value={it} key={it}>{it}</Option>)}
                     </Select>
                   )}
                 </FormItem>
               </Col>))
             }
-            <Col md={8} sm={24}>
+            <Col span={8}>
               <span className="submitButtons">
                 <Button type="primary" htmlType="submit">
                   查询
                 </Button>
-                <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
-                  重置
-                </Button>
-                <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
+                {
+                  this.props.tableList.fiter.length > 2 ? <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
                   展开 <Icon type="down" />
-                </a>
+                  </a> : ''
+                }
               </span>
             </Col>
           </Row>
@@ -143,66 +180,28 @@ class BaseTable extends Component {
     renderAdvancedForm() {
       const { form } = this.props;
       const { getFieldDecorator } = form;
+      const { fiter } = this.props.tableList;
+      console.dir(fiter);
       return (
         <Form onSubmit={this.handleSearch} layout="inline">
           <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
-            <Col md={8} sm={24}>
-              <FormItem label="规则编号">
-                {getFieldDecorator('no')(<Input placeholder="请输入" />)}
-              </FormItem>
-            </Col>
-            <Col md={8} sm={24}>
-              <FormItem label="使用状态">
-                {getFieldDecorator('status')(
-                  <Select placeholder="请选择" style={{ width: '100%' }}>
-                    <Option value="0">关闭</Option>
-                    <Option value="1">运行中</Option>
-                  </Select>
-                )}
-              </FormItem>
-            </Col>
-            <Col md={8} sm={24}>
-              <FormItem label="调用次数">
-                {getFieldDecorator('number')(<InputNumber style={{ width: '100%' }} />)}
-              </FormItem>
-            </Col>
-          </Row>
-          <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
-            <Col md={8} sm={24}>
-              <FormItem label="更新日期">
-                {getFieldDecorator('date')(
-                  <DatePicker style={{ width: '100%' }} placeholder="请输入更新日期" />
-                )}
-              </FormItem>
-            </Col>
-            <Col md={8} sm={24}>
-              <FormItem label="使用状态">
-                {getFieldDecorator('status3')(
-                  <Select placeholder="请选择" style={{ width: '100%' }}>
-                    <Option value="0">关闭</Option>
-                    <Option value="1">运行中</Option>
-                  </Select>
-                )}
-              </FormItem>
-            </Col>
-            <Col md={8} sm={24}>
-              <FormItem label="使用状态">
-                {getFieldDecorator('status4')(
-                  <Select placeholder="请选择" style={{ width: '100%' }}>
-                    <Option value="0">关闭</Option>
-                    <Option value="1">运行中</Option>
-                  </Select>
-                )}
-              </FormItem>
-            </Col>
+            {
+              fiter.map(item => (<Col md={8} sm={24} key={item.key}>
+                <FormItem label={item.name}>
+                  {getFieldDecorator(item.key)(
+                    <Select placeholder="请选择" style={{ width: '100%' }}>
+                      <Option value="" key="">全部</Option>
+                      {item.value.map(it => <Option value={it} key={it}>{it}</Option>)}
+                    </Select>
+                  )}
+                </FormItem>
+              </Col>))
+            }
           </Row>
           <div style={{ overflow: 'hidden' }}>
             <span style={{ float: 'right', marginBottom: 24 }}>
               <Button type="primary" htmlType="submit">
                 查询
-              </Button>
-              <Button style={{ marginLeft: 8 }} onClick={this.handleFormReset}>
-                重置
               </Button>
               <a style={{ marginLeft: 8 }} onClick={this.toggleForm}>
                 收起 <Icon type="up" />
@@ -215,16 +214,17 @@ class BaseTable extends Component {
 
     renderForm() {
       const { expandForm } = this.state;
+
       return expandForm ? this.renderAdvancedForm() : this.renderSimpleForm();
     }
 
     render() {
-      console.dir(this.props.tableList);
       const { loading } = this.state;
       const { bordered, footer, showPagination, showHeader, size, align, operating } = this.props;
       const { count, list, pageSize, columns, fiter, auth } = this.props.tableList;
       const option = authOperation(auth);
-      columns.push({
+      const columnsList = [...columns];
+      columnsList.push({
         title: '操作',
         // dataIndex: 'operating',
         // key: 'operating',
@@ -238,7 +238,7 @@ class BaseTable extends Component {
           {
             option.read ?
               <span>
-                <a onClick={() => this.eidt(record)}>查看</a>
+                <a onClick={() => this.search(record)}>查看</a>
                 <Divider type="vertical" />
               </span> : ''
 
@@ -252,7 +252,7 @@ class BaseTable extends Component {
 
         </span>),
       });
-      columns.map((item) => {
+      columnsList.map((item) => {
         item.align = align;
         return item;
       });
@@ -265,6 +265,10 @@ class BaseTable extends Component {
       };
       return (
         <div className="base-table">
+          {
+            fiter.length > 0 ? <div className="tableListForm">{this.renderForm()}</div> : ''
+          }
+
           {option.add ?
             <div className="tab-add">
               <Button icon="plus" type="primary" onClick={() => this.create()}>
@@ -279,7 +283,7 @@ class BaseTable extends Component {
             showHeader={showHeader}
             size={size}
             dataSource={list}
-            columns={columns}
+            columns={columnsList}
             // pagination={paginationProps}
             pagination={showPagination ? paginationProps : false}
             onChange={this.handleTableChange}
@@ -297,4 +301,4 @@ function mapStateToProps(state) {
     tableList: state.tableList,
   };
 }
-export default connect(mapStateToProps)(BaseTable);
+export default connect(mapStateToProps)(Form.create()(BaseTable));

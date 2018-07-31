@@ -9,6 +9,7 @@
     "path": "/api/role",
     "regexp": "/^\\/api\\/role(?:\\/(?=$))?$/",
     "stack": [
+      "middleware",
       "wrappedController"
     ]
   },
@@ -21,6 +22,7 @@
     "path": "/api/role",
     "regexp": "/^\\/api\\/role(?:\\/(?=$))?$/",
     "stack": [
+      "middleware",
       "wrappedController"
     ]
   },
@@ -45,6 +47,7 @@
     "path": "/api/role/:id",
     "regexp": "/^\\/api\\/role\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
+      "middleware",
       "wrappedController"
     ]
   },
@@ -69,6 +72,7 @@
     "path": "/api/role/:id",
     "regexp": "/^\\/api\\/role\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
+      "middleware",
       "wrappedController"
     ]
   },
@@ -92,6 +96,7 @@
     "path": "/api/role/:id",
     "regexp": "/^\\/api\\/role\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
     "stack": [
+      "middleware",
       "wrappedController"
     ]
   },
@@ -191,6 +196,20 @@
     ],
     "path": "/api/app-launch-ad/:id",
     "regexp": "/^\\/api\\/app-launch-ad\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
+    "path": "/api/user/detail",
+    "regexp": "/^\\/api\\/user\\/detail(?:\\/(?=$))?$/",
     "stack": [
       "middleware",
       "wrappedController"

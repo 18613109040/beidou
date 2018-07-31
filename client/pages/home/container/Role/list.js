@@ -59,21 +59,6 @@ class RoleList extends React.Component {
         <div className="role-list">
           <Card bordered={false}>
             <div className="tableList">
-              <div className="tableListOperator">
-                <Button icon="plus" type="primary" onClick={() => this.create()}>
-                新建
-                </Button>
-                {/* {selectedRows.length > 0 && (
-                <span>
-                  <Button>批量操作</Button>
-                  <Dropdown overlay={menu}>
-                    <Button>
-                      更多操作 <Icon type="down" />
-                    </Button>
-                  </Dropdown>
-                </span>
-              )} */}
-              </div>
               <BaseTable />
               {/* <List
                 key="1"
