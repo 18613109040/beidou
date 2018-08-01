@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Card, Checkbox, Table } from 'antd';
-import { getRoleModule, changeRoleModule, createRole, getRoleDetails, updataRole } from '../../actions/role';
-import { authOperation } from 'client/utils/utils';
+import { changeRoleModule, createRole, getRoleDetails, updataRole } from '../../actions/role';
+import { authOperation } from '../../../../utils/utils';
 import FooterToolbar from '../../components/FooterToolbar';
-import { getMenuData } from '../../common/menu';
 import './index.less';
 
 const FormItem = Form.Item;
@@ -21,10 +20,6 @@ class RoleCreate extends React.Component {
       };
     }
 
-    componentWillMount() {
-
-
-    }
 
     componentDidMount() {
       const { id } = this.props.match.params;
@@ -33,8 +28,6 @@ class RoleCreate extends React.Component {
           const { form } = this.props;
           form.setFieldsValue({ name: res.data.name, des: res.data.des });
         }));
-      } else {
-        this.props.dispatch(getRoleModule(getMenuData()));
       }
     }
 
@@ -92,9 +85,10 @@ class RoleCreate extends React.Component {
         updata: 4,
         read: 8,
       };
+      const auth = checked ? Number(record.auth) + obj[value] : Number(record.auth) - obj[value];
       this.props.dispatch(changeRoleModule({
         index,
-        auth: checked ? Number(record.auth) + obj[value] : Number(record.auth) - obj[value],
+        auth: auth < 0 ? 0 : auth,
       }));
     }
 
@@ -124,13 +118,12 @@ class RoleCreate extends React.Component {
         { title: '权限',
           dataIndex: 'auth',
           key: 'auth',
-          render: (text, record, index) =>
-            (<div>
-              <Checkbox value="add" checked={authOperation(record.auth).add} onChange={e => this.onChange(e, record, index)}>新增</Checkbox>
-              <Checkbox value="delete" checked={authOperation(record.auth).delete} onChange={e => this.onChange(e, record, index)}>删除</Checkbox>
-              <Checkbox value="updata" checked={authOperation(record.auth).updata} onChange={e => this.onChange(e, record, index)}>修改</Checkbox>
-              <Checkbox value="read" checked={authOperation(record.auth).read} onChange={e => this.onChange(e, record, index)}>查看</Checkbox>
-            </div>),
+          render: (text, record, index) => (<div>
+            <Checkbox value="add" key="add" checked={authOperation(record.auth).add} onChange={e => this.onChange(e, record, index)}>新增</Checkbox>
+            <Checkbox value="delete" key="delete" checked={authOperation(record.auth).delete} onChange={e => this.onChange(e, record, index)}>删除</Checkbox>
+            <Checkbox value="updata" key="updata" checked={authOperation(record.auth).updata} onChange={e => this.onChange(e, record, index)}>修改</Checkbox>
+            <Checkbox value="read" key="read" checked={authOperation(record.auth).read} onChange={e => this.onChange(e, record, index)}>查看</Checkbox>
+          </div>),
         },
       ];
       const { roleModules } = this.props;

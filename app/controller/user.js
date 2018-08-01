@@ -11,6 +11,10 @@ class UserController extends Controller {
       password: { type: 'password', required: true, allowEmpty: false, min: 2 },
       role: { type: 'string', required: true, allowEmpty: false },
     };
+    this.UserUpdataTransfer = {
+      email: { type: 'email', required: true, allowEmpty: false },
+      role: { type: 'string', required: true, allowEmpty: false },
+    };
   }
 
   async login() {
@@ -28,6 +32,44 @@ class UserController extends Controller {
     const payload = ctx.request.body || {};
     // 调用 Service 进行业务处理
     const res = await service.user.create(payload);
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ ctx, res });
+  }
+
+  // 更新用户
+  async update() {
+    const { ctx, service } = this;
+
+    // 校验参数
+    ctx.validate(this.UserUpdataTransfer);
+    // 组装参数
+    const { id } = ctx.params;
+    const payload = ctx.request.body || {};
+    // 调用 Service 进行业务处理
+    const res = await service.user.update(id, payload);
+    // 设置响应内容和响应状态码
+    const msg = '修改用户成功';
+    ctx.helper.success({ ctx, res, msg });
+  }
+
+  // 获取单个用户
+  async show() {
+    const { ctx, service } = this;
+    // 组装参数
+    const { id } = ctx.params;
+    // 调用 Service 进行业务处理
+    const res = await service.user.show(id);
+    // 设置响应内容和响应状态码
+    ctx.helper.success({ ctx, res });
+  }
+
+  // 获取所有用户(分页/模糊)
+  async index() {
+    const { ctx, service } = this;
+    // 组装参数
+    const payload = ctx.query;
+    // 调用 Service 进行业务处理
+    const res = await service.user.index(payload);
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res });
   }

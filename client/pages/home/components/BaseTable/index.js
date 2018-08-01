@@ -20,7 +20,8 @@ class BaseTable extends Component {
       showHeader: PropTypes.bool, // 是否显示表头
       size: PropTypes.string, // 正常或迷你类型，default or small
       align: PropTypes.string, // 设置列内容的对齐方式 'left' | 'right' | 'center'
-      operating: PropTypes.object, // 操作栏
+      customOperta: PropTypes.object, // 操作栏
+      customColumns: PropTypes.array, //
     };
 
     static defaultProps = {
@@ -30,7 +31,8 @@ class BaseTable extends Component {
       showHeader: true,
       size: 'default',
       align: 'center',
-      operating: {},
+      customOperta: null,
+      customColumns: [],
     };
 
     constructor(props) {
@@ -130,7 +132,6 @@ class BaseTable extends Component {
       const { form } = this.props;
       form.validateFields((err, fieldsValue) => {
         if (err) return;
-        // console.dir(this.filterEmpty(fieldsValue));
         this.getData(Object.assign({}, this.state.pagination, { search: JSON.stringify(this.filterEmpty(fieldsValue)) }));
         this.setState({
           pagination: Object.assign({}, this.state.pagination, { search: JSON.stringify(this.filterEmpty(fieldsValue)) }),
@@ -181,7 +182,7 @@ class BaseTable extends Component {
       const { form } = this.props;
       const { getFieldDecorator } = form;
       const { fiter } = this.props.tableList;
-      console.dir(fiter);
+
       return (
         <Form onSubmit={this.handleSearch} layout="inline">
           <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
@@ -220,38 +221,46 @@ class BaseTable extends Component {
 
     render() {
       const { loading } = this.state;
-      const { bordered, footer, showPagination, showHeader, size, align, operating } = this.props;
+      const { bordered, footer, showPagination, showHeader, size, align, customColumns, customOperta } = this.props;
       const { count, list, pageSize, columns, fiter, auth } = this.props.tableList;
       const option = authOperation(auth);
-      const columnsList = [...columns];
-      columnsList.push({
-        title: '操作',
-        // dataIndex: 'operating',
-        // key: 'operating',
-        render: (text, record) => (<span>
-          {option.updata ?
-            <span>
-              <a onClick={() => this.eidt(record)}>编辑</a>
-              <Divider type="vertical" />
-            </span> : ''
-          }
-          {
-            option.read ?
+      let columnsList = [];
+      if (customColumns.length > 0) {
+        columnsList = [...customColumns];
+      } else {
+        columnsList = [...columns];
+      }
+      if (customOperta) {
+        columnsList.push(customOperta);
+      } else {
+        columnsList.push({
+          title: '操作',
+          render: (text, record) => (<span>
+            {option.updata ?
               <span>
-                <a onClick={() => this.search(record)}>查看</a>
+                <a onClick={() => this.eidt(record)}>编辑</a>
                 <Divider type="vertical" />
               </span> : ''
+            }
+            {
+              option.read ?
+                <span>
+                  <a onClick={() => this.search(record)}>查看</a>
+                  <Divider type="vertical" />
+                </span> : ''
 
-          }
-          {
-            option.delete ?
-              <Popconfirm title="确定删除?" okText="确定" cancelText="取消" onConfirm={() => this.delete(record._id)}>
-                <a >删除</a>
-              </Popconfirm> : ''
-          }
+            }
+            {
+              option.delete ?
+                <Popconfirm title="确定删除?" okText="确定" cancelText="取消" onConfirm={() => this.delete(record._id)}>
+                  <a >删除</a>
+                </Popconfirm> : ''
+            }
 
-        </span>),
-      });
+          </span>),
+        });
+      }
+
       columnsList.map((item) => {
         item.align = align;
         return item;

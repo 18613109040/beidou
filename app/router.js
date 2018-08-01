@@ -15,8 +15,11 @@ module.exports = (app) => {
   router.resources('app-launch-ad', '/api/app-launch-ad', app.jwt, controller.appLaunchAd);
 
   router.get('/api/user/detail', app.jwt, controller.user.detail);
+  router.resources('user', '/api/user', app.jwt, controller.user);
 
-  
+  // router.get('/api/user', app.jwt, controller.user.index);
+  // router.post('/api/user', app.jwt, controller.user.create);
+
   router.get('/api/menu', app.jwt, controller.menu.index);
   router.delete('/api/menu/:id', app.jwt, controller.menu.destroy);
   router.put('/api/menu/:id', app.jwt, controller.menu.update);
@@ -36,7 +39,6 @@ module.exports = (app) => {
   //   }))(this, next);
   // });
 
-  router.post('/api/user', controller.user.create);
 
   router.post('/api/user/access/login', controller.userAccess.login);
 };

@@ -17,17 +17,20 @@ function formatter(data, parentPath = '/', json) {
     if (item.children) {
       result.children = formatter(item.children, `${parentPath}${item.path}/`, json);
     } else if (json) {
-      const auth = json.find(it => it.id === item.id).auth;
+      const obj = json.find(it => it.id === item.id);
+      const auth = obj ? obj.auth : 0;
       result.auth = auth;
     }
     return result;
   });
 }
+
 const inintUser = {
   avatar: '',
   email: '',
-  modules: formatter(getMenuData()),
+  modules: formatter(getMenuData()) || [],
 };
+
 export function user(state = inintUser, action) {
   const json = action.json;
   switch (action.type) {
@@ -38,12 +41,12 @@ export function user(state = inintUser, action) {
       } else {
         localMenu = formatter(localMenu, '/', json.data.role.modules);
       }
-      return {
+      return Object.assign({}, {
         avatar: json.data.avatar,
         email: json.data.email,
-        modules: localMenu,
-      };
+        modules: [...localMenu],
+      });
     default:
-      return state;
+      return Object.assign({}, state);
   }
 }

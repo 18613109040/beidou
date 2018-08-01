@@ -430,8 +430,7 @@ const menuData = [
         path: 'menuManage',
         id: '3-3',
         parentId: '3',
-      },
-      {
+      }, {
         name: '测试',
         icon: 'icon-user',
         path: 'test',
@@ -448,6 +447,7 @@ function formatterRouter(data, ent) {
     if (item.children) {
       formatterRouter(item.children, ent);
     } else {
+      item.auth = 15;
       ent.push(item);
     }
     return item;
@@ -456,5 +456,5 @@ function formatterRouter(data, ent) {
 }
 export const getRouters = () => formatterRouter([...menuData], []);
 
-export const getMenuData = () => menuData;
+export const getMenuData = () => [...menuData];
 

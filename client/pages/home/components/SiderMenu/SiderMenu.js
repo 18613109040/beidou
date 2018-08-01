@@ -49,7 +49,6 @@ export default class SiderMenu extends PureComponent {
       const childrenItems = this.getNavMenuItems(item.children);
       // 当无子菜单时就不展示菜单
       if (childrenItems && childrenItems.length > 0) {
-        console.dir(childrenItems);
         return (
           <SubMenu
             title={
@@ -69,9 +68,10 @@ export default class SiderMenu extends PureComponent {
         );
       }
       return null;
-    } else if (item.auth === 0) {
-      return null;
     } else {
+      if (item.auth === 0) {
+        return null;
+      }
       return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
     }
   };

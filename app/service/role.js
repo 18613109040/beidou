@@ -15,9 +15,9 @@ class RoleService extends BaseService {
     }];
     const searchKeys = ['name', 'des'];
     const fiterData = [];
-    const appPath = 'role';
+    const pathId = '0-0-0';
     const isUser = true;
-    super(ctx, ctx.model.Role, columns, searchKeys, fiterData, appPath, isUser);
+    super(ctx, ctx.model.Role, columns, searchKeys, fiterData, pathId, isUser);
   }
 }
 

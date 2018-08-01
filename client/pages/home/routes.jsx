@@ -7,10 +7,10 @@ import { Route, Switch, Redirect } from 'react-router';
 // import User from './container/User';
 import Loadable from 'react-loadable';
 
-export const MenuManage = Loadable({
-  loader: () => import('./container/MenuManage'),
-  loading: () => (<div>loading</div>),
-});
+// export const MenuManage = Loadable({
+//   loader: () => import('./container/MenuManage'),
+//   loading: () => (<div>loading</div>),
+// });
 export const Home = Loadable({
   loader: () => import('./container/Home'),
   loading: () => (<div>loading</div>),
@@ -32,8 +32,12 @@ export const AppLaunchAd = Loadable({
   loading: () => (<div>loading</div>),
 });
 
-export const User = Loadable({
-  loader: () => import('./container/User'),
+export const UserList = Loadable({
+  loader: () => import('./container/User/list'),
+  loading: () => (<div>loading</div>),
+});
+export const UserCreate = Loadable({
+  loader: () => import('./container/User/create'),
   loading: () => (<div>loading</div>),
 });
 // function getRouter(data, routers, path = '') {
@@ -93,12 +97,16 @@ export default (
     <Route exact path="/system/manage/role" component={RoleList} />
     <Route exact path="/system/manage/role/create" component={RoleCreate} />
     <Route exact path="/system/manage/role/create/:id" component={RoleCreate} />
-    
     <Route exact path="/system/manage/role/:id" component={Role} />
+
+
+    <Route exact path="/system/manage/user" component={UserList} />
+    <Route exact path="/system/manage/user/create" component={UserCreate} />
+    <Route exact path="/system/manage/user/create/:id" component={UserCreate} />
+
 
     <Route exact path="/operation/app/app-launch-ad" component={AppLaunchAd} />
 
-    <Route exact path="/system/manage/user" component={User} />
-    <Route exact path="/system/menuManage" component={MenuManage} />
+    {/* <Route exact path="/system/menuManage" component={MenuManage} /> */}
   </Switch>
 );

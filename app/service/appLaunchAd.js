@@ -35,8 +35,8 @@ class AppLaunchAdService extends BaseService {
     }];
     const searchKeys = ['link'];
     const fiterData = [{ key: 'lang', name: '语言', value: ['ZH', 'EN'] }];
-    const appPath = 'app-launch-ad';
-    super(ctx, ctx.model.AppLaunchAd, columns, searchKeys, fiterData, appPath);
+    const pathId = '0-0-0';
+    super(ctx, ctx.model.AppLaunchAd, columns, searchKeys, fiterData, pathId);
   }
 }
 

@@ -1,13 +1,13 @@
 const Service = require('egg').Service;
 
 class BaseService extends Service {
-  constructor(ctx, model, columns = [], searchKeys = [], fiterData = [], appPath = '', isUser = false) {
+  constructor(ctx, model, columns = [], searchKeys = [], fiterData = [], pathId = '', isUser = false) {
     super(ctx);
     this.model = model;
     this.columns = columns;
     this.searchKeys = searchKeys;
     this.fiterData = fiterData;
-    this.appPath = appPath;
+    this.pathId = pathId;
     this.isUser = isUser;
   }
 
@@ -24,6 +24,10 @@ class BaseService extends Service {
     }
   }
 
+  isAdministrator(roleName) {
+    return roleName === 'Administrator';
+  }
+
   /**
    *@param payload {object} 查询条件
    */
@@ -31,7 +35,14 @@ class BaseService extends Service {
     const id = this.ctx.state.user.data._id;
     const { currentPage, pageSize, isPaging, search, keyword } = payload;
     const user = await this.ctx.model.User.findOne({ _id: id }).populate('role').lean().exec();
-    const auth = user.role.modules.find(item => item.path === this.appPath).auth;
+    let auth = 0;
+    if (this.isAdministrator(user.role.name)) {
+      auth = 15;
+    } else {
+      const modules = user.role.modules.find(item => item.id === this.pathId);
+      auth = modules ? modules.auth : 0;
+    }
+
     let findQuery = { isable: 0 };
     if (this.isUser) {
       findQuery = Object.assign({}, findQuery, { createUser: id });

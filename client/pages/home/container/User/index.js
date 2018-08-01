@@ -19,10 +19,6 @@ class User extends React.Component {
       };
     }
 
-    componentWillMount() {
-
-    }
-
     componentDidMount() {
 
     }

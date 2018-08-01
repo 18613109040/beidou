@@ -96,7 +96,7 @@ export default function request(url, options) {
       return response.json();
     })
     .then((res) => {
-      if (newOptions.method === 'POST' || newOptions.method === 'DELETE') {
+      if (newOptions.method === 'POST' || newOptions.method === 'DELETE' || newOptions.method === 'PUT') {
         if (res.code === 0) {
           notification.success({
             message: res.msg,

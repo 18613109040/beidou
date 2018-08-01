@@ -199,8 +199,8 @@ export function authOperation(num = 0) {
     return opt;
   }
   // 转换成二进制
-  for (let i = 0; i < Math.ceil(num / 2); i++) {
-    if (dividend !== 1) {
+  for (;dividend !== 0;) {
+    if (dividend / 2 >= 1) {
       binaryArray.unshift(dividend % 2);
       dividend = parseInt(dividend / 2);
     } else {
@@ -221,6 +221,7 @@ export function authOperation(num = 0) {
       break;
     default:
   }
+
   if (binaryArray[0] === 1) {
     opt.read = true;
   }

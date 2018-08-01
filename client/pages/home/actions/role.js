@@ -4,7 +4,6 @@ export const GET_ROLE_LIST = 'GET_ROLE_LIST';
 
 export const GET_ROLE_DETAILS = 'GET_ROLE_DETAILS';
 
-export const GET_ROLE_MODULE = 'GET_ROLE_MODULE';
 export const CHANGE_ROLE_MODULE = 'CHANGE_ROLE_MODULE';
 
 export const CREATE_ROLE = 'CREATE_ROLE';
@@ -68,13 +67,6 @@ export function getRoleDetails(id, callback = () => {}) {
   };
 }
 
-// 获取角色列表
-export function getRoleModule(json) {
-  return {
-    type: GET_ROLE_MODULE,
-    json,
-  };
-}
 
 // 改变角色权限
 export function changeRoleModule(json) {

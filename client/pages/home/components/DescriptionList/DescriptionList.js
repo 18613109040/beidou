@@ -17,7 +17,7 @@ const DescriptionList = ({
     small: size === 'small',
     large: size === 'large',
   });
-  console.dir(clsString);
+
   const column = col > 4 ? 4 : col;
   return (
     <div className={clsString} {...restProps}>

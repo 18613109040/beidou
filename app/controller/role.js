@@ -39,7 +39,7 @@ class RoleController extends Controller {
   // 修改角色
   async update() {
     const { ctx, service } = this;
-    console.dir('=======================');
+
     // 校验参数
     ctx.validate(this.createRule);
     // 组装参数

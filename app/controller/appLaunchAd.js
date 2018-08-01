@@ -14,7 +14,7 @@ class AppLaunchAdController extends Controller {
   // 创建开屏广告
   async create() {
     const { ctx, service } = this;
-    console.dir(ctx.request.body);
+
     // 校验参数
     ctx.validate(this.createRule);
     // 组装参数
