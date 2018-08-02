@@ -65,6 +65,12 @@ class BaseService extends Service {
       res = await this.model.find(findQuery).sort({ createdAt: -1 }).lean().exec();
       count = await this.model.count(findQuery).exec();
     }
+    res.map((item) => {
+      item.createdAt = this.ctx.helper.formatTime(item.createdAt);
+      item.updatedAt = this.ctx.helper.formatTime(item.updatedAt);
+      return res;
+    });
+
     return { columns: this.columns, auth, fiter: this.fiterData, count, list: res, pageSize: Number(pageSize), currentPage: Number(currentPage) };
   }
 
@@ -96,7 +102,7 @@ class BaseService extends Service {
   /**
    * @description  删除数据(更新状态)
    */
-  async destroy(_id) {
+  async delete(_id) {
     const { ctx } = this;
     const id = ctx.state.user.data._id;
     const data = await this.find(_id);
@@ -107,12 +113,12 @@ class BaseService extends Service {
     return this.model.findByIdAndUpdate(_id, { isable: 1, updataUser: id });
   }
 
-  async removes(values) {
-    return this.model.remove({ _id: { $in: values } });
+  async removes(payload) {
+    return this.model.remove({ _id: { $in: payload } });
   }
 
   // 数据真删除
-  async delete(_id) {
+  async destroy(_id) {
     const { ctx } = this;
     const data = await this.model.find({ _id });
     if (!data) {
@@ -131,7 +137,12 @@ class BaseService extends Service {
     if (!data) {
       this.ctx.throw(404, 'role not found');
     }
-    return this.model.findById(_id);
+
+    const res = await this.model.findOne({ _id }).populate({ path: 'createUser updataUser', select: { email: 1 } }).lean()
+      .exec();
+    res.createdAt = this.ctx.helper.formatTime(res.createdAt);
+    res.updatedAt = this.ctx.helper.formatTime(res.updatedAt);
+    return res;
   }
 
   async find(id) {

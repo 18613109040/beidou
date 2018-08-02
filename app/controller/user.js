@@ -63,6 +63,18 @@ class UserController extends Controller {
     ctx.helper.success({ ctx, res });
   }
 
+  // 删除单个用户
+  async destroy() {
+    const { ctx, service } = this;
+    // 校验参数
+    const { id } = ctx.params;
+    // 调用 Service 进行业务处理
+    const res = await service.user.destroy(id);
+    // 设置响应内容和响应状态码
+    const msg = '删除用户成功';
+    ctx.helper.success({ ctx, res, msg });
+  }
+
   // 获取所有用户(分页/模糊)
   async index() {
     const { ctx, service } = this;

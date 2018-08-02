@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Tree, Card, Divider, Button, Table, Popconfirm } from 'antd';
-import UserCreate from './create';
-import { createUser } from '../../actions/user';
+import { Card } from 'antd';
+import DescriptionList from '../../components/DescriptionList';
+import { getUserDetails } from '../../actions/user';
 import './index.less';
 
-class User extends React.Component {
+const { Description } = DescriptionList;
+class UserDetail extends React.Component {
     static contextTypes = {
       router: PropTypes.object.isRequired,
     };
@@ -14,66 +15,48 @@ class User extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        visible: true,
-        eidt: false,
+        user: {
+          email: '',
+          role: {
+            name: '',
+          },
+          createUser: {
+            email: '',
+          },
+          updataUser: {
+            email: '',
+          },
+          createdAt: '',
+          updatedAt: '',
+        },
       };
     }
 
     componentDidMount() {
-
-    }
-
-
-    handleCancel=() => {
-      const { form } = this.formRef.props;
-      form.resetFields();
-      this.setState({
-        visible: false,
-        eidt: false,
-      });
-    }
-
-    handleCreate = () => {
-      const { form } = this.formRef.props;
-      //   const { eidt, eidtData } = this.state;
-      form.validateFields((err, values) => {
-        if (err) {
-          return;
-        }
-        createUser(values);
-      });
-    }
-
-    showFrom=() => {
-      this.setState({
-        visible: true,
-      });
-    }
-
-    saveFormRef = (formRef) => {
-      this.formRef = formRef;
-    }
-
-    eidtMenu = (data) => {
-      const { form } = this.formRef.props;
-      this.setState({
-        visible: true,
-        eidt: true,
-      });
-      form.setFieldsValue(data);
+      const { id } = this.props.match.params;
+      if (id) {
+        getUserDetails(id, (res) => {
+          this.setState({
+            user: res.data,
+          });
+        });
+      }
     }
 
     render() {
-      const { visible, eidt } = this.state;
+      const { user } = this.state;
       return (
-        <div className="user-manage" >
-          <UserCreate
-            wrappedComponentRef={this.saveFormRef}
-            visible={visible}
-            onCancel={this.handleCancel}
-            onCreate={this.handleCreate}
-            eidt={eidt}
-          />
+        <div className="user-detail" >
+          <Card bordered={false} title="用户详情" >
+            <DescriptionList size="large" >
+              <Description term="邮箱" >{user.email}</Description>
+              <Description term="角色" >{user.role.name}</Description>
+              <Description term="创建人" >{user.createUser.email}</Description>
+              <Description term="最后更新人" >{user.updataUser.email}</Description>
+              <Description term="创建时间" >{user.createdAt}</Description>
+              <Description term="最后更新时间" >{user.updatedAt}</Description>
+            </DescriptionList>
+          </Card>
         </div>
       );
     }
@@ -84,5 +67,5 @@ function mapStateToProps(state) {
   return {
   };
 }
-export default connect(mapStateToProps)(User);
+export default connect(mapStateToProps)(UserDetail);
 

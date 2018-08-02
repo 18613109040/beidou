@@ -79,6 +79,19 @@ class UserService extends BaseService {
     return ctx.model.User.findOne({ _id: id }).populate('role').lean().exec();
   }
 
+  async show(_id) {
+    const data = await this.find(_id);
+    if (!data) {
+      this.ctx.throw(404, 'role not found');
+    }
+
+    const res = await this.model.findOne({ _id }).populate({ path: 'createUser updataUser role', select: { email: 1, name: 1 } }).lean()
+      .exec();
+    res.createdAt = this.ctx.helper.formatTime(res.createdAt);
+    res.updatedAt = this.ctx.helper.formatTime(res.updatedAt);
+    return res;
+  }
+
   // Commons======================================================================================================>
   async findByEmail(email) {
     return this.ctx.model.User.findOne({ email });

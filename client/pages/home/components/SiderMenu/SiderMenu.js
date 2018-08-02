@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { Link } from 'react-router-dom';
+import pathToRegexp from 'path-to-regexp';
+import { withRouter } from 'react-router';
+import { urlToList } from '../_utils/pathTools';
 import './index.less';
 
 const { Sider } = Layout;
@@ -14,12 +17,51 @@ const getIcon = (icon) => {
   }
   return icon;
 };
-
-export default class SiderMenu extends PureComponent {
+export const getFlatMenuKeys = menu =>
+  menu.reduce((keys, item) => {
+    keys.push(item.path);
+    if (item.children) {
+      return keys.concat(getFlatMenuKeys(item.children));
+    }
+    return keys;
+  }, []);
+/**
+ * Find all matched menu keys based on paths
+ * @param  flatMenuKeys: [/abc, /abc/:id, /abc/:id/info]
+ * @param  paths: [/abc, /abc/11, /abc/11/info]
+ */
+export const getMenuMatchKeys = (flatMenuKeys, paths) =>
+  paths.reduce(
+    (matchKeys, path) =>
+      matchKeys.concat(flatMenuKeys.filter(item => pathToRegexp(item).test(path))),
+    []
+  );
+class SiderMenu extends PureComponent {
   constructor(props) {
     super(props);
+    this.menus = props.menuData;
+    this.flatMenuKeys = getFlatMenuKeys(props.menuData);
     this.state = {
+      openKeys: this.getDefaultCollapsedSubMenus(props),
     };
+  }
+
+
+  componentWillReceiveProps(nextProps) {
+    const { location } = this.props;
+    if (nextProps.location.pathname !== location.pathname) {
+      this.setState({
+        openKeys: this.getDefaultCollapsedSubMenus(nextProps),
+      });
+    }
+  }
+
+  getDefaultCollapsedSubMenus(props) {
+    const {
+      location: { pathname },
+    } =
+      props || this.props;
+    return getMenuMatchKeys(this.flatMenuKeys, urlToList(pathname));
   }
 
   /**
@@ -36,14 +78,10 @@ export default class SiderMenu extends PureComponent {
         // make dom
         const ItemDom = this.getSubMenuOrItem(item);
         return ItemDom;
-        // return this.checkPermissionItem(item.authority, ItemDom);
       })
       .filter(item => item);
   };
 
-  /**
-   * get SubMenu or Item
-   */
   getSubMenuOrItem = (item) => {
     if (item.children && item.children.some(child => child.name)) {
       const childrenItems = this.getNavMenuItems(item.children);
@@ -61,7 +99,7 @@ export default class SiderMenu extends PureComponent {
                 item.name
               )
             }
-            key={item.name}
+            key={item.path}
           >
             {childrenItems}
           </SubMenu>
@@ -114,6 +152,16 @@ export default class SiderMenu extends PureComponent {
     );
   };
 
+  isMainMenu = key => this.menus.some(item => key && (item.key === key || item.path === key));
+
+  handleOpenChange = (openKeys) => {
+    const lastOpenKey = openKeys[openKeys.length - 1];
+    const moreThanOne = openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
+    this.setState({
+      openKeys: moreThanOne ? [lastOpenKey] : [...openKeys],
+    });
+  };
+
   // conversion Path
   // 转化路径
   conversionPath = (path) => {
@@ -124,35 +172,57 @@ export default class SiderMenu extends PureComponent {
     }
   };
 
- // permission to check
- checkPermissionItem = (authority, ItemDom) => {
-   const { Authorized } = this.props;
-   if (Authorized && Authorized.check) {
-     const { check } = Authorized;
-     return check(authority, ItemDom);
-   }
-   return ItemDom;
- };
 
- render() {
-   const { collapsed, menuData } = this.props;
-   return (
-     <Sider
-       trigger={null}
-       collapsible
-       collapsed={collapsed}
-       className="sider"
-     >
-       <div className="logo" key="logo">
-         <Link to="/">
-           <img src="http://lb.sit.igola.com:9000/assets/images/igola_logo.png" alt="logo" />
-           <h1>iGola CMS</h1>
-         </Link>
-       </div>
-       <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} style={{ width: '100%' }}>
-         {this.getNavMenuItems(menuData)}
-       </Menu>
-     </Sider>
-   );
- }
+  // Get the currently selected menu
+  getSelectedMenuKeys = () => {
+    const {
+      location: { pathname },
+    } = this.props;
+    return getMenuMatchKeys(this.flatMenuKeys, urlToList(pathname));
+  };
+
+  render() {
+    const { collapsed, menuData, onCollapse } = this.props;
+    console.dir(menuData);
+    const { openKeys } = this.state;
+    const menuProps = collapsed
+      ? {}
+      : {
+        openKeys,
+      };
+    // if pathname can't match, use the nearest parent's key
+    let selectedKeys = this.getSelectedMenuKeys();
+    if (!selectedKeys.length) {
+      selectedKeys = [openKeys[openKeys.length - 1]];
+    }
+    console.dir(selectedKeys);
+    return (
+      <Sider
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+        onCollapse={onCollapse}
+        className="sider"
+      >
+        <div className="logo" key="logo">
+          <Link to="/">
+            <img src="http://lb.sit.igola.com:9000/assets/images/igola_logo.png" alt="logo" />
+            <h1>iGola CMS</h1>
+          </Link>
+        </div>
+        <Menu
+          theme="dark"
+          mode="inline"
+          {...menuProps}
+          selectedKeys={selectedKeys}
+          style={{ width: '100%' }}
+          onOpenChange={this.handleOpenChange}
+        >
+          {this.getNavMenuItems(menuData)}
+        </Menu>
+      </Sider>
+    );
+  }
 }
+export default withRouter(SiderMenu);
+

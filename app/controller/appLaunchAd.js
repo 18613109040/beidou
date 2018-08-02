@@ -33,7 +33,7 @@ class AppLaunchAdController extends Controller {
     // 校验参数
     const { id } = ctx.params;
     // 调用 Service 进行业务处理
-    const res = await service.appLaunchAd.destroy(id);
+    const res = await service.appLaunchAd.delete(id);
     // 设置响应内容和响应状态码
     const msg = '删除成功';
     ctx.helper.success({ ctx, res, msg });

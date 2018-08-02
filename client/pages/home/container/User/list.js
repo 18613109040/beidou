@@ -25,7 +25,7 @@ class UserList extends React.Component {
           title: '角色',
           dataIndex: 'roleName',
           key: 'roleName',
-          render: (text, record) => (<span>{record.role.name}</span>),
+          render: (text, record) => (<span>{record.role ? record.role.name : ''}</span>),
         },
       ];
       return (

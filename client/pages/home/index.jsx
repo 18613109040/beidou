@@ -37,9 +37,9 @@ export default class RouteView extends View {
     const html = (
       <Provider store={store}>
         <Router {...props}>
-          <Layout>
-            {routes}
-          </Layout>
+
+          {routes}
+
         </Router>
       </Provider>
     );
@@ -57,9 +57,9 @@ if (__CLIENT__) {
   const app = (
     <Provider store={store}>
       <Router >
-        <Layout>
-          {routes}
-        </Layout>
+
+        {routes}
+
       </Router>
     </Provider>
   );
