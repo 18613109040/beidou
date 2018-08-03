@@ -1,6 +1,5 @@
 
 export function getAuthority() {
-  // return localStorage.getItem('antd-pro-authority') || ['admin', 'user'];
   return localStorage.getItem('token') || null;
 }
 

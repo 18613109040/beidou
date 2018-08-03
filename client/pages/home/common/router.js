@@ -1,19 +1,8 @@
 import React, { createElement } from 'react';
 import { Spin } from 'antd';
-import pathToRegexp from 'path-to-regexp';
 import Loadable from 'react-loadable';
-import { getMenuData } from './menu';
-import { isUrl } from '../../../utils/utils';
 
 let routerDataCache;
-
-const modelNotExisted = (app, model) =>
-  // eslint-disable-next-line
-  !app._models.some(({ namespace }) => {
-    return namespace === model.substring(model.lastIndexOf('/') + 1);
-  });
-
-// wrapper of dynamic
 const dynamicWrapper = (component) => {
   if (component.toString().indexOf('.then(') < 0) {
     return (props) => {
@@ -26,7 +15,6 @@ const dynamicWrapper = (component) => {
       });
     };
   }
-  // () => import('module')
   return Loadable({
     loader: () => {
       if (!routerDataCache) {
@@ -45,41 +33,28 @@ const dynamicWrapper = (component) => {
   });
 };
 
-function getFlatMenuData(menus) {
-  let keys = {};
-  menus.forEach((item) => {
-    if (item.children) {
-      keys[item.path] = { ...item };
-      keys = { ...keys, ...getFlatMenuData(item.children) };
-    } else {
-      keys[item.path] = { ...item };
-    }
-  });
-  return keys;
-}
-
-function formatter(data, parentPath = '/', parentAuthority) {
-  return data.map((item) => {
-    let { path } = item;
-    if (!isUrl(path)) {
-      path = parentPath + item.path;
-    }
-    const result = {
-      ...item,
-      path,
-      authority: item.authority || parentAuthority,
-    };
-    if (item.children) {
-      result.children = formatter(item.children, `${parentPath}${item.path}/`, item.authority);
-    }
-    return result;
-  });
-}
-export const getRouterData = () => {
+const getRouterData = () => {
   const routerConfig = {
     '/operation/app/app-launch-ad': {
       component: dynamicWrapper(() => import('../container/AppLaunchAd')),
     },
+    '/operation/app/app-launch-ad/create': {
+      component: dynamicWrapper(() => import('../container/AppLaunchAd/create')),
+    },
+
+    '/operation/app/app-version': {
+      component: dynamicWrapper(() => import('../container/AppVersion/list')),
+    },
+    '/operation/app/app-version/create': {
+      component: dynamicWrapper(() => import('../container/AppVersion/create')),
+    },
+    '/operation/app/app-version/create/:id': {
+      component: dynamicWrapper(() => import('../container/AppVersion/create')),
+    },
+    '/operation/app/app-version/:id': {
+      component: dynamicWrapper(() => import('../container/AppVersion')),
+    },
+
     '/system/manage/role': {
       component: dynamicWrapper(() => import('../container/Role/list')),
     },
@@ -92,28 +67,69 @@ export const getRouterData = () => {
     '/system/manage/role/:id': {
       component: dynamicWrapper(() => import('../container/Role')),
     },
-  };
-  // Get name from ./menu.js or just set it in the router data.
-  const menuData = getFlatMenuData(formatter(getMenuData()));
+    '/system/manage/user': {
+      component: dynamicWrapper(() => import('../container/User/list')),
+    },
+    '/system/manage/user/create': {
+      component: dynamicWrapper(() => import('../container/User/create')),
+    },
+    '/system/manage/user/create/:id': {
+      component: dynamicWrapper(() => import('../container/User/create')),
+    },
+    '/system/manage/user/:id': {
+      component: dynamicWrapper(() => import('../container/User')),
+    },
 
+    '/system/exception/500': {
+      component: dynamicWrapper(() => import('../container/Exception/500')),
+    },
+    '/system/exception/404': {
+      component: dynamicWrapper(() => import('../container/Exception/404')),
+    },
+    '/system/exception/403': {
+      component: dynamicWrapper(() => import('../container/Exception/403')),
+    },
+
+    '/operation/exception/500': {
+      component: dynamicWrapper(() => import('../container/Exception/500')),
+    },
+    '/operation/exception/404': {
+      component: dynamicWrapper(() => import('../container/Exception/404')),
+    },
+    '/operation/exception/403': {
+      component: dynamicWrapper(() => import('../container/Exception/403')),
+    },
+
+    '/activites/exception/500': {
+      component: dynamicWrapper(() => import('../container/Exception/500')),
+    },
+    '/activites/exception/404': {
+      component: dynamicWrapper(() => import('../container/Exception/404')),
+    },
+    '/activites/exception/403': {
+      component: dynamicWrapper(() => import('../container/Exception/403')),
+    },
+
+    '/options/exception/500': {
+      component: dynamicWrapper(() => import('../container/Exception/500')),
+    },
+    '/options/exception/404': {
+      component: dynamicWrapper(() => import('../container/Exception/404')),
+    },
+    '/options/exception/403': {
+      component: dynamicWrapper(() => import('../container/Exception/403')),
+    },
+  };
   const routerData = {};
-  // The route matches the menu
   Object.keys(routerConfig).forEach((path) => {
-    const pathRegexp = pathToRegexp(path);
-    const menuKey = Object.keys(menuData).find(key => pathRegexp.test(`${key}`));
-    let menuItem = {};
-    // If menuKey is not empty
-    if (menuKey) {
-      menuItem = menuData[menuKey];
-    }
     let router = routerConfig[path];
     router = {
       ...router,
-      name: router.name || menuItem.name,
-      authority: router.authority || menuItem.authority,
-      hideInBreadcrumb: router.hideInBreadcrumb || menuItem.hideInBreadcrumb,
     };
     routerData[path] = router;
   });
   return routerData;
 };
+
+export default getRouterData;
+

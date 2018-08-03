@@ -5,11 +5,12 @@ import { StaticRouter } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { View } from 'client/layout';
 import routes from './routes';
-import Layout from './layout';
 import configureStore from './store';
-// import storeLocalStorage from 'store';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 import './index.less';
+
+const history = createBrowserHistory();
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
 
@@ -36,10 +37,8 @@ export default class RouteView extends View {
     }
     const html = (
       <Provider store={store}>
-        <Router {...props}>
-
+        <Router {...props} >
           {routes}
-
         </Router>
       </Provider>
     );
@@ -56,10 +55,8 @@ if (__CLIENT__) {
   const store = configureStore(window.__INITIAL_STATE__);
   const app = (
     <Provider store={store}>
-      <Router >
-
+      <Router history={history}>
         {routes}
-
       </Router>
     </Provider>
   );

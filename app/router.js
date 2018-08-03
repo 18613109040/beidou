@@ -17,6 +17,7 @@ module.exports = (app) => {
   router.get('/api/user/detail', app.jwt, controller.user.detail);
   router.resources('user', '/api/user', app.jwt, controller.user);
 
+  router.resources('app-version', '/api/app-version', app.jwt, controller.appVersion);
   // router.get('/api/user', app.jwt, controller.user.index);
   // router.post('/api/user', app.jwt, controller.user.create);
 
@@ -25,8 +26,6 @@ module.exports = (app) => {
   router.put('/api/menu/:id', app.jwt, controller.menu.update);
   router.post('/api/menu', app.jwt, controller.menu.create);
 
-
-  router.get('/api/test', app.jwt, controller.test.test);
   router.get('login', '/login', controller.user.login);
   router.get('/', '/*', controller.index.index);
 

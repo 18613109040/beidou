@@ -1,13 +1,12 @@
 
 import React from 'react';
-import { Button, Card } from 'antd';
+import { Card } from 'antd';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import BaseTable from '../../components/BaseTable';
 
 import './index.less';
 
-class AppLaunchAd extends React.Component {
+class AppVersionList extends React.Component {
     state = {
 
     }
@@ -16,13 +15,10 @@ class AppLaunchAd extends React.Component {
 
     }
 
-    create = () => {
-      this.props.history.push('/system/manage/role/create');
-    }
 
     render() {
       return (
-        <div className="app-launch-ad">
+        <div >
           <Card bordered={false}>
             <div className="tableList">
               <BaseTable />
@@ -33,8 +29,6 @@ class AppLaunchAd extends React.Component {
       );
     }
 }
-function mapStateToProps(state) {
-  return state;
-}
-export default connect(mapStateToProps)(AppLaunchAd);
+
+export default AppVersionList;
 

@@ -23,15 +23,16 @@ class UserCreate extends React.Component {
 
     componentDidMount() {
       const { id } = this.props.match.params;
-      if (id) {
-        getUserDetails(id, (res) => {
-          const { form } = this.props;
-          form.setFieldsValue({ email: res.data.email, role: res.data.role });
-        });
-      }
 
       this.props.dispatch(getRoleList({
         isPaging: false,
+      }, () => {
+        if (id) {
+          getUserDetails(id, (res) => {
+            const { form } = this.props;
+            form.setFieldsValue({ email: res.data.email, role: res.data.role._id });
+          });
+        }
       }));
     }
 
@@ -65,6 +66,10 @@ class UserCreate extends React.Component {
           });
         }
       });
+    }
+
+    handleChange=() => {
+
     }
 
     render() {
@@ -104,6 +109,7 @@ class UserCreate extends React.Component {
                   rules: [{ required: true, message: '请选择角色' }],
                 })(
                   <Select
+                    onChange={this.handleChange}
                     style={{ width: 200 }}
                   >
                     {options}

@@ -1,7 +1,9 @@
 import fetch from 'isomorphic-fetch';
 import { notification } from 'antd';
 import store from 'store';
+import createBrowserHistory from 'history/createBrowserHistory';
 
+const history = createBrowserHistory();
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
   201: '新建或修改数据成功。',
@@ -115,22 +117,19 @@ export default function request(url, options) {
       // const { dispatch } = store;
       const status = e.name;
       if (status === 401) {
-        // dispatch({
-        //   type: 'login/logout',
-        // });
-        console.dir(this);
+        window.location.href = '/login';
         return;
       }
       if (status === 403) {
-        // dispatch(routerRedux.push('/exception/403'));
+        history.push(`/${window.location.href.split('/')[3]}/exception/403`);
         return;
       }
       if (status <= 504 && status >= 500) {
-        // dispatch(routerRedux.push('/exception/500'));
+        history.push(`/${window.location.href.split('/')[3]}/exception/500`);
         return;
       }
       if (status >= 404 && status < 422) {
-        // dispatch(routerRedux.push('/exception/404'));
+        history.push(`/${window.location.href.split('/')[3]}/exception/404`);
       }
     });
 }

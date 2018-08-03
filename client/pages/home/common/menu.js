@@ -20,6 +20,7 @@ const menuData = [
             id: '0-0-0',
             parentId: '0-0',
             path: 'app-launch-ad',
+
           },
           {
             name: 'Banner',
@@ -121,6 +122,13 @@ const menuData = [
             parentId: '0-0',
             icon: 'icon-operation',
             path: 'operationalPush',
+          },
+          {
+            id: '0-0-6',
+            name: 'APP版本控制',
+            parentId: '0-0',
+            icon: 'icon-appVersion',
+            path: 'app-version',
           },
         ],
       },

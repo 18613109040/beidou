@@ -56,7 +56,7 @@ class BaseService extends Service {
     let res = [];
     let count = 0;
     const skip = ((Number(currentPage)) - 1) * Number(pageSize || 10);
-    if (isPaging) {
+    if (isPaging.toString() === 'true') {
       res = await this.model.find(findQuery).skip(skip).limit(Number(pageSize)).sort({ createdAt: -1 })
         .lean()
         .exec();

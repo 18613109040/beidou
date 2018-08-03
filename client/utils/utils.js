@@ -127,10 +127,10 @@ function getRenderArr(routes) {
     // 去重
     renderArr = renderArr.filter(item => getRelation(item, routes[i]) !== 1);
     // 是否包含
-    const isAdd = renderArr.every(item => getRelation(item, routes[i]) === 3);
-    if (isAdd) {
-      renderArr.push(routes[i]);
-    }
+    // const isAdd = renderArr.every(item => getRelation(item, routes[i]) === 3);
+    // if (isAdd) {
+    renderArr.push(routes[i]);
+    // }
   }
   return renderArr;
 }
@@ -145,7 +145,6 @@ export function getRoutes(path, routerData) {
   let routes = Object.keys(routerData).filter(
     routePath => routePath.indexOf(path) === 0 && routePath !== path
   );
-  // Replace path to '' eg. path='user' /user/name => name
   routes = routes.map(item => item.replace(path, ''));
   // Get the route to be rendered to remove the deep rendering
   const renderArr = getRenderArr(routes);
@@ -237,3 +236,27 @@ export function authOperation(num = 0) {
   return opt;
 }
 
+export function formatter(data, parentPath = '/', json) {
+  return data.map((item) => {
+    let { path } = item;
+    if (!isUrl(path)) {
+      path = parentPath + item.path;
+    }
+    const result = {
+      ...item,
+      path,
+      auth: 15,
+    };
+    if (item.children) {
+      result.children = formatter(item.children, `${parentPath}${item.path}/`, json);
+    } else if (json) {
+      const obj = json.find(it => it.id === item.id);
+      const auth = obj ? obj.auth : 0;
+      result.auth = auth;
+      if (auth === 0) {
+        return null;
+      }
+    }
+    return result;
+  });
+}

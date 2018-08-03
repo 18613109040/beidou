@@ -1,55 +1,36 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Switch, Redirect, Route } from 'react-router';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
+import { Layout, Breadcrumb } from 'antd';
 import SiderMenu from '../components/SiderMenu';
 import GlobalHeader from '../components/GlobalHeader';
 import { getUser } from '../actions/user';
-import AppLaunchAd from '../container/AppLaunchAd';
-// import { getMenuData } from '../common/menu';
-import { getRouterData } from '../common/router';
-import { getRoutes } from '../../../utils/utils';
-// import Authorized from '../../../utils/Authorized';
+import getRouterData from '../common/router';
+import NotFound from '../container/Exception/404';
+import { getRoutes, formatter } from '../../../utils/utils';
+import { getMenuData } from '../common/menu';
+// import { getAuthority } from '../../../utils/authority';
+// import store from 'store';
 
-
-// const { AuthorizedRoute, check } = Authorized;
 const { Header, Content } = Layout;
 /**
  * 根据菜单取得重定向地址.
  */
-// const redirectData = [];
-// const getRedirect = (item) => {
-//   if (item && item.children) {
-//     if (item.children[0] && item.children[0].path) {
-//       redirectData.push({
-//         from: `${item.path}`,
-//         to: `${item.children[0].path}`,
-//       });
-//       item.children.forEach((children) => {
-//         getRedirect(children);
-//       });
-//     }
-//   }
-// };
-// function formatter(data, parentPath = '/', parentAuthority) {
-//   return data.map((item) => {
-//     let { path } = item;
-//     if (!isUrl(path)) {
-//       path = parentPath + item.path;
-//     }
-//     const result = {
-//       ...item,
-//       path,
-//       authority: item.authority || parentAuthority,
-//     };
-//     if (item.children) {
-//       result.children = formatter(item.children, `${parentPath}${item.path}/`, item.authority);
-//     }
-//     return result;
-//   });
-// }
-// formatter(getMenuData()).forEach(getRedirect);
+const redirectData = [];
+const getRedirect = (item) => {
+  if (item && item.children) {
+    if (item.children[0] && item.children[0].path) {
+      redirectData.push({
+        from: `${item.path}`,
+        to: `${item.children[0].path}`,
+      });
+      item.children.forEach((children) => {
+        getRedirect(children);
+      });
+    }
+  }
+};
 
 class BasicLayout extends React.Component {
   static contextTypes = {
@@ -69,68 +50,11 @@ class BasicLayout extends React.Component {
     });
   }
 
-  componentWillMount() {
-
-  }
-
   componentDidMount() {
     this.props.dispatch(getUser());
   }
 
-
-  // getRouter(data, routers, path = '') {
-  //   data.map((item) => {
-  //     const rootPath = `${path}/${item.path}`;
-  //     let redirectPath = `${path}/${item.path}`;
-  //     if (item.children && item.children.length > 0) {
-  //       redirectPath = `${path}/${item.path}/${item.children[0].path}`;
-  //     }
-  //     if (item.type === '1') {
-  //       const moduleid = Loadable({
-  //         loader: () => import(`${item.moduleid}`),
-  //         loading: () => (<div>loading</div>),
-  //       });
-  //       routers.push(<Route
-  //         exact
-  //         path={redirectPath}
-  //         component={moduleid}
-  //       />);
-  //     } else {
-  //       routers.push(<Route
-  //         exact
-  //         path={rootPath}
-  //         render={() => (
-  //           <Redirect to={redirectPath} />
-  //         )}
-  //       />);
-  //     }
-  //     if (item.children && item.children.length > 0) {
-  //       this.getRouter(item.children, routers, rootPath);
-  //     }
-  //     return item;
-  //   });
-  // }
-
-  // getBaseRedirect = () => {
-  //   // According to the url parameter to redirect
-  //   // 这里是重定向的,重定向到 url 的 redirect 参数所示地址
-  //   const urlParams = new URL(window.location.href);
-
-  //   const redirect = urlParams.searchParams.get('redirect');
-  //   // Remove the parameters in the url
-  //   if (redirect) {
-  //     urlParams.searchParams.delete('redirect');
-  //     window.history.replaceState(null, 'redirect', urlParams.href);
-  //   } else {
-  //     const { routerData } = this.props;
-  //     // get the first authorized route path in routerData
-  //     const authorizedPath = Object.keys(routerData).find(
-  //       item => check(routerData[item].authority, item) && item !== '/'
-  //     );
-  //     return authorizedPath;
-  //   }
-  //   return redirect;
-  // };
+  getBaseRedirect = () => '/operation'
 
   render() {
     const {
@@ -145,23 +69,20 @@ class BasicLayout extends React.Component {
       avatar,
       name: email,
     };
-    // const bashRedirect = this.getBaseRedirect();
     let silderData = modules.find(item => item.path === pathname);
     if (silderData && silderData.children) {
       silderData = silderData.children;
     }
-    console.dir('===============');
     const routerData = getRouterData();
-    getRoutes(match.path, routerData).map(item => (
-      console.dir(item)
-    ));
+    const bashRedirect = this.getBaseRedirect();
+    formatter(getMenuData()).forEach(getRedirect);
     return (
       <Layout>
         <SiderMenu
           menuData={silderData}
           location={location}
           collapsed={collapsed}
-          onCollapse={this.handleMenuCollapse}
+          // onCollapse={this.handleMenuCollapse}
         />
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }} location={location}>
@@ -176,25 +97,15 @@ class BasicLayout extends React.Component {
           </Header>
           <Content style={{ margin: '24px 24px', height: '100%', minHeight: 280 }}>
             <Switch>
-              <Route exact path="/" component={AppLaunchAd} />
-            </Switch>
-            {/* <Switch>
+              <Redirect exact from="/" to={bashRedirect} />
               {redirectData.map(item => (
                 <Redirect key={item.from} exact from={item.from} to={item.to} />
               ))}
               {getRoutes(match.path, routerData).map(item => (
-                <AuthorizedRoute
-                  key={item.key}
-                  path={item.path}
-                  component={item.component}
-                  exact={item.exact}
-                  authority={item.authority}
-                  redirectPath="/exception/403"
-                />
+                <Route exact key={item.path} path={item.path} component={item.component} />
               ))}
-              <Redirect exact from="/" to={bashRedirect} />
-            </Switch> */}
-            {/* {this.props.children} */}
+              <Route render={NotFound} />
+            </Switch>
           </Content>
         </Layout>
       </Layout>

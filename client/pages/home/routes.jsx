@@ -1,6 +1,6 @@
 import React from 'react';
 import { LocaleProvider } from 'antd';
-import { Route, Switch, Redirect } from 'react-router';
+import { Switch } from 'react-router';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import BasicLayout from './layout/index';
 

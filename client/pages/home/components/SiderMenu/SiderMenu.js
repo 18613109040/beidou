@@ -17,25 +17,23 @@ const getIcon = (icon) => {
   }
   return icon;
 };
-export const getFlatMenuKeys = menu =>
-  menu.reduce((keys, item) => {
-    keys.push(item.path);
-    if (item.children) {
-      return keys.concat(getFlatMenuKeys(item.children));
-    }
-    return keys;
-  }, []);
+export const getFlatMenuKeys = menu => menu.reduce((keys, item) => {
+  keys.push(item.path);
+  if (item.children) {
+    return keys.concat(getFlatMenuKeys(item.children));
+  }
+  return keys;
+}, []);
 /**
  * Find all matched menu keys based on paths
  * @param  flatMenuKeys: [/abc, /abc/:id, /abc/:id/info]
  * @param  paths: [/abc, /abc/11, /abc/11/info]
  */
-export const getMenuMatchKeys = (flatMenuKeys, paths) =>
-  paths.reduce(
-    (matchKeys, path) =>
-      matchKeys.concat(flatMenuKeys.filter(item => pathToRegexp(item).test(path))),
-    []
-  );
+export const getMenuMatchKeys = (flatMenuKeys, paths) => paths.reduce(
+  (matchKeys, path) =>
+    matchKeys.concat(flatMenuKeys.filter(item => pathToRegexp(item).test(path))),
+  []
+);
 class SiderMenu extends PureComponent {
   constructor(props) {
     super(props);
@@ -50,6 +48,8 @@ class SiderMenu extends PureComponent {
   componentWillReceiveProps(nextProps) {
     const { location } = this.props;
     if (nextProps.location.pathname !== location.pathname) {
+      this.menus = nextProps.menuData;
+      this.flatMenuKeys = getFlatMenuKeys(nextProps.menuData);
       this.setState({
         openKeys: this.getDefaultCollapsedSubMenus(nextProps),
       });
@@ -59,8 +59,7 @@ class SiderMenu extends PureComponent {
   getDefaultCollapsedSubMenus(props) {
     const {
       location: { pathname },
-    } =
-      props || this.props;
+    } = props || this.props;
     return getMenuMatchKeys(this.flatMenuKeys, urlToList(pathname));
   }
 
@@ -183,7 +182,6 @@ class SiderMenu extends PureComponent {
 
   render() {
     const { collapsed, menuData, onCollapse } = this.props;
-    console.dir(menuData);
     const { openKeys } = this.state;
     const menuProps = collapsed
       ? {}
@@ -195,7 +193,6 @@ class SiderMenu extends PureComponent {
     if (!selectedKeys.length) {
       selectedKeys = [openKeys[openKeys.length - 1]];
     }
-    console.dir(selectedKeys);
     return (
       <Sider
         trigger={null}
