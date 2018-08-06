@@ -38,3 +38,14 @@ export function getAppVsersionList(data) {
     contentType: 'application/json',
   });
 }
+
+// 获取app
+
+export function findByAppVersion(data) {
+  return request('/api/app-version/findByAppVersion', {
+    type: 'json',
+    method: 'POST',
+    body: data,
+    contentType: 'application/json',
+  });
+}

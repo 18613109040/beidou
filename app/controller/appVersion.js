@@ -73,6 +73,16 @@ class AppVersionController extends Controller {
     // 设置响应内容和响应状态码
     ctx.helper.success({ ctx, res });
   }
+
+  async findByAppVersion() {
+    const { ctx, service } = this;
+    const payload = ctx.request.body || {};
+    // 调用 Service 进行业务处理
+    const res = await service.appVersion.findByAppVersion(payload);
+    // 设置响应内容和响应状态码
+    const msg = '';
+    ctx.helper.success({ ctx, res, msg });
+  }
 }
 
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Card } from 'antd';
-import { createAppVersion, updataAppVsersion, getAppVersionDetails } from '../../actions/appVersion';
+import { createAppVersion, updataAppVsersion, getAppVersionDetails, findByAppVersion } from '../../actions/appVersion';
+import { debounce } from '../../../../utils/utils';
 import './index.less';
 
 const FormItem = Form.Item;
@@ -14,6 +15,7 @@ class AppVersionCreate extends React.Component {
       super(props);
       this.state = {
         loading: false,
+        validateStatus: '',
       };
     }
 
@@ -60,6 +62,9 @@ class AppVersionCreate extends React.Component {
       });
     }
 
+    onChangeVsersion(e) {
+      console.dir(e);
+    }
 
     render() {
       const { getFieldDecorator } = this.props.form;
@@ -81,7 +86,7 @@ class AppVersionCreate extends React.Component {
           xxl: { span: 8 },
         },
       };
-
+      const { validateStatus } = this.state;
       return (
         <div className="role">
           <Card bordered={false}>
@@ -90,6 +95,7 @@ class AppVersionCreate extends React.Component {
               <FormItem
                 {...formItemLayout}
                 label="App版本号"
+                validateStatus={validateStatus}
               >
                 {getFieldDecorator('appVersion', {
                   rules: [
@@ -97,7 +103,7 @@ class AppVersionCreate extends React.Component {
                     { pattern: /^\d+\.\d+\.\d+$/, message: '请填写正确的版本号' },
                   ],
                 })(
-                  <Input placeholder="请填写版本号 例如(1.0.0)" />
+                  <Input placeholder="请填写版本号 例如(1.0.0)" onChange={(e) => { debounce(this.onChangeVsersion(e), 28000); }} />
 
                 )}
               </FormItem>

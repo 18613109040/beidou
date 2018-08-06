@@ -260,3 +260,23 @@ export function formatter(data, parentPath = '/', json) {
     return result;
   });
 }
+
+export function debounce(fn, delay) {
+  const args = arguments;
+  const context = this;
+  let timer = null;
+
+  return function () {
+    if (timer) {
+      clearTimeout(timer);
+
+      timer = setTimeout(() => {
+        fn.apply(context, args);
+      }, delay);
+    } else {
+      timer = setTimeout(() => {
+        fn.apply(context, args);
+      }, delay);
+    }
+  };
+}

@@ -17,7 +17,9 @@ module.exports = (app) => {
   router.get('/api/user/detail', app.jwt, controller.user.detail);
   router.resources('user', '/api/user', app.jwt, controller.user);
 
+  router.post('/api/app-version/findByAppVersion', app.jwt, controller.appVersion.findByAppVersion);
   router.resources('app-version', '/api/app-version', app.jwt, controller.appVersion);
+
   // router.get('/api/user', app.jwt, controller.user.index);
   // router.post('/api/user', app.jwt, controller.user.create);
 

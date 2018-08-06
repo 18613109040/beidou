@@ -317,6 +317,19 @@
     ]
   },
   {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/api/app-version/findByAppVersion",
+    "regexp": "/^\\/api\\/app-version\\/findByAppVersion(?:\\/(?=$))?$/",
+    "stack": [
+      "middleware",
+      "wrappedController"
+    ]
+  },
+  {
     "name": "app-versions",
     "methods": [
       "HEAD",
