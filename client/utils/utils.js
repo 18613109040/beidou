@@ -261,22 +261,18 @@ export function formatter(data, parentPath = '/', json) {
   });
 }
 
-export function debounce(fn, delay) {
-  const args = arguments;
-  const context = this;
-  let timer = null;
-
+export function debounce(func, wait, immediate) {
+  let timeout;
   return function () {
-    if (timer) {
-      clearTimeout(timer);
-
-      timer = setTimeout(() => {
-        fn.apply(context, args);
-      }, delay);
-    } else {
-      timer = setTimeout(() => {
-        fn.apply(context, args);
-      }, delay);
-    }
+    const context = this;
+    const args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
   };
 }

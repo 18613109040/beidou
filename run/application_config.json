@@ -354,7 +354,10 @@
         "lodash-decorators": "6.0.0",
         "ant-design-pro": "2.0.0-beta.2",
         "store": "2.0.12",
-        "history": "4.7.2"
+        "history": "4.7.2",
+        "await-stream-ready": "1.0.1",
+        "stream-wormhole": "1.0.4",
+        "image-downloader": "3.4.1"
       },
       "engines": {
         "node": ">= 8.0.0"
@@ -462,6 +465,18 @@
     "client": "F:\\beidou\\client",
     "core": {
       "name": "Beidou"
+    },
+    "qn": {
+      "accessKey": "<String len: 40>",
+      "secretKey": "<String len: 40>",
+      "bucket": "igola-files",
+      "domain": "https://content.igola.com"
+    },
+    "qnDev": {
+      "accessKey": "<String len: 40>",
+      "secretKey": "<String len: 40>",
+      "bucket": "igola-dev-files",
+      "domain": "http://ovycf8zkv.bkt.clouddn.com"
     },
     "middleware": [
       "jwt",

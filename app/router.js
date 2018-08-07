@@ -17,7 +17,7 @@ module.exports = (app) => {
   router.get('/api/user/detail', app.jwt, controller.user.detail);
   router.resources('user', '/api/user', app.jwt, controller.user);
 
-  router.post('/api/app-version/findByAppVersion', app.jwt, controller.appVersion.findByAppVersion);
+  router.get('/api/app-version/findByAppVersion', app.jwt, controller.appVersion.findByAppVersion);
   router.resources('app-version', '/api/app-version', app.jwt, controller.appVersion);
 
   // router.get('/api/user', app.jwt, controller.user.index);
@@ -31,7 +31,10 @@ module.exports = (app) => {
   router.get('login', '/login', controller.user.login);
   router.get('/', '/*', controller.index.index);
 
-
+  router.post('/api/upload', controller.upload.create);
+  router.post('/api/upload/url', controller.upload.url);
+  router.post('/api/uploads', controller.upload.multiple);
+  router.delete('/api/upload/:id', controller.upload.destroy);
   // router.get('/api/*', function* (next) {
   //   yield c2k(proxy({
   //     target: this.app.config.hostapi,

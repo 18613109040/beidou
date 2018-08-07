@@ -21,7 +21,9 @@ class AppVersionList extends React.Component {
         <div >
           <Card bordered={false}>
             <div className="tableList">
-              <BaseTable />
+              <BaseTable
+                showPagination={false}
+              />
             </div>
           </Card>
 

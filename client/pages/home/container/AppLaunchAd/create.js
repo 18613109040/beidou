@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Card, Checkbox, Select } from 'antd';
 import { getAppVsersionList } from '../../actions/appVersion';
+import UploadImage from '../../components/UploadImage';
 import './index.less';
 
 const Option = Select.Option;
@@ -91,6 +92,30 @@ class AppLaunchAdCreate extends React.Component {
                   >
                     {options}
                   </Select>
+                )}
+              </FormItem>
+              <FormItem
+                label="跳转类型"
+                {...formItemLayout}
+              >
+                {getFieldDecorator('jumpType', {
+                  rules: [{ required: true, message: '跳转类型' }],
+                })(
+                  <Select style={{ width: 200 }} >
+                    <Option value={0}>关闭</Option>
+                    <Option value={1}>网页链接</Option>
+                    <Option value={2}>APP内部跳转</Option>
+                  </Select>
+                )}
+              </FormItem>
+              <FormItem
+                label="分享封面"
+                {...formItemLayout}
+              >
+                {getFieldDecorator('shareCover', {
+                  rules: [{ required: true, message: '分享封面' }],
+                })(
+                  <UploadImage />
                 )}
               </FormItem>
 

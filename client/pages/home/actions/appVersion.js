@@ -44,7 +44,7 @@ export function getAppVsersionList(data) {
 export function findByAppVersion(data) {
   return request('/api/app-version/findByAppVersion', {
     type: 'json',
-    method: 'POST',
+    method: 'GET',
     body: data,
     contentType: 'application/json',
   });

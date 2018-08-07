@@ -1,5 +1,17 @@
 {
   "keys": "F:\\beidou\\config\\config.default.js",
+  "qn": {
+    "accessKey": "F:\\beidou\\config\\config.default.js",
+    "secretKey": "F:\\beidou\\config\\config.default.js",
+    "bucket": "F:\\beidou\\config\\config.default.js",
+    "domain": "F:\\beidou\\config\\config.default.js"
+  },
+  "qnDev": {
+    "accessKey": "F:\\beidou\\config\\config.default.js",
+    "secretKey": "F:\\beidou\\config\\config.default.js",
+    "bucket": "F:\\beidou\\config\\config.default.js",
+    "domain": "F:\\beidou\\config\\config.default.js"
+  },
   "middleware": "F:\\beidou\\config\\config.default.js",
   "isomorphic": {
     "babel": {
@@ -305,7 +317,10 @@
       "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
       "store": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "history": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "history": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "await-stream-ready": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "stream-wormhole": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+      "image-downloader": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"

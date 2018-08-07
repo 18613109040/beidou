@@ -4,6 +4,19 @@ const path = require('path');
 
 module.exports = {
   keys: '1513779989145_1674',
+  // 七牛云服务配置
+  qn: {
+    accessKey: 'YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld',
+    secretKey: 'az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb',
+    bucket: 'igola-files',
+    domain: 'https://content.igola.com',
+  },
+  qnDev: {
+    accessKey: 'YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld',
+    secretKey: 'az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb',
+    bucket: 'igola-dev-files',
+    domain: 'http://ovycf8zkv.bkt.clouddn.com',
+  },
   middleware: ['errorHandler'],
   // https://github.com/alibaba/beidou/blob/master/packages/beidou-isomorphic/README.md
   // isomorphic: {

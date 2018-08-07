@@ -20,7 +20,7 @@ class AppVersionService extends BaseService {
     const { appVersion } = payload;
     const version = await this.ctx.model.AppVersion.find({ appVersion });
     if (!version) {
-      this.ctx.throw(404, 'role not found');
+      this.ctx.throw(404, 'AppVersion not found');
     }
     return this.ctx.model.AppVersion.find({ appVersion }).lean().exec();
   }

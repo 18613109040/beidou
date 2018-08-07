@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Table, Alert, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon, Card } from 'antd';
+import React, { Component } from 'react';
+import { Table, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { authOperation } from 'client/utils/utils';
@@ -66,11 +66,12 @@ class BaseTable extends Component {
       const { pathname } = this.context.router.history.location;
       const path = pathname.split('/').pop();
       const { pageSize, currentPage, search } = pagination;
+      const { showPagination } = this.props;
       this.props.dispatch(tableList(`/api/${path}`,
         {
           pageSize,
           currentPage,
-          isPaging: true,
+          isPaging: !!showPagination,
           search,
         }));
     }

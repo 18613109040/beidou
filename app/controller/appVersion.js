@@ -76,7 +76,7 @@ class AppVersionController extends Controller {
 
   async findByAppVersion() {
     const { ctx, service } = this;
-    const payload = ctx.request.body || {};
+    const payload = ctx.query;
     // 调用 Service 进行业务处理
     const res = await service.appVersion.findByAppVersion(payload);
     // 设置响应内容和响应状态码
