@@ -44,36 +44,36 @@
       "configPath": "F:\\beidou\\config\\config.default.js"
     },
     "output": {
-      "path": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "filename": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "chunkFilename": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "publicPath": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
+      "path": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "filename": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "chunkFilename": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "publicPath": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js"
     },
     "resolve": {
-      "extensions": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
+      "extensions": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
       "alias": {
-        "client": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
+        "client": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js"
       }
     },
     "devServer": {
-      "contentBase": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "port": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "noInfo": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "quiet": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "clientLogLevel": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "lazy": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
+      "contentBase": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "port": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "noInfo": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "quiet": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "clientLogLevel": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "lazy": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
       "watchOptions": {
-        "aggregateTimeout": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
+        "aggregateTimeout": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js"
       },
       "headers": {
-        "X-Custom-Header": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
+        "X-Custom-Header": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js"
       },
       "stats": {
-        "colors": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-        "chunks": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
+        "colors": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+        "chunks": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js"
       },
-      "publicPath": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js",
-      "hot": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.4@beidou-webpack\\config\\config.default.js"
+      "publicPath": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js",
+      "hot": "F:\\beidou\\node_modules\\_beidou-webpack@1.0.7@beidou-webpack\\config\\config.default.js"
     }
   },
   "bcrypt": {
@@ -81,21 +81,21 @@
   },
   "logger": {
     "level": "F:\\beidou\\config\\config.default.js",
-    "dir": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "encoding": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "env": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "disableConsoleAfterReady": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "outputJSON": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "buffer": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "appLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "coreLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "agentLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "errorLogName": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "dir": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "encoding": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "env": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "outputJSON": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "buffer": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "appLogName": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "coreLogName": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "agentLogName": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "errorLogName": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
     "coreLogger": {
-      "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.local.js"
+      "consoleLevel": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.local.js"
     },
-    "allowDebugAtProd": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "allowDebugAtProd": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
   "react": {
     "static": "F:\\beidou\\config\\config.default.js",
@@ -197,22 +197,22 @@
     }
   },
   "multipart": {
-    "autoFields": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "defaultCharset": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "fieldNameSize": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "fieldSize": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "fields": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "fileSize": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "files": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "fileExtensions": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js",
-    "whitelist": "F:\\beidou\\node_modules\\_egg-multipart@2.0.0@egg-multipart\\config\\config.default.js"
+    "autoFields": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "defaultCharset": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "fieldSize": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "fields": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "fileSize": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "files": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "fileExtensions": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js",
+    "whitelist": "F:\\beidou\\node_modules\\_egg-multipart@2.1.0@egg-multipart\\config\\config.default.js"
   },
   "development": {
-    "watchDirs": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development\\config\\config.default.js",
-    "ignoreDirs": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development\\config\\config.default.js",
-    "fastReady": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development\\config\\config.default.js",
-    "reloadOnDebug": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development\\config\\config.default.js",
-    "overrideDefault": "F:\\beidou\\node_modules\\_egg-development@2.3.1@egg-development\\config\\config.default.js"
+    "watchDirs": "F:\\beidou\\node_modules\\_egg-development@2.4.1@egg-development\\config\\config.default.js",
+    "ignoreDirs": "F:\\beidou\\node_modules\\_egg-development@2.4.1@egg-development\\config\\config.default.js",
+    "fastReady": "F:\\beidou\\node_modules\\_egg-development@2.4.1@egg-development\\config\\config.default.js",
+    "reloadOnDebug": "F:\\beidou\\node_modules\\_egg-development@2.4.1@egg-development\\config\\config.default.js",
+    "overrideDefault": "F:\\beidou\\node_modules\\_egg-development@2.4.1@egg-development\\config\\config.default.js"
   },
   "customLogger": {
     "scheduleLogger": {
@@ -252,161 +252,161 @@
     "entry": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js",
     "ext": "F:\\beidou\\node_modules\\_beidou-router@1.0.0@beidou-router\\config\\config.default.js"
   },
-  "env": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js",
-  "name": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "proxy": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "protocolHeaders": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "ipHeaders": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "hostHeaders": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+  "env": "F:\\beidou\\node_modules\\_beidou-core@1.0.7@beidou-core\\config\\config.default.js",
+  "name": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "proxy": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "protocolHeaders": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "ipHeaders": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "hostHeaders": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
   "pkg": {
-    "name": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "version": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "description": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "license": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "name": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "version": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "description": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "license": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
     "scripts": {
-      "start": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "debug": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "stop": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "dev": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "build": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "build:node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "start": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "debug": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "stop": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "dev": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "build": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "build:node": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     },
     "dependencies": {
-      "babel-eslint": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "babel-plugin-dynamic-import-node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "babel-plugin-import-inspector": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "babel-plugin-transform-decorators-legacy": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "babel-plugin-transform-runtime": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "import-inspector": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "babel-polyfill": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "beidou-cli": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "beidou-core": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "eslint": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "eslint-config-beidou": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "eslint-plugin-import": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "eslint-plugin-react": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-dom": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-router-dom": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "isomorphic-fetch": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-development-proxyagent": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "anyproxy": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "es6-promise": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-redux": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "redux": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "redux-thunk": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "fastclick": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "js-cookie": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "postcss-pxtorem": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "cssnano": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "prop-types": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "object-assign": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "mescroll.js": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "antd-mobile": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "antd": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "babel-plugin-import": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "bundle-loader": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-cors": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-jwt": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "web-storage-cache": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-loadable": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "classnames": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-id-swiper": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "koa-proxy": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "koa-connect": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-keeper": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-validate": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-bcrypt": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-mongoose": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "enquire-js": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-container-query": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "path-to-regexp": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "react-document-title": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "lodash": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "store": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "history": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "await-stream-ready": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "stream-wormhole": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "image-downloader": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "egg-qiniu-upload": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "babel-eslint": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "babel-plugin-dynamic-import-node": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "babel-plugin-import-inspector": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "babel-plugin-transform-decorators-legacy": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "babel-plugin-transform-runtime": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "import-inspector": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "babel-polyfill": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "beidou-cli": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "beidou-core": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "eslint": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "eslint-config-beidou": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "eslint-plugin-import": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "eslint-plugin-react": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-dom": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-router-dom": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "isomorphic-fetch": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-development-proxyagent": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "anyproxy": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "es6-promise": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-redux": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "redux": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "redux-thunk": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "fastclick": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "js-cookie": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "postcss-pxtorem": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "cssnano": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "prop-types": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "object-assign": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "mescroll.js": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "antd-mobile": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "antd": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "babel-plugin-import": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "bundle-loader": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-cors": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-jwt": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "web-storage-cache": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-loadable": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "classnames": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-id-swiper": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "koa-proxy": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "koa-connect": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-keeper": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-validate": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-bcrypt": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-mongoose": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "enquire-js": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-container-query": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "path-to-regexp": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "react-document-title": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "lodash": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "lodash-decorators": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "ant-design-pro": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "store": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "history": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "await-stream-ready": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "stream-wormhole": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "image-downloader": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "egg-qiniu-uploader": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     },
     "engines": {
-      "node": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "node": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     }
   },
-  "baseDir": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "HOME": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "rundir": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js",
+  "baseDir": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "HOME": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "rundir": "F:\\beidou\\node_modules\\_beidou-core@1.0.7@beidou-core\\config\\config.default.js",
   "dump": {
-    "ignore": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "ignore": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
   "confusedConfigurations": {
-    "bodyparser": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "notFound": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "sitefile": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "middlewares": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "httpClient": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "bodyparser": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "notFound": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "sitefile": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "middlewares": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "httpClient": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
   "notfound": {
-    "pageUrl": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "pageUrl": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
   "siteFile": {
-    "/favicon.ico": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "/favicon.ico": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
   "bodyParser": {
-    "enable": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "encoding": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "formLimit": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "jsonLimit": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "strict": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "enable": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "encoding": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "formLimit": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "jsonLimit": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "strict": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
     "queryString": {
-      "arrayLimit": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "depth": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "parameterLimit": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "arrayLimit": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "depth": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "parameterLimit": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     }
   },
   "httpclient": {
-    "enableDNSCache": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "dnsCacheMaxLength": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "dnsCacheMaxAge": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+    "enableDNSCache": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "dnsCacheMaxAge": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
     "request": {
-      "timeout": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "timeout": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     },
     "httpAgent": {
-      "keepAlive": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "freeSocketKeepAliveTimeout": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "maxSockets": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "maxFreeSockets": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "keepAlive": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "maxSockets": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "maxFreeSockets": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     },
     "httpsAgent": {
-      "keepAlive": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "freeSocketKeepAliveTimeout": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "maxSockets": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "maxFreeSockets": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "keepAlive": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "maxSockets": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "maxFreeSockets": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     }
   },
   "meta": {
-    "enable": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "logging": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "enable": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "logging": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
-  "coreMiddleware": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js",
-  "workerStartTimeout": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
+  "coreMiddleware": "F:\\beidou\\node_modules\\_beidou-core@1.0.7@beidou-core\\config\\config.default.js",
+  "workerStartTimeout": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
   "cluster": {
     "listen": {
-      "path": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "port": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-      "hostname": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+      "path": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "port": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "hostname": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     }
   },
   "clusterClient": {
-    "maxWaitTime": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-    "responseTimeout": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js"
+    "maxWaitTime": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+    "responseTimeout": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
   },
-  "onClientError": "F:\\beidou\\node_modules\\_egg@2.9.1@egg\\config\\config.default.js",
-  "client": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js",
+  "onClientError": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+  "client": "F:\\beidou\\node_modules\\_beidou-core@1.0.7@beidou-core\\config\\config.default.js",
   "core": {
-    "name": "F:\\beidou\\node_modules\\_beidou-core@1.0.4@beidou-core\\config\\config.default.js"
+    "name": "F:\\beidou\\node_modules\\_beidou-core@1.0.7@beidou-core\\config\\config.default.js"
   }
 }

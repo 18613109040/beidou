@@ -21,9 +21,9 @@ class UploadController extends Controller {
     const filename = path.basename(stream.filename); // 文件名称
     const extname = path.extname(stream.filename).toLowerCase(); // 文件扩展名称
     const uid = stream.fields.uid; // 获取上传的uid 主要ant
-    // console.dir(stream.mimeType.includes('image'));
-    console.dir(stream);
-    // app.qiniu.upload(path, realname)
+    await app.qiniu.putStream(stream, filename, 'test/').then((res) => {
+      console.dir(res);
+    });
     // if (stream.mimeType.includes('image')) {
 
     // }
