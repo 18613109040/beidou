@@ -1,3 +1,8 @@
+/**
+ * @param {}
+ * lang  语言
+ * appVersion app版本
+ */
 module.exports = (app) => {
   const mongoose = app.mongoose;
 

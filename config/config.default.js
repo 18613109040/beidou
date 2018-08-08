@@ -17,6 +17,15 @@ module.exports = {
     bucket: 'igola-dev-files',
     domain: 'http://ovycf8zkv.bkt.clouddn.com',
   },
+  qiniu: {
+    ak: 'YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld',
+    sk: 'az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb',
+    bucket: 'igola-dev-files',
+    baseUrl: 'http://ovycf8zkv.bkt.clouddn.com',
+    zone: 'Zone_z0',
+    app: true, // default value
+    agent: false, // default value
+  },
   middleware: ['errorHandler'],
   // https://github.com/alibaba/beidou/blob/master/packages/beidou-isomorphic/README.md
   // isomorphic: {

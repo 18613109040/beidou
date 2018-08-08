@@ -69,7 +69,8 @@
     "history":"4.7.2",
     "await-stream-ready":"1.0.1",
     "stream-wormhole":"1.0.4",
-    "image-downloader":"3.4.1"
+    "image-downloader":"3.4.1",
+    "egg-qiniu-uploader": "1.0.1"
 
   },
   "engines": {

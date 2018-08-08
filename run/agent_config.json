@@ -263,6 +263,15 @@
       "enable": true,
       "match": "/jwt"
     },
+    "qiniu": {
+      "ak": "YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld",
+      "sk": "az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb",
+      "bucket": "igola-dev-files",
+      "baseUrl": "http://ovycf8zkv.bkt.clouddn.com",
+      "zone": "Zone_z0",
+      "app": true,
+      "agent": false
+    },
     "env": "local",
     "name": "beidou-example-with-react-router",
     "keys": "<String len: 18>",
@@ -341,7 +350,8 @@
         "history": "4.7.2",
         "await-stream-ready": "1.0.1",
         "stream-wormhole": "1.0.4",
-        "image-downloader": "3.4.1"
+        "image-downloader": "3.4.1",
+        "egg-qiniu-upload": "1.1.4"
       },
       "engines": {
         "node": ">= 8.0.0"
@@ -707,6 +717,17 @@
       "from": "F:\\beidou\\config\\plugin.js",
       "path": "F:\\beidou\\node_modules\\_egg-jwt@3.0.0@egg-jwt",
       "version": "3.0.0"
+    },
+    "qiniu": {
+      "enable": true,
+      "package": "egg-qiniu-upload",
+      "name": "qiniu",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "F:\\beidou\\config\\plugin.js",
+      "path": "F:\\beidou\\node_modules\\_egg-qiniu-upload@1.1.4@egg-qiniu-upload",
+      "version": "1.1.4"
     }
   }
 }

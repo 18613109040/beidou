@@ -4,17 +4,15 @@ import store from 'store';
 import { Upload, Icon, Modal, message } from 'antd';
 import './index.less';
 
-class UploadImage extends React.Component {
+class UploadVideo extends React.Component {
     static propTypes = {
-      multiple: PropTypes.bool, // 是否支持多
       size: PropTypes.number, // 图片大小
-      single: PropTypes.bool, // 单选
+
     };
 
     static defaultProps = {
-      multiple: false,
-      size: 1024 * 1024 * 10,
-      single: true,
+      size: 1024 * 1024 * 100,
+
     };
 
     constructor(props) {
@@ -77,23 +75,21 @@ class UploadImage extends React.Component {
   }
 
   render() {
-    const { previewVisible, previewImage, fileList } = this.state;
-    const { single, multiple } = this.props;
+    const { previewVisible, previewImage } = this.state;
     const uploadButton = (
       <div>
-        <Icon type={this.state.loading ? 'loading' : 'plus'} style={{ fontSize: 30 }} />
-        <div className="ant-upload-text">上传图片</div>
+        <Icon type={this.state.loading ? 'loading' : 'plus'} />
+        <div className="ant-upload-text">Upload</div>
       </div>
     );
+    const imageUrl = this.state.imageUrl;
     return (
       <div className="clearfix">
         <Upload
-          accept="image/*"
+          accept="video/*"
           action="/api/upload"
           listType="picture-card"
           className="image-uploader"
-          fileList={fileList}
-          multiple={multiple}
           data={file => ({
             name: 'file',
             uid: file.uid,
@@ -107,14 +103,14 @@ class UploadImage extends React.Component {
           beforeUpload={this.beforeUpload}
 
         >
-          {single && fileList.length >= 1 ? null : uploadButton}
+          {imageUrl ? <video src={imageUrl} alt="avatar" /> : uploadButton}
         </Upload>
         <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+          <video alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
       </div>
     );
   }
 }
-export default UploadImage;
+export default UploadVideo;
 

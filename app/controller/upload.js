@@ -12,20 +12,27 @@ class UploadController extends Controller {
 
   // 上传单个文件
   async create() {
-    const { ctx, service } = this;
+    const { ctx, service, app } = this;
     // 要通过 ctx.getFileStream 便捷的获取到用户上传的文件，需要满足两个条件：
     // 只支持上传一个文件。
     // 上传文件必须在所有其他的 fields 后面，否则在拿到文件流时可能还获取不到 fields。
     const stream = await ctx.getFileStream();
-    console.dir(ctx.request.body);
     // 所有表单字段都能通过 `stream.fields` 获取到
     const filename = path.basename(stream.filename); // 文件名称
     const extname = path.extname(stream.filename).toLowerCase(); // 文件扩展名称
+    const uid = stream.fields.uid; // 获取上传的uid 主要ant
+    // console.dir(stream.mimeType.includes('image'));
+    console.dir(stream);
+    // app.qiniu.upload(path, realname)
+    // if (stream.mimeType.includes('image')) {
+
+    // }
     // 组装参数 model
     const attachment = new this.ctx.model.Attachment();
     attachment.extname = extname;
     attachment.filename = filename;
-    attachment.url = `/uploads/${attachment._id.toString()}${extname}`;
+    attachment.url = `/app/public/uploads/${attachment._id.toString()}${extname}`;
+    attachment.uid = uid;
     // 组装参数 stream
     const target = path.join(this.config.baseDir, 'app/public/uploads', `${attachment._id.toString()}${attachment.extname}`);
     const writeStream = fs.createWriteStream(target);
@@ -40,11 +47,7 @@ class UploadController extends Controller {
     // 调用 Service 进行业务处理
     const res = await service.upload.create(attachment);
     // 设置响应内容和响应状态码
-    ctx.body = {
-      status: 'done',
-      data: res,
-    };
-    ctx.status = 200;
+    ctx.helper.success({ ctx, res });
   }
 
   // 通过URL添加单个图片: 如果网络地址不合法，EGG会返回500错误

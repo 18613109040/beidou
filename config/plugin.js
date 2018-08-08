@@ -1,7 +1,3 @@
-// exports.cors = {
-//   enable: true,
-//   package: 'egg-cors',
-// };
 exports.validate = {
   enable: true,
   package: 'egg-validate',
@@ -20,4 +16,9 @@ exports.bcrypt = {
 exports.jwt = {
   enable: true,
   package: 'egg-jwt',
+};
+
+exports.qiniu = {
+  enable: true,
+  package: 'egg-qiniu-uploader',
 };
