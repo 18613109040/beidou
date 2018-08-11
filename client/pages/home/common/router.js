@@ -36,10 +36,16 @@ const dynamicWrapper = (component) => {
 const getRouterData = () => {
   const routerConfig = {
     '/operation/app/app-launch-ad': {
-      component: dynamicWrapper(() => import('../container/AppLaunchAd')),
+      component: dynamicWrapper(() => import('../container/AppLaunchAd/list')),
     },
     '/operation/app/app-launch-ad/create': {
       component: dynamicWrapper(() => import('../container/AppLaunchAd/create')),
+    },
+    '/operation/app/app-launch-ad/create/:id': {
+      component: dynamicWrapper(() => import('../container/AppLaunchAd/create')),
+    },
+    '/operation/app/app-launch-ad/:id': {
+      component: dynamicWrapper(() => import('../container/AppLaunchAd')),
     },
 
     '/operation/app/app-version': {

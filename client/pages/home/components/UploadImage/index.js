@@ -6,15 +6,20 @@ import './index.less';
 
 class UploadImage extends React.Component {
     static propTypes = {
-      multiple: PropTypes.bool, // 是否支持多
       size: PropTypes.number, // 图片大小
-      single: PropTypes.bool, // 单选
+      dirPath: PropTypes.string, // 上传图片目录
+      onChange: PropTypes.func,
+      width: PropTypes.number, // 图片宽度
+      height: PropTypes.number, // 图片高度
+      value: PropTypes.string,
     };
 
     static defaultProps = {
-      multiple: false,
       size: 1024 * 1024 * 10,
-      single: true,
+      dirPath: '',
+      width: 100,
+      height: 100,
+      onChange: () => {},
     };
 
     constructor(props) {
@@ -22,8 +27,6 @@ class UploadImage extends React.Component {
       // const { columns } = props;
       this.state = {
         previewVisible: false,
-        previewImage: '',
-        fileList: [],
         loading: false,
       };
     }
@@ -31,9 +34,8 @@ class UploadImage extends React.Component {
 
   handleCancel = () => this.setState({ previewVisible: false })
 
-  handlePreview = (file) => {
+  handlePreview = () => {
     this.setState({
-      previewImage: file.url || file.thumbUrl,
       previewVisible: true,
     });
   }
@@ -47,11 +49,13 @@ class UploadImage extends React.Component {
     return isLt;
   }
 
+  deleteImage=() => {
+    const { onChange } = this.props;
+    onChange('');
+  }
 
-  onChange = ({ file, fileList, event }) => {
-    this.setState({
-      fileList,
-    });
+  handleChange = ({ file }) => {
+    const { onChange } = this.props;
     if (file.status === 'uploading') {
       this.setState({ loading: true });
       return;
@@ -59,26 +63,24 @@ class UploadImage extends React.Component {
     if (file.status === 'done') {
       message.success(`${file.name}图片上传成功`);
       const { response } = file;
-      const { url, uid } = response.data;
-      const tempList = this.state.fileList;
-      tempList.map((item) => {
-        if (item.uid === uid) {
-          item.linkUrl = url;
-        }
-        return item;
-      });
-      this.setState({
-        loading: false,
-        fileList: tempList,
-      });
+      if (response.code === 0) {
+        this.setState({
+          loading: false,
+        });
+        onChange(response.data.url);
+      }
     } else if (file.status === 'error') {
       message.error(`${file.name} 图片上传失败`);
+      this.setState({
+        loading: false,
+      });
+      onChange('');
     }
   }
 
   render() {
-    const { previewVisible, previewImage, fileList } = this.state;
-    const { single, multiple } = this.props;
+    const { previewVisible } = this.state;
+    const { dirPath, value, width, height } = this.props;
     const uploadButton = (
       <div>
         <Icon type={this.state.loading ? 'loading' : 'plus'} style={{ fontSize: 30 }} />
@@ -86,31 +88,39 @@ class UploadImage extends React.Component {
       </div>
     );
     return (
-      <div className="clearfix">
-        <Upload
-          accept="image/*"
-          action="/api/upload"
-          listType="picture-card"
-          className="image-uploader"
-          fileList={fileList}
-          multiple={multiple}
-          data={file => ({
-            name: 'file',
-            uid: file.uid,
-          })}
-          onPreview={this.handlePreview}
-          onChange={this.onChange}
-          supportServerRender
-          headers={
-            { Authorization: `Bearer ${store.get('token')}` }
-          }
-          beforeUpload={this.beforeUpload}
-
-        >
-          {single && fileList.length >= 1 ? null : uploadButton}
-        </Upload>
+      <div className="upload-image">
+        {
+          value ? <div className="image-preview" style={{ width: `${width}px`, height: `${height}px` }}>
+            <img style={{ width: '100%' }} src={value} className="image" />
+            <span className="item-actions">
+              <Icon type="eye-o" className="preview" onClick={this.handlePreview} />
+              <Icon type="delete" className="delete" onClick={this.deleteImage} />
+            </span>
+          </div> :
+          <Upload
+            accept="image/*"
+            action="/api/upload"
+            listType="picture-card"
+            className="image-uploader"
+            showUploadList={false}
+            data={file => ({
+              name: 'image',
+              uid: file.uid,
+              dirPath,
+            })}
+            onPreview={this.handlePreview}
+            onChange={this.handleChange}
+            supportServerRender
+            headers={
+             { Authorization: `Bearer ${store.get('token')}` }
+             }
+            beforeUpload={this.beforeUpload}
+          >
+            {uploadButton }
+          </Upload>
+        }
         <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+          <img alt="example" style={{ width: '100%' }} src={value} />
         </Modal>
       </div>
     );

@@ -70,7 +70,8 @@
     "await-stream-ready":"1.0.1",
     "stream-wormhole":"1.0.4",
     "image-downloader":"3.4.1",
-    "egg-qiniu-uploader": "1.0.2"
+    "egg-qiniu-uploader": "1.0.9",
+    "dotenv":"6.0.0"
 
   },
   "engines": {

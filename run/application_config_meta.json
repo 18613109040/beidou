@@ -1,17 +1,5 @@
 {
   "keys": "F:\\beidou\\config\\config.default.js",
-  "qn": {
-    "accessKey": "F:\\beidou\\config\\config.default.js",
-    "secretKey": "F:\\beidou\\config\\config.default.js",
-    "bucket": "F:\\beidou\\config\\config.default.js",
-    "domain": "F:\\beidou\\config\\config.default.js"
-  },
-  "qnDev": {
-    "accessKey": "F:\\beidou\\config\\config.default.js",
-    "secretKey": "F:\\beidou\\config\\config.default.js",
-    "bucket": "F:\\beidou\\config\\config.default.js",
-    "domain": "F:\\beidou\\config\\config.default.js"
-  },
   "qiniu": {
     "ak": "F:\\beidou\\config\\config.default.js",
     "sk": "F:\\beidou\\config\\config.default.js",
@@ -149,6 +137,18 @@
       "checkAddress": "F:\\beidou\\node_modules\\_egg-security@2.2.3@egg-security\\config\\config.default.js"
     }
   },
+  "mongoose": {
+    "url": "F:\\beidou\\config\\config.default.js",
+    "options": {
+      "useMongoClient": "F:\\beidou\\config\\config.default.js",
+      "autoReconnect": "F:\\beidou\\config\\config.default.js",
+      "reconnectTries": "F:\\beidou\\config\\config.default.js",
+      "bufferMaxEntries": "F:\\beidou\\config\\config.default.js"
+    },
+    "loadModel": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
+    "app": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
+    "agent": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js"
+  },
   "jwt": {
     "secret": "F:\\beidou\\config\\config.default.js",
     "enable": "F:\\beidou\\config\\config.default.js",
@@ -157,18 +157,6 @@
   "proxyagent": {
     "enable": "F:\\beidou\\config\\config.local.js",
     "package": "F:\\beidou\\config\\config.local.js"
-  },
-  "mongoose": {
-    "url": "F:\\beidou\\config\\config.local.js",
-    "options": {
-      "useMongoClient": "F:\\beidou\\config\\config.local.js",
-      "autoReconnect": "F:\\beidou\\config\\config.local.js",
-      "reconnectTries": "F:\\beidou\\config\\config.local.js",
-      "bufferMaxEntries": "F:\\beidou\\config\\config.local.js"
-    },
-    "loadModel": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
-    "app": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js",
-    "agent": "F:\\beidou\\node_modules\\_egg-mongoose@3.1.0@egg-mongoose\\config\\config.default.js"
   },
   "session": {
     "maxAge": "F:\\beidou\\node_modules\\_egg-session@3.1.0@egg-session\\config\\config.default.js",
@@ -330,7 +318,8 @@
       "await-stream-ready": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
       "stream-wormhole": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
       "image-downloader": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
-      "egg-qiniu-uploader": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
+      "egg-qiniu-uploader": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js",
+      "dotenv": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"
     },
     "engines": {
       "node": "F:\\beidou\\node_modules\\_egg@2.10.0@egg\\config\\config.default.js"

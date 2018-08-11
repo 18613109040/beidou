@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'antd';
 import DescriptionList from '../../components/DescriptionList';
-import { getAppVersionDetails } from '../../actions/appVersion';
+import { getAppVersionDetails } from '../../actions/app/appVersion';
 import './index.less';
 
 const { Description } = DescriptionList;

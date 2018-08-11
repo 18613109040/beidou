@@ -367,7 +367,8 @@
         "await-stream-ready": "1.0.1",
         "stream-wormhole": "1.0.4",
         "image-downloader": "3.4.1",
-        "egg-qiniu-uploader": "1.0.2"
+        "egg-qiniu-uploader": "1.0.9",
+        "dotenv": "6.0.0"
       },
       "engines": {
         "node": ">= 8.0.0"
@@ -476,18 +477,6 @@
     "client": "F:\\beidou\\client",
     "core": {
       "name": "Beidou"
-    },
-    "qn": {
-      "accessKey": "<String len: 40>",
-      "secretKey": "<String len: 40>",
-      "bucket": "igola-files",
-      "domain": "https://content.igola.com"
-    },
-    "qnDev": {
-      "accessKey": "<String len: 40>",
-      "secretKey": "<String len: 40>",
-      "bucket": "igola-dev-files",
-      "domain": "http://ovycf8zkv.bkt.clouddn.com"
     },
     "middleware": [
       "jwt",
@@ -761,8 +750,8 @@
       "optionalDependencies": [],
       "env": [],
       "from": "F:\\beidou\\config\\plugin.js",
-      "path": "F:\\beidou\\node_modules\\_egg-qiniu-uploader@1.0.2@egg-qiniu-uploader",
-      "version": "1.0.2"
+      "path": "F:\\beidou\\node_modules\\_egg-qiniu-uploader@1.0.9@egg-qiniu-uploader",
+      "version": "1.0.9"
     }
   }
 }

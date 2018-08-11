@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon } from 'antd';
+import { Table, Divider, Popconfirm, Button, Form, Row, Col, Select, Icon, Tooltip, Input } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { authOperation } from 'client/utils/utils';
@@ -150,6 +150,13 @@ class BaseTable extends Component {
       return (
         <Form onSubmit={this.handleSearch} layout="inline">
           <Row gutter={{ md: 8, lg: 24, xl: 48 }} type="flex">
+            <Col md={8} sm={24} key={0}>
+              <FormItem label="查询：">
+                {getFieldDecorator('keyword')(
+                  <Input placeholder="请输入关键字" />
+                )}
+              </FormItem>
+            </Col>
             {
               fiter.map(item => (<Col span={8} key={item.key}>
                 <FormItem label={item.name}>
@@ -187,6 +194,13 @@ class BaseTable extends Component {
       return (
         <Form onSubmit={this.handleSearch} layout="inline">
           <Row gutter={{ md: 8, lg: 24, xl: 48 }}>
+            <Col md={8} sm={24} key={0}>
+              <FormItem label="查询：">
+                {getFieldDecorator('keyword')(
+                  <Input placeholder="请输入关键字" />
+                )}
+              </FormItem>
+            </Col>
             {
               fiter.map(item => (<Col md={8} sm={24} key={item.key}>
                 <FormItem label={item.name}>
@@ -236,17 +250,24 @@ class BaseTable extends Component {
       } else {
         columnsList.push({
           title: '操作',
+          key: 'opreate',
           render: (text, record) => (<span>
             {option.updata ?
               <span>
-                <a onClick={() => this.eidt(record)}>编辑</a>
+                <Tooltip placement="top" title="编辑">
+                  <Button type="primary" shape="circle" icon="edit" onClick={() => this.eidt(record)} size="small" />
+                </Tooltip>
+                {/* <a >编辑</a> */}
                 <Divider type="vertical" />
               </span> : ''
             }
             {
               option.read ?
                 <span>
-                  <a onClick={() => this.search(record)}>查看</a>
+                  {/* <a onClick={() => this.search(record)}>查看</a> */}
+                  <Tooltip placement="top" title="查看">
+                    <Button type="primary" shape="circle" icon="search" onClick={() => this.search(record)} size="small" />
+                  </Tooltip>
                   <Divider type="vertical" />
                 </span> : ''
 
@@ -254,7 +275,8 @@ class BaseTable extends Component {
             {
               option.delete ?
                 <Popconfirm title="确定删除?" okText="确定" cancelText="取消" onConfirm={() => this.delete(record._id)}>
-                  <a >删除</a>
+                  {/* <a >删除</a> */}
+                  <Button type="primary" shape="circle" icon="delete" size="small" />
                 </Popconfirm> : ''
             }
 
@@ -288,7 +310,7 @@ class BaseTable extends Component {
           <Table
             bordered={bordered}
             loading={loading}
-            rowKey="_id"
+            rowKey={record => record._id}
             footer={footer}
             showHeader={showHeader}
             size={size}

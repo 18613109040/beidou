@@ -552,53 +552,7 @@
     "path": "/api/upload",
     "regexp": "/^\\/api\\/upload(?:\\/(?=$))?$/",
     "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/upload/url",
-    "regexp": "/^\\/api\\/upload\\/url(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "POST"
-    ],
-    "paramNames": [],
-    "path": "/api/uploads",
-    "regexp": "/^\\/api\\/uploads(?:\\/(?=$))?$/",
-    "stack": [
-      "wrappedController"
-    ]
-  },
-  {
-    "name": null,
-    "methods": [
-      "DELETE"
-    ],
-    "paramNames": [
-      {
-        "name": "id",
-        "prefix": "/",
-        "delimiter": "/",
-        "optional": false,
-        "repeat": false,
-        "partial": false,
-        "asterisk": false,
-        "pattern": "[^\\/]+?"
-      }
-    ],
-    "path": "/api/upload/:id",
-    "regexp": "/^\\/api\\/upload\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
-    "stack": [
+      "middleware",
       "wrappedController"
     ]
   },

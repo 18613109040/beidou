@@ -2,10 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Card, Checkbox, Select, Radio, InputNumber, DatePicker } from 'antd';
-import { getAppVsersionList } from '../../actions/appVersion';
+import { getAppVsersionList } from '../../actions/app/appVersion';
+import { createAppLaunchAd, getAppLaunchAdDetails, updataAppVsersion } from '../../actions/app/appLaunchAd';
 import UploadImage from '../../components/UploadImage';
-import moment from 'moment';
+import UploadVideo from '../../components/UploadVideo';
 import './index.less';
+
+const moment = require('moment');
 
 const Option = Select.Option;
 const FormItem = Form.Item;
@@ -19,7 +22,9 @@ class AppLaunchAdCreate extends React.Component {
       super(props);
       this.state = {
         appVersion: [],
+        loading: false,
         jumpType: 0, // 标识跳转类型 0关闭 1网页链接 2APP内部跳转
+        fileType: 0, // 标识上传类型 0 图片 1视频
       };
     }
 
@@ -35,15 +40,63 @@ class AppLaunchAdCreate extends React.Component {
           appVersion: res.data.list,
         });
       });
+      if (id) {
+        getAppLaunchAdDetails(id).then((res) => {
+          const { form } = this.props;
+          const { lang, appVersion, dismountedDate, duration, fileType, internalJump, isable, jumpType, link, name, photo, status, video } = res.data;
+          this.setState({
+            jumpType,
+            fileType,
+          });
+          const fromData = { lang, appVersion, dismountedDate, duration, fileType, internalJump, isable, jumpType, link, name, photo, status, video };
+          const time = [moment(res.data.addedDate), moment(res.data.dismountedDate)];
+          form.setFieldsValue(Object.assign({}, fromData, { time }));
+        });
+      }
     }
 
     handleSubmit = (e) => {
       e.preventDefault();
+      const { id } = this.props.match.params;
+
+      this.props.form.validateFields((err, values) => {
+        if (!err) {
+          const { time } = values;
+          const addedDate = time[0];
+          const dismountedDate = time[1];
+          if (id) {
+            updataAppVsersion(Object.assign({}, values, { addedDate, dismountedDate, id })).then((res) => {
+              this.setState({
+                loading: true,
+              });
+              if (res.code === 0) {
+                this.props.history.goBack();
+              }
+            });
+          } else {
+            createAppLaunchAd(Object.assign({}, values, { addedDate, dismountedDate })).then((res) => {
+              this.setState({
+                loading: true,
+              });
+              if (res.code === 0) {
+                this.props.history.goBack();
+              }
+            });
+          }
+        }
+      });
     }
 
     onChange=(value) => {
       this.setState({
         jumpType: value,
+      });
+    }
+
+    fileTypeChange = (e) => {
+      const { value } = e.target;
+      this.setState({
+        fileType: value,
       });
     }
 
@@ -67,8 +120,36 @@ class AppLaunchAdCreate extends React.Component {
           xxl: { span: 8 },
         },
       };
-      const { appVersion, jumpType } = this.state;
-      const options = appVersion.map(d => <Option key={d._id}>{d.appVersion}</Option>);
+      const btnItemLayout = {
+        wrapperCol: {
+          xs: {
+            span: 24,
+            offset: 0,
+          },
+          sm: {
+            span: 12,
+            offset: 5,
+          },
+          md: {
+            span: 12,
+            offset: 4,
+          },
+          lg: {
+            span: 8,
+            offset: 4,
+          },
+          xl: {
+            span: 8,
+            offset: 3,
+          },
+          xxl: {
+            span: 8,
+            offset: 2,
+          },
+        },
+      };
+      const { appVersion, jumpType, fileType } = this.state;
+      const options = appVersion.map(d => <Option key={d.appVersion}>{d.appVersion}</Option>);
       return (
         <div className="role">
           <Card bordered={false}>
@@ -82,7 +163,7 @@ class AppLaunchAdCreate extends React.Component {
                   initialValue: 'ZH',
                   rules: [{ required: true, message: '请选择语言' }],
                 })(
-                  <Select style={{ width: 240 }}>
+                  <Select style={{ width: 200 }}>
                     <Option value="ZH">中文</Option>
                     <Option value="EN">英文</Option>
                   </Select>
@@ -150,26 +231,43 @@ class AppLaunchAdCreate extends React.Component {
                 label="类型"
                 {...formItemLayout}
               >
-                {getFieldDecorator('shareCover', {
+                {getFieldDecorator('fileType', {
                   initialValue: 0,
-                  rules: [{ required: true, message: '分享封面' }],
+                  rules: [{ required: true, message: '' }],
                 })(
-                  <Radio.Group buttonStyle="solid">
+                  <Radio.Group buttonStyle="solid" onChange={this.fileTypeChange}>
                     <Radio.Button value={0}>图片</Radio.Button>
                     <Radio.Button value={1}>视频</Radio.Button>
                   </Radio.Group>
                 )}
               </FormItem>
-              <FormItem
-                label="开机图片"
-                {...formItemLayout}
-              >
-                {getFieldDecorator('photo', {
-                  rules: [{ required: true, message: '分享封面' }],
-                })(
-                  <UploadImage />
-                )}
-              </FormItem>
+              {
+                fileType === 0 ? <FormItem
+                  label="开机图片"
+                  {...formItemLayout}
+                >
+                  {getFieldDecorator('photo', {
+                    rules: [{ required: true, message: '开机图片' }],
+                  })(
+                    <UploadImage
+                      dirPath="app-launch-ad"
+
+                    />
+                  )}
+                </FormItem> : <FormItem
+                  label="开机视频"
+                  {...formItemLayout}
+                >
+                  {getFieldDecorator('video', {
+                    rules: [{ required: true, message: '开机视频' }],
+                  })(
+                    <UploadVideo
+                      dirPath="app-launch-ad"
+                    />
+                  )}
+                </FormItem>
+              }
+
               <FormItem
                 label="开屏名称"
                 {...formItemLayout}
@@ -189,9 +287,9 @@ class AppLaunchAdCreate extends React.Component {
                   rules: [{ required: true, message: '展示时间' }],
                 })(
                   <InputNumber
-                    min={1}
+                    min={0}
                     max={60}
-                    formatter={value => `${value} S`}
+                    // formatter={value => `${value} S`}
                   />
                 )}
               </FormItem>
@@ -200,7 +298,7 @@ class AppLaunchAdCreate extends React.Component {
                 {...formItemLayout}
               >
                 {getFieldDecorator('time', {
-                  initialValue: 0,
+
                   rules: [{ required: true, message: '时间' }],
                 })(
                   <RangePicker
@@ -223,8 +321,11 @@ class AppLaunchAdCreate extends React.Component {
                   </Select>
                 )}
               </FormItem>
-              <FormItem style={{ textAlign: 'center', marginTop: '46px' }}>
+              <FormItem
+                {...btnItemLayout}
+              >
                 <Button type="primary" htmlType="submit" loading={this.state.loading} >提交</Button>
+                <Button icon="rollback" style={{ marginLeft: '40px' }} onClick={() => { this.props.history.goBack(); }} >返回</Button>
               </FormItem>
             </Form>
           </Card>

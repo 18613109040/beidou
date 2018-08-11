@@ -9,34 +9,55 @@ class AppLaunchAdService extends BaseService {
       dataIndex: 'lang',
       key: 'lang',
     }, {
-      title: '链接',
-      dataIndex: 'link',
-      key: 'link',
+      title: '名称',
+      dataIndex: 'name',
+      key: 'name',
     }, {
       title: 'app 版本',
-      dataIndex: 'version',
-      key: 'version',
+      dataIndex: 'appVersion',
+      key: 'appVersion',
     }, {
-      title: '是否跳转',
-      dataIndex: 'type',
-      key: 'type',
+      title: '跳转类型',
+      dataIndex: 'jumpType',
+      key: 'jumpType',
     }, {
       title: '展示时间',
       dataIndex: 'duration',
       key: 'duration',
     }, {
-      title: '开始时间',
-      dataIndex: 'startDate',
-      key: 'startDate',
+      title: '上架状态',
+      dataIndex: 'status',
+      key: 'status',
     }, {
-      title: '结束时间',
-      dataIndex: 'endDate',
-      key: 'endDate',
+      title: '上架时间',
+      dataIndex: 'addedDate',
+      key: 'addedDate',
+    }, {
+      title: '下架时间',
+      dataIndex: 'dismountedDate',
+      key: 'dismountedDate',
     }];
+
     const searchKeys = ['link'];
     const fiterData = [{ key: 'lang', name: '语言', value: ['ZH', 'EN'] }];
     const pathId = '0-0-0';
+
     super(ctx, ctx.model.AppLaunchAd, columns, searchKeys, fiterData, pathId);
+  }
+
+  getSearchQuery() {
+
+  }
+
+  formatListItem(list) {
+    list.map((item) => {
+      item.createdAt = this.ctx.helper.formatTime(item.createdAt);
+      item.updatedAt = this.ctx.helper.formatTime(item.updatedAt);
+      item.jumpType = item.jumpType === 0 ? '关闭' : item.jumpType === 1 ? '网页链接' : 'APP内部跳转';
+      // item.status =
+      return item;
+    });
+    return list;
   }
 }
 

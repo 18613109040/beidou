@@ -19,15 +19,15 @@ module.exports = {
   //     disableHostCheck: true, // 由于绑定了host, webpack-dev-server 校验header时抛出错误, 可以通过修改devServer配置关闭header校验:
   //   },
   // },
-  mongoose: {
-    url: 'mongodb://localhost:27017/cms',
-    options: {
-      useMongoClient: true,
-      autoReconnect: true,
-      reconnectTries: Number.MAX_VALUE,
-      bufferMaxEntries: 0,
-    },
-  },
+  // mongoose: {
+  //   url: 'mongodb://localhost:27017/cms',
+  //   options: {
+  //     useMongoClient: true,
+  //     autoReconnect: true,
+  //     reconnectTries: Number.MAX_VALUE,
+  //     bufferMaxEntries: 0,
+  //   },
+  // },
   security: { domainWhiteList },
 };
 

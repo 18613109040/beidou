@@ -121,15 +121,15 @@ export default function request(url, options) {
         return;
       }
       if (status === 403) {
-        history.push(`/${window.location.href.split('/')[3]}/exception/403`);
+        // history.push(`/${window.location.href.split('/')[3]}/exception/403`);
         return;
       }
       if (status <= 504 && status >= 500) {
-        history.push(`/${window.location.href.split('/')[3]}/exception/500`);
+        // history.push(`/${window.location.href.split('/')[3]}/exception/500`);
         return;
       }
       if (status >= 404 && status < 422) {
-        history.push(`/${window.location.href.split('/')[3]}/exception/404`);
+        // history.push(`/${window.location.href.split('/')[3]}/exception/404`);
       }
     });
 }

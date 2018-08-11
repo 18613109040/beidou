@@ -5,26 +5,14 @@ const path = require('path');
 module.exports = {
   keys: '1513779989145_1674',
   // 七牛云服务配置
-  qn: {
-    accessKey: 'YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld',
-    secretKey: 'az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb',
-    bucket: 'igola-files',
-    domain: 'https://content.igola.com',
-  },
-  qnDev: {
-    accessKey: 'YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld',
-    secretKey: 'az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb',
-    bucket: 'igola-dev-files',
-    domain: 'http://ovycf8zkv.bkt.clouddn.com',
-  },
   qiniu: {
     ak: 'YGmMh1K9fVVf77Ry6RGKLajeqErxwcZyTR1AYHld',
     sk: 'az5IPgfDJx2fQco5w5cvyKDPaRN86a4IrEwRtYyb',
     bucket: 'igola-dev-files',
     baseUrl: 'http://ovycf8zkv.bkt.clouddn.com/',
     zone: 'Zone_z0',
-    app: true, // default value
-    agent: false, // default value
+    app: true,
+    agent: false,
   },
   middleware: ['errorHandler'],
   // https://github.com/alibaba/beidou/blob/master/packages/beidou-isomorphic/README.md
@@ -74,6 +62,15 @@ module.exports = {
   // 关闭scrf安全策略
   security: {
     csrf: false,
+  },
+  mongoose: {
+    url: 'mongodb://localhost:27017/cms',
+    options: {
+      useMongoClient: true,
+      autoReconnect: true,
+      reconnectTries: Number.MAX_VALUE,
+      bufferMaxEntries: 0,
+    },
   },
   jwt: {
     secret: 'Great4-M',

@@ -6,11 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { View } from 'client/layout';
 import routes from './routes';
 import configureStore from './store';
-import createBrowserHistory from 'history/createBrowserHistory';
+// import createBrowserHistory from 'history/createBrowserHistory';
 
 import './index.less';
 
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 
 const Router = __CLIENT__ ? BrowserRouter : StaticRouter;
 
@@ -55,7 +55,7 @@ if (__CLIENT__) {
   const store = configureStore(window.__INITIAL_STATE__);
   const app = (
     <Provider store={store}>
-      <Router history={history}>
+      <Router >
         {routes}
       </Router>
     </Provider>

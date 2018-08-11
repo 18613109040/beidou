@@ -28,6 +28,15 @@ class BaseService extends Service {
     return roleName === 'Administrator';
   }
 
+  formatListItem(list) {
+    list.map((item) => {
+      item.createdAt = this.ctx.helper.formatTime(item.createdAt);
+      item.updatedAt = this.ctx.helper.formatTime(item.updatedAt);
+      return item;
+    });
+    return list;
+  }
+
   /**
    *@param payload {object} 查询条件
    */
@@ -65,12 +74,7 @@ class BaseService extends Service {
       res = await this.model.find(findQuery).sort({ createdAt: -1 }).lean().exec();
       count = await this.model.count(findQuery).exec();
     }
-    res.map((item) => {
-      item.createdAt = this.ctx.helper.formatTime(item.createdAt);
-      item.updatedAt = this.ctx.helper.formatTime(item.updatedAt);
-      return res;
-    });
-
+    res = this.formatListItem(res);
     return { columns: this.columns, auth, fiter: this.fiterData, count, list: res, pageSize: Number(pageSize), currentPage: Number(currentPage) };
   }
 
@@ -140,8 +144,8 @@ class BaseService extends Service {
 
     const res = await this.model.findOne({ _id }).populate({ path: 'createUser updataUser', select: { email: 1 } }).lean()
       .exec();
-    res.createdAt = this.ctx.helper.formatTime(res.createdAt);
-    res.updatedAt = this.ctx.helper.formatTime(res.updatedAt);
+    // res.createdAt = this.ctx.helper.formatTime(res.createdAt);
+    // res.updatedAt = this.ctx.helper.formatTime(res.updatedAt);
     return res;
   }
 

@@ -31,10 +31,7 @@ module.exports = (app) => {
   router.get('login', '/login', controller.user.login);
   router.get('/', '/*', controller.index.index);
 
-  router.post('/api/upload', controller.upload.create);
-  router.post('/api/upload/url', controller.upload.url);
-  router.post('/api/uploads', controller.upload.multiple);
-  router.delete('/api/upload/:id', controller.upload.destroy);
+  router.post('/api/upload', app.jwt, controller.upload.create);
   // router.get('/api/*', function* (next) {
   //   yield c2k(proxy({
   //     target: this.app.config.hostapi,

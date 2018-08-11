@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Card } from 'antd';
-import { createAppVersion, updataAppVsersion, getAppVersionDetails, findByAppVersion } from '../../actions/appVersion';
+import { createAppVersion, updataAppVsersion, getAppVersionDetails, findByAppVersion } from '../../actions/app/appVersion';
 import './index.less';
 
 const FormItem = Form.Item;

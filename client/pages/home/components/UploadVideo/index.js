@@ -1,113 +1,118 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import store from 'store';
-import { Upload, Icon, Modal, message } from 'antd';
+import { Upload, Icon, message } from 'antd';
 import './index.less';
 
 class UploadVideo extends React.Component {
     static propTypes = {
       size: PropTypes.number, // 图片大小
-
+      dirPath: PropTypes.string, // 上传视频目录
+      onChange: PropTypes.func,
     };
 
     static defaultProps = {
       size: 1024 * 1024 * 100,
-
+      dirPath: '',
+      onChange: () => {},
     };
 
     constructor(props) {
       super(props);
       // const { columns } = props;
       this.state = {
-        previewVisible: false,
-        previewImage: '',
-        fileList: [],
         loading: false,
+        // videoSrc: '',
       };
     }
 
-
-  handleCancel = () => this.setState({ previewVisible: false })
-
-  handlePreview = (file) => {
-    this.setState({
-      previewImage: file.url || file.thumbUrl,
-      previewVisible: true,
-    });
-  }
 
   beforeUpload=(file) => {
     const { size } = this.props;
     const isLt = file.size < size;
     if (!isLt) {
-      message.error(`图片大小不能超过${size / 1024 / 1024}M`);
+      message.error(`视频大小不能超过${size / 1024 / 1024}M`);
     }
     return isLt;
   }
 
 
-  onChange = ({ file, fileList, event }) => {
-    this.setState({
-      fileList,
-    });
+  handleChange = ({ file }) => {
+    const { onChange } = this.props;
     if (file.status === 'uploading') {
       this.setState({ loading: true });
       return;
     }
     if (file.status === 'done') {
-      message.success(`${file.name}图片上传成功`);
+      message.success(`${file.name}视频上传成功`);
       const { response } = file;
-      const { url, uid } = response.data;
-      const tempList = this.state.fileList;
-      tempList.map((item) => {
-        if (item.uid === uid) {
-          item.linkUrl = url;
-        }
-        return item;
-      });
+
+      if (response.code === 0) {
+        this.setState({
+          loading: false,
+        });
+        onChange(response.data.url);
+      }
+    } else if (file.status === 'error') {
+      message.error(`${file.name} 视频上传失败`);
       this.setState({
         loading: false,
-        fileList: tempList,
       });
-    } else if (file.status === 'error') {
-      message.error(`${file.name} 图片上传失败`);
+      onChange('');
     }
   }
 
+  deleteVideo=() => {
+    const { onChange } = this.props;
+    // this.setState({
+    //   videoSrc: '',
+    // });
+    onChange('');
+  }
+
   render() {
-    const { previewVisible, previewImage } = this.state;
+    // console.dir(this.props);
+    const { dirPath, value } = this.props;
     const uploadButton = (
       <div>
-        <Icon type={this.state.loading ? 'loading' : 'plus'} />
-        <div className="ant-upload-text">Upload</div>
+        <Icon type={this.state.loading ? 'loading' : 'plus'} style={{ fontSize: 30 }} />
+        <div className="ant-upload-text">视频上传</div>
       </div>
     );
-    const imageUrl = this.state.imageUrl;
     return (
-      <div className="clearfix">
-        <Upload
-          accept="video/*"
-          action="/api/upload"
-          listType="picture-card"
-          className="image-uploader"
-          data={file => ({
-            name: 'file',
-            uid: file.uid,
-          })}
-          onPreview={this.handlePreview}
-          onChange={this.onChange}
-          supportServerRender
-          headers={
-            { Authorization: `Bearer ${store.get('token')}` }
-          }
-          beforeUpload={this.beforeUpload}
+      <div className="upload-video">
 
-        >
-          {imageUrl ? <video src={imageUrl} alt="avatar" /> : uploadButton}
-        </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
-          <video alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
+
+        {
+          value ? <div className="video-preview">
+            <video alt="example" style={{ width: '100%' }} controls="controls" src={value} className="video" />
+            <span className="item-actions">
+              <Icon type="delete" className="delete" onClick={this.deleteVideo} />
+            </span>
+          </div> :
+          <Upload
+            accept="video/*"
+            action="/api/upload"
+            listType="picture-card"
+            className="video-uploader"
+            showUploadList={false}
+            data={file => ({
+              name: 'video',
+              uid: file.uid,
+              dirPath,
+            })}
+            onPreview={this.handlePreview}
+            onChange={this.handleChange}
+            supportServerRender
+            headers={
+             { Authorization: `Bearer ${store.get('token')}` }
+             }
+            beforeUpload={this.beforeUpload}
+          >
+            {uploadButton }
+          </Upload>
+        }
+
       </div>
     );
   }

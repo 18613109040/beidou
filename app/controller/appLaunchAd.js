@@ -6,21 +6,25 @@ class AppLaunchAdController extends Controller {
   constructor(ctx) {
     super(ctx);
     this.createRule = {
-      lang: { type: 'string', required: true, allowEmpty: false },
-      name: { type: 'string', required: true, allowEmpty: false },
+      lang: { type: 'string', required: true },
+      appVersion: { type: 'string', required: true },
+      name: { type: 'string', required: true },
+      duration: { type: 'number', required: true },
+      addedDate: { type: 'string', required: true },
+      dismountedDate: { type: 'string', required: true },
     };
   }
 
   // 创建开屏广告
   async create() {
     const { ctx, service } = this;
-
     // 校验参数
     ctx.validate(this.createRule);
     // 组装参数
     const payload = ctx.request.body || {};
 
     // 调用 Service 进行业务处理
+
     const res = await service.appLaunchAd.create(payload);
     const msg = '新增成功';
     // 设置响应内容和响应状态码
